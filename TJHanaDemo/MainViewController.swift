@@ -14,6 +14,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     private let accessKey = ""
     private let secretAccessKey = ""
     private var isAuthenticated = false
+    
     private let locationManager = CLLocationManager()
     private var bluetoothManager: CBCentralManager?
     private var isShowingPermissionAlert = false
