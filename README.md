@@ -184,8 +184,7 @@ xcodebuild -workspace TJHanaDemo.xcworkspace -scheme TJHanaDemo -sdk iphonesimul
 ## Known Notes
 
 - 시뮬레이터에서는 블루투스/센서 동작이 제한될 수 있습니다.
-- `Jupiter`는 아직 실제 SDK 연동 예제가 아닙니다.
-- SDK를 외부 배포할 경우 `pod trunk push` 또는 사내 Spec 저장소 운영 방식에 맞춰 설치 가이드를 유지하는 편이 좋습니다.
+- `Jupiter`는 아직 실제 SDK 연동 예제가 아닙니다. 실제 서비스구역에 인프라가 완전히 구축된 이후 지원합니다.
 
 ## License
 
