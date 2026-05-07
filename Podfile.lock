@@ -1,0 +1,16 @@
+PODS:
+  - TJHanaSDK (0.1.0)
+
+DEPENDENCIES:
+  - TJHanaSDK (from `/Users/leo/SwiftProjects/TJHanaSDK`)
+
+EXTERNAL SOURCES:
+  TJHanaSDK:
+    :path: "/Users/leo/SwiftProjects/TJHanaSDK"
+
+SPEC CHECKSUMS:
+  TJHanaSDK: ca3fe235a2acffaaea0304ef02970d5d090dcb59
+
+PODFILE CHECKSUM: 9267f0554364b9fcc023a22de1ef5b37afce9481
+
+COCOAPODS: 1.16.2

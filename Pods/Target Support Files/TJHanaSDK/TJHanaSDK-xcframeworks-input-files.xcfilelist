@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/TJHanaSDK/TJHanaSDK-xcframeworks.sh
+${PODS_ROOT}/../../TJHanaSDK/TJHanaSDK/Frameworks/TJLabsAuth.xcframework
+${PODS_ROOT}/../../TJHanaSDK/TJHanaSDK/Frameworks/TJLabsCommon.xcframework
+${PODS_ROOT}/../../TJHanaSDK/TJHanaSDK/Frameworks/TJLabsHana.xcframework
+${PODS_ROOT}/../../TJHanaSDK/TJHanaSDK/Frameworks/TJLabsJupiter.xcframework
+${PODS_ROOT}/../../TJHanaSDK/TJHanaSDK/Frameworks/TJLabsResource.xcframework
