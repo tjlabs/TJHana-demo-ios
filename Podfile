@@ -6,7 +6,7 @@ target 'TJHanaDemo' do
   use_frameworks!
 
   # Pods for TJHanaDemo
-  pod 'TJHanaSDK', :path => '/Users/leo/SwiftProjects/TJHanaSDK'
+  pod 'TJHanaSDK'
 
   target 'TJHanaDemoTests' do
     inherit! :search_paths
