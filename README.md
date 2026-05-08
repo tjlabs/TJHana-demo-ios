@@ -41,13 +41,27 @@ The app demonstrates Hana SDK flows with:
 
 Declare in `Info.plist`:
 
-- `NSLocationWhenInUseUsageDescription`
-- `NSBluetoothAlwaysUsageDescription`
-- `NSBluetoothPeripheralUsageDescription`
+- `Privacy - Motion Usage Description`
+- `Privacy - Bluetooth Peripheral Usage Description`
+- `Privacy - Bluetooth Always Usage Description`
+- `Privacy - Location When In Usage Description`
+
+Required device capabilities:
+
+- `Accelerometer`
+- `Gyroscope`
+- `Magnetometer`
+- `Bluetooth Low Energy`
+
+Required background modes:
+
+- `App communicates using CoreBluetooth`
+- `App registers for location updates`
 
 Runtime permission flow in this demo requires:
 - Location When In Use
 - Bluetooth
+- Motion
 
 ## Setup
 

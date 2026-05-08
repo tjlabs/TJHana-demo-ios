@@ -1,6 +1,7 @@
 import UIKit
 import CoreBluetooth
 import CoreLocation
+import CoreMotion
 import TJHanaSDK
 
 class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocationManagerDelegate {
@@ -8,6 +9,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
         case idle
         case requestingLocation
         case requestingBluetooth
+        case requestingMotion
         case ready
     }
 
@@ -16,6 +18,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     private var isAuthenticated = false
     
     private let locationManager = CLLocationManager()
+    private let motionActivityManager = CMMotionActivityManager()
     private var bluetoothManager: CBCentralManager?
     private var isShowingPermissionAlert = false
     private var permissionFlowState: PermissionFlowState = .idle
@@ -226,6 +229,27 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
             createBluetoothManagerIfNeeded()
         }
 
+        if #available(iOS 11.0, *) {
+            switch CMMotionActivityManager.authorizationStatus() {
+            case .notDetermined:
+                requestMotionAuthorizationIfNeeded()
+                return
+            case .restricted, .denied:
+                permissionFlowState = .idle
+                presentPermissionSettingsAlert(
+                    title: "모션 권한 필요",
+                    message: "앱 사용을 위해 모션 및 피트니스 권한이 필요합니다. 설정에서 모션 권한을 허용해주세요."
+                )
+                return
+            case .authorized:
+                permissionFlowState = .ready
+            @unknown default:
+                permissionFlowState = .ready
+            }
+        } else {
+            permissionFlowState = .ready
+        }
+
         permissionFlowState = .ready
     }
 
@@ -236,6 +260,20 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
                 queue: nil,
                 options: [CBCentralManagerOptionShowPowerAlertKey: true]
             )
+        }
+    }
+
+    private func requestMotionAuthorizationIfNeeded() {
+        guard CMMotionActivityManager.isActivityAvailable() else {
+            permissionFlowState = .ready
+            return
+        }
+
+        permissionFlowState = .requestingMotion
+        let endDate = Date()
+        let startDate = endDate.addingTimeInterval(-60)
+        motionActivityManager.queryActivityStarting(from: startDate, to: endDate, to: .main) { [weak self] _, _ in
+            self?.continuePermissionPipeline()
         }
     }
 
@@ -292,7 +330,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
         }
 
         if permissionFlowState == .requestingBluetooth {
-            permissionFlowState = .ready
+            continuePermissionPipeline()
         }
     }
 }
