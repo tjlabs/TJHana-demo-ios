@@ -5,6 +5,7 @@ import TJHanaSDK
 final class VenusViewController: UIViewController, TJVenuseManagerDelegate {
     private let venusUserId = "hana-example-user"
     private var venusServiceManager: TJVenusManager?
+    private var hasReleasedVenusResources = false
 
     private let statusLabel: UILabel = {
         let label = UILabel()
@@ -51,8 +52,16 @@ final class VenusViewController: UIViewController, TJVenuseManagerDelegate {
         setupVenusService()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if isMovingFromParent || isBeingDismissed {
+            releaseVenusResources()
+        }
+    }
+
     deinit {
-        venusServiceManager?.stopService()
+        releaseVenusResources()
     }
 
     private func setupLayout() {
@@ -112,6 +121,14 @@ final class VenusViewController: UIViewController, TJVenuseManagerDelegate {
         let manager = TJVenusManager(id: venusUserId, sectorId: 1, forceUpdate: true)
         manager.delegate = self
         venusServiceManager = manager
+    }
+
+    private func releaseVenusResources() {
+        guard !hasReleasedVenusResources else { return }
+        hasReleasedVenusResources = true
+
+        venusServiceManager?.invalidate()
+        venusServiceManager = nil
     }
 
     private func applyResult(_ result: VenusResult) {
