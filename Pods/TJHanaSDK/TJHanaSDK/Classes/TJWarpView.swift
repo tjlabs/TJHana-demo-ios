@@ -1,24 +1,20 @@
-
+import UIKit
 import TJLabsHana
 
 public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
     public func onInitSuccess(_ view: TJLabsHana.WarpView, _ isSuccess: Bool, _ code: TJLabsHana.WarpInitErrorCode?) {
-        guard !isInvalidated else { return }
         delegate?.onInitSuccess(self, isSuccess, code?.toWrap())
     }
     
     public func onWarpSuccess(_ view: TJLabsHana.WarpView, _ isSuccess: Bool, _ code: TJLabsHana.WarpErrorCode?) {
-        guard !isInvalidated else { return }
         delegate?.onWarpSuccess(self, isSuccess, code?.toWrap())
     }
     
     public func onClick(_ view: TJLabsHana.WarpView, warpWards: [TJLabsHana.WarpWard]) {
-        guard !isInvalidated else { return }
         delegate?.onClick(self, warpWards: warpWards.map { $0.toWrap() })
     }
     
     public func onWarpSelectionChanged(_ view: TJLabsHana.WarpView, warpWards: [TJLabsHana.WarpWard]) {
-        guard !isInvalidated else { return }
         delegate?.onWarpSelectionChanged(self, warpWards: warpWards.map { $0.toWrap()} )
     }
     
@@ -33,15 +29,16 @@ public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
     }
     
     deinit {
-        invalidate()
+        tearDownWarpView()
     }
     
+    private var didTearDown = false
     private var id: String?
-    var warpView = WarpView()
-    private var isInvalidated = false
+    private let warpView = WarpView()
     public weak var delegate: TJWarpViewDelegate?
     
     public func initialize(id: String, sectorId: Int = HANA_SECTOR_ID, forceUpdate: Bool = false) {
+        didTearDown = false
         warpView.delegate = self
         warpView.initialize(id: id, sectorId: sectorId, forceUpdate: forceUpdate)
     }
@@ -71,14 +68,23 @@ public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
         warpView.setSelectionInterval(seconds: seconds)
     }
     
-    public func invalidate() {
-        guard !isInvalidated else { return }
-        isInvalidated = true
+    private func tearDownWarpView() {
+        guard !didTearDown else { return }
+        didTearDown = true
         
-        delegate = nil
+        let warpView = self.warpView
+        if Thread.isMainThread {
+            Self.performTeardown(on: warpView)
+        } else {
+            DispatchQueue.main.async {
+                Self.performTeardown(on: warpView)
+            }
+        }
+    }
+    
+    private static func performTeardown(on warpView: WarpView) {
+        // Prevent teardown from reentering client callbacks.
         warpView.delegate = nil
         warpView.stopService()
-        warpView.removeFromSuperview()
-        warpView.isHidden = true
     }
 }

@@ -126,8 +126,8 @@ final class VenusViewController: UIViewController, TJVenuseManagerDelegate {
     private func releaseVenusResources() {
         guard !hasReleasedVenusResources else { return }
         hasReleasedVenusResources = true
-
-        venusServiceManager?.invalidate()
+        venusServiceManager?.delegate = nil
+        venusServiceManager?.stopService()
         venusServiceManager = nil
     }
 

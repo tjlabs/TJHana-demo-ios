@@ -163,12 +163,16 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         setupKeyboardDismissGesture()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
         if isMovingFromParent || isBeingDismissed {
             releaseWarpResources()
         }
+    }
+
+    deinit {
+        releaseWarpResources()
     }
 
     private func setupFloatingWarpView() {
@@ -274,7 +278,8 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         guard !hasReleasedWarpResources else { return }
         hasReleasedWarpResources = true
 
-        warpView?.invalidate()
+        warpView?.delegate = nil
+        warpView?.stopService()
         warpView = nil
         isWarpInitialized = false
     }
