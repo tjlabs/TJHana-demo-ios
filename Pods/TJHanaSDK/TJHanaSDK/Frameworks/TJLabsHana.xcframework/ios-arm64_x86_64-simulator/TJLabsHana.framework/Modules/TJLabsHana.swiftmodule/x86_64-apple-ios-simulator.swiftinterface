@@ -1,0 +1,208 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target x86_64-apple-ios16.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name TJLabsHana
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+import CoreBluetooth
+import Foundation
+import Swift
+import TJLabsAuth
+import TJLabsCommon
+import TJLabsJupiter
+import TJLabsResource
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class HanaLogger {
+  public static func setDebugOption(set: Swift.Bool)
+  public static func setInfoOption(set: Swift.Bool)
+  @objc deinit
+}
+public let HANA_SECTOR_ID: Swift.Int
+public enum HanaRegion : Swift.String {
+  case KOREA
+  case US_EAST
+  case CANADA
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class HanaNetworkConstants {
+  public static func setServerURL(region: Swift.String)
+  public static func getUserWarpURL() -> Swift.String
+  public static func getUserVenusURL() -> Swift.String
+  public static func getUserJupiterURL() -> Swift.String
+  @objc deinit
+}
+public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func onInitSuccess(_ isSuccess: Swift.Bool, _ code: TJLabsJupiter.InitErrorCode?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func onJupiterSuccess(_ isSuccess: Swift.Bool, _ code: TJLabsJupiter.JupiterErrorCode?)
+  #endif
+  public func onJupiterResult(_ result: TJLabsJupiter.JupiterResult)
+  public func onJupiterReport(_ code: TJLabsJupiter.JupiterServiceCode, _ msg: Swift.String)
+  public func isJupiterInOutStateChanged(_ state: TJLabsJupiter.InOutState)
+  public func isUserArrived()
+  public func isNavigationRouteChanged(_ routes: [(Swift.String, Swift.String, Swift.Float, Swift.Float)])
+  public func isNavigationRouteFailed(_ reason: TJLabsJupiter.NavigationRouteFailureReason)
+  public func isUserGuidanceOut()
+  public func isWaypointChanged(_ waypoints: [[Swift.Double]])
+  weak public var delegate: (any TJLabsJupiter.NavigationManagerDelegate)?
+  public init(id: Swift.String, region: Swift.String = HanaRegion.KOREA.rawValue, sectorId: Swift.Int, debugOption: Swift.Bool = false)
+  @objc deinit
+  public func startService(mode: TJLabsCommon.UserMode)
+  public func stopService(completion: @escaping (Swift.Bool, Swift.String) -> Swift.Void)
+}
+public protocol VenusServiceManagerDelegate : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func onInitSuccess(_ manager: TJLabsHana.VenusServiceManager, _ isSuccess: Swift.Bool, _ code: TJLabsHana.VenusInitErrorCode?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func onVenusSuccess(_ manager: TJLabsHana.VenusServiceManager, _ isSuccess: Swift.Bool, _ code: TJLabsHana.VenusErrorCode?)
+  #endif
+  func onVenusResult(_ manager: TJLabsHana.VenusServiceManager, _ result: TJLabsHana.VenusResult)
+}
+public enum VenusInitErrorCode : Swift.Int {
+  case UNKNOWN
+  case INVALID_ID
+  case RESOURCE_FAIL
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum VenusErrorCode : Swift.Int {
+  case UNKNOWN
+  case NOT_INITIALIZED
+  case DUPLICATE_SERVICE
+  case BLE_NOT_AUTHORIZED
+  case GENERATOR_FAIL
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct VenusResult : Swift.Codable {
+  public let mobile_time: Swift.Int
+  public let building_id: Swift.Int
+  public let building_name: Swift.String
+  public let level_id: Swift.Int
+  public let level_name: Swift.String
+  public let x: Swift.Int
+  public let y: Swift.Int
+  public init(mobile_time: Swift.Int, building_id: Swift.Int, building_name: Swift.String, level_id: Swift.Int, level_name: Swift.String, x: Swift.Int, y: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public class VenusServiceManager : TJLabsCommon.RFDGeneratorDelegate {
+  public func onRfdResult(_ generator: TJLabsCommon.RFDGenerator, receivedForce: TJLabsCommon.ReceivedForce)
+  public func onRfdError(_ generator: TJLabsCommon.RFDGenerator, code: Swift.Int, msg: Swift.String)
+  public func onRfdEmptyMillis(_ generator: TJLabsCommon.RFDGenerator, time: Swift.Double)
+  weak public var delegate: (any TJLabsHana.VenusServiceManagerDelegate)?
+  public init(id: Swift.String, region: Swift.String = HanaRegion.KOREA.rawValue, sectorId: Swift.Int = HANA_SECTOR_ID, forceUpdate: Swift.Bool = false)
+  @objc deinit
+  public func startService()
+  public func stopService()
+}
+public protocol WarpViewDelegate : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func onInitSuccess(_ view: TJLabsHana.WarpView, _ isSuccess: Swift.Bool, _ code: TJLabsHana.WarpInitErrorCode?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func onWarpSuccess(_ view: TJLabsHana.WarpView, _ isSuccess: Swift.Bool, _ code: TJLabsHana.WarpErrorCode?)
+  #endif
+  func onClick(_ view: TJLabsHana.WarpView, warpWards: [TJLabsHana.WarpWard])
+  func onWarpSelectionChanged(_ view: TJLabsHana.WarpView, warpWards: [TJLabsHana.WarpWard])
+}
+public enum WarpInitErrorCode : Swift.Int {
+  case UNKNOWN
+  case INVALID_ID
+  case RESOURCE_FAIL
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum WarpErrorCode : Swift.Int {
+  case UNKNOWN
+  case NOT_INITIALIZED
+  case DUPLICATE_SERVICE
+  case BLE_NOT_AUTHORIZED
+  case GENERATOR_FAIL
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct WarpContents : Swift.Codable, Swift.Equatable {
+  public let wards: [TJLabsHana.WarpWard]
+  public static func == (a: TJLabsHana.WarpContents, b: TJLabsHana.WarpContents) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WarpWard : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let rssi: Swift.Int
+  public let contents: [TJLabsHana.WardContents]
+  public static func == (a: TJLabsHana.WarpWard, b: TJLabsHana.WarpWard) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WardContents : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let url: Foundation.URL
+  public static func == (a: TJLabsHana.WardContents, b: TJLabsHana.WardContents) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class WarpView : UIKit.UIView, TJLabsCommon.RFDGeneratorDelegate {
+  @_Concurrency.MainActor @preconcurrency public func onRfdResult(_ generator: TJLabsCommon.RFDGenerator, receivedForce: TJLabsCommon.ReceivedForce)
+  @_Concurrency.MainActor @preconcurrency public func onRfdError(_ generator: TJLabsCommon.RFDGenerator, code: Swift.Int, msg: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public func onRfdEmptyMillis(_ generator: TJLabsCommon.RFDGenerator, time: Swift.Double)
+  @objc deinit
+  @_Concurrency.MainActor @preconcurrency weak public var delegate: (any TJLabsHana.WarpViewDelegate)?
+  @_Concurrency.MainActor @preconcurrency public func initialize(id: Swift.String, sectorId: Swift.Int = HANA_SECTOR_ID, forceUpdate: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public func startService()
+  @_Concurrency.MainActor @preconcurrency public func stopService()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func configureFrame(to matchView: UIKit.UIView, warpImage: UIKit.UIImage? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public func getVisibility() -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func setVisibility(isVisible: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func setSelectionInterval(seconds: Foundation.TimeInterval)
+}
+extension TJLabsHana.HanaRegion : Swift.Equatable {}
+extension TJLabsHana.HanaRegion : Swift.Hashable {}
+extension TJLabsHana.HanaRegion : Swift.RawRepresentable {}
+extension TJLabsHana.VenusInitErrorCode : Swift.Equatable {}
+extension TJLabsHana.VenusInitErrorCode : Swift.Hashable {}
+extension TJLabsHana.VenusInitErrorCode : Swift.RawRepresentable {}
+extension TJLabsHana.VenusErrorCode : Swift.Equatable {}
+extension TJLabsHana.VenusErrorCode : Swift.Hashable {}
+extension TJLabsHana.VenusErrorCode : Swift.RawRepresentable {}
+extension TJLabsHana.WarpInitErrorCode : Swift.Equatable {}
+extension TJLabsHana.WarpInitErrorCode : Swift.Hashable {}
+extension TJLabsHana.WarpInitErrorCode : Swift.RawRepresentable {}
+extension TJLabsHana.WarpErrorCode : Swift.Equatable {}
+extension TJLabsHana.WarpErrorCode : Swift.Hashable {}
+extension TJLabsHana.WarpErrorCode : Swift.RawRepresentable {}

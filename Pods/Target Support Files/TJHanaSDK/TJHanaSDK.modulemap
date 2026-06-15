@@ -1,0 +1,6 @@
+framework module TJHanaSDK {
+  umbrella header "TJHanaSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

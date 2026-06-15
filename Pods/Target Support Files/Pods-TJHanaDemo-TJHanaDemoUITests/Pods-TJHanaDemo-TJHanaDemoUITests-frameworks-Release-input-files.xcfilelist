@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-TJHanaDemo-TJHanaDemoUITests/Pods-TJHanaDemo-TJHanaDemoUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/TJHanaSDK/TJHanaSDK.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TJHanaSDK/TJLabsAuth.framework/TJLabsAuth
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TJHanaSDK/TJLabsCommon.framework/TJLabsCommon
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TJHanaSDK/TJLabsHana.framework/TJLabsHana
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TJHanaSDK/TJLabsJupiter.framework/TJLabsJupiter
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TJHanaSDK/TJLabsResource.framework/TJLabsResource
