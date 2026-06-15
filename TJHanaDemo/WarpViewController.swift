@@ -98,7 +98,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
     private func initializeWarpView() {
         print("(WarpViewController) initializeWarpView")
         warpView.delegate = self
-        warpView.initialize(id: warpUserId, sectorId: 1, forceUpdate: true)
+        warpView.initialize(id: warpUserId, sectorId: 8, forceUpdate: true)
     }
 
     private func updateWardNames(_ names: [String]) {

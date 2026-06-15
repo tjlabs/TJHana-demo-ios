@@ -131,7 +131,8 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     }
 
     @objc private func didTapAuth() {
-        doAuth()
+        self.updateServiceButtons(isEnabled: true)
+//        doAuth()
     }
 
     @objc private func handleDidBecomeActive() {
@@ -165,7 +166,6 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
         statusLabel.textColor = .secondaryLabel
         authButton.isEnabled = false
         authButton.backgroundColor = .systemGray
-        
         TJHanaAuth.shared.auth(accessKey: accessKey, secretAccessKey: secretAccessKey) { [weak self] code, isSuccess in
             guard let self = self else { return }
             self.configureButtonAppearance(self.authButton, isEnabled: true, isPrimary: true)
