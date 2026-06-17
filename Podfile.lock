@@ -1,16 +1,16 @@
 PODS:
-  - TJHanaSDK (1.0.3)
+  - TJHanaSDK (1.0.4)
 
 DEPENDENCIES:
-  - TJHanaSDK (= 1.0.3)
+  - TJHanaSDK (= 1.0.4)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - TJHanaSDK
 
 SPEC CHECKSUMS:
-  TJHanaSDK: 00ca2399c5452f7f6b11ef533b9bae9365beafcc
+  TJHanaSDK: b8bf691c056def9b4fdb13fa52657c234b0ae734
 
-PODFILE CHECKSUM: 55cc57d0f8afa73abf80b520c286afb2a7c56a52
+PODFILE CHECKSUM: 852f1b84a950621233c30e6acbe3d6bb0944755d
 
 COCOAPODS: 1.16.2

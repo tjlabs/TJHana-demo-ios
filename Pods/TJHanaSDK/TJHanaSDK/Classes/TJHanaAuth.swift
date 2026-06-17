@@ -14,7 +14,7 @@ public class TJHanaAuth {
     init () {
         setDeviceInfo()
         let clientMeta = makeClientMeta()
-        TJLabsAuthConstants.setServerURL(cloud: "AWS", region: "KOREA", serverType: "warp")
+        TJLabsAuthConstants.setServerURL(cloud: "GCP", region: AuthRegion.KOREA.rawValue, serverType: "jupiter")
         SecretConfig.set(customerKey: "HANA", clientMeta: clientMeta)
     }
     
@@ -29,7 +29,7 @@ public class TJHanaAuth {
         let clientSdks = [
             SdkMeta(name: "TJLabsCommon", version: "0.1.2"),
             SdkMeta(name: "TJLabsResource", version: "0.1.3"),
-            SdkMeta(name: "TJLabsJupiter", version: "2.0.3"),
+            SdkMeta(name: "TJLabsJupiter", version: "2.0.6"),
             SdkMeta(name: "TJLabsHana", version: "1.0.1")
         ]
         

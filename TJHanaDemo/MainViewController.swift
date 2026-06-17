@@ -51,7 +51,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "HanaDevSDK"
+        title = "TJHanaDemo"
         locationManager.delegate = self
         setupLayout()
         updateServiceButtons(isEnabled: false)
@@ -132,7 +132,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
 
     @objc private func didTapAuth() {
         self.updateServiceButtons(isEnabled: true)
-//        doAuth()
+        doAuth()
     }
 
     @objc private func handleDidBecomeActive() {

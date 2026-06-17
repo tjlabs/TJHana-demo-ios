@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.0.1
+### Version 1.0.4
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -370,6 +370,8 @@ public enum JupiterServiceCode: Int {
     case BLUETOOTH_OFF = 5
     case BLUETOOTH_SCAN_STOP = 6
     case NETWORK_DISCONNECT = 7
+    case GET_FIRST_RESULT = 8
+    case PEAK_DETECTED = 300
 }
 ```
 ---
