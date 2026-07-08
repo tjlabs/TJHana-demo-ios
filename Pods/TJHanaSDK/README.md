@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.0.4
+### Version 1.0.5
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -139,6 +139,8 @@ extension ViewController: TJWarpViewDelegate {
 public struct WarpWard: Codable {
     public let id: Int
     public let name: String
+    public let x: Int
+    public let y: Int
     public let rssi: Int
     public let contents: [WardContents]
 }
@@ -222,10 +224,20 @@ let manager = TJJupiterManager(id: "USER_ID", sectorId: 1, debugOption: false)
 manager.delegate = self
 ```
 
+### Mock Mode (Testing)
+
+- When enabled, `startService` streams mock `JupiterResult` values along a fixed sample route (delivered via `onJupiterResult`) instead of real positioning.
+- Must be called **before** `startService`.
+
+```swift
+manager.setMockMode(flag: true)
+manager.startService()
+```
+
 ### Start Service
 
 ```swift
-manager.startService(mode: .MODE_AUTO)
+manager.startService()
 ```
 
 ### Stop Service
@@ -251,7 +263,10 @@ manager.requestRouting(
     start: RoutingStart(level_id: 2, x: 100, y: 200, absolute_heading: 90),
     end: Point(level_id: 2, x: 120, y: 240),
     waypoints: []
-)
+) { result in
+    print("Routes:", result.routes)
+    print("Failure reason:", result.failureReason as Any)
+}
 ```
 
 ### Delegate
@@ -274,7 +289,7 @@ extension ViewController: TJJupiterManagerDelegate {
 
     func isNavigationRouteChanged(_ manager: TJJupiterManager, _ routes: [(String, String, Float, Float)]) {}
 
-    func isNavigationRouteFailed() {}
+    func isNavigationRouteFailed(_ manager: TJJupiterManager, _ reason: NavigationRouteFailureReason) {}
 
     func isWaypointChanged(_ manager: TJJupiterManager, _ waypoints: [[Double]]) {}
 }
@@ -325,6 +340,18 @@ public struct Point: Codable {
     public let x: Int
     public let y: Int
 }
+
+public struct RoutingResult: Codable {
+    public let routes: [RoutingRoute]
+    public let failureReason: NavigationRouteFailureReason?
+}
+
+public struct RoutingRoute: Codable {
+    public let level_id: Int
+    public let level_name: String
+    public let x: Float
+    public let y: Float
+}
 ```
 
 ### Core Enums
@@ -370,8 +397,12 @@ public enum JupiterServiceCode: Int {
     case BLUETOOTH_OFF = 5
     case BLUETOOTH_SCAN_STOP = 6
     case NETWORK_DISCONNECT = 7
-    case GET_FIRST_RESULT = 8
-    case PEAK_DETECTED = 300
+}
+
+public enum NavigationRouteFailureReason: String, Codable {
+    case UNKNOWN = "unknown"
+    case SERVER_RESPONSE = "server_response"
+    case TOO_CLOSE = "too_close"
 }
 ```
 ---
