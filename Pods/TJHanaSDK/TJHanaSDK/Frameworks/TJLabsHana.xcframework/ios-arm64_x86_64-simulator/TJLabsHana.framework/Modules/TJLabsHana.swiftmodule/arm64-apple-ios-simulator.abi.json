@@ -1147,6 +1147,152 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNaviDestination",
+            "printedName": "setNaviDestination(dest:isVehicle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Point",
+                "printedName": "TJLabsJupiter.Point",
+                "usr": "s:13TJLabsJupiter5PointV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC18setNaviDestination4dest9isVehicley0aC05PointV_SbtF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC18setNaviDestination4dest9isVehicley0aC05PointV_SbtF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestRouting",
+            "printedName": "requestRouting(start:end:waypoints:isVehicle:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RoutingStart",
+                "printedName": "TJLabsJupiter.RoutingStart",
+                "usr": "s:13TJLabsJupiter12RoutingStartV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Point",
+                "printedName": "TJLabsJupiter.Point",
+                "usr": "s:13TJLabsJupiter5PointV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[TJLabsJupiter.Point]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Point",
+                    "printedName": "TJLabsJupiter.Point",
+                    "usr": "s:13TJLabsJupiter5PointV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute], TJLabsJupiter.NavigationRouteFailureReason?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute], TJLabsJupiter.NavigationRouteFailureReason?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "TJLabsJupiter.RoutingResult?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "RoutingResult",
+                            "printedName": "TJLabsJupiter.RoutingResult",
+                            "usr": "s:13TJLabsJupiter13RoutingResultV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[TJLabsJupiter.NavigationLevelRoute]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NavigationLevelRoute",
+                            "printedName": "TJLabsJupiter.NavigationLevelRoute",
+                            "usr": "s:13TJLabsJupiter20NavigationLevelRouteV"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "TJLabsJupiter.NavigationRouteFailureReason?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NavigationRouteFailureReason",
+                            "printedName": "TJLabsJupiter.NavigationRouteFailureReason",
+                            "usr": "s:13TJLabsJupiter28NavigationRouteFailureReasonO"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC14requestRouting5start3end9waypoints9isVehicle10completiony0aC00G5StartV_AJ5PointVSayANGSbyAJ0G6ResultVSg_SayAJ20NavigationLevelRouteVGAJ0qS13FailureReasonOSgtctF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC14requestRouting5start3end9waypoints9isVehicle10completiony0aC00G5StartV_AJ5PointVSayANGSbyAJ0G6ResultVSg_SayAJ20NavigationLevelRouteVGAJ0qS13FailureReasonOSgtctF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -3754,7 +3900,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -3775,6 +3920,48 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV2idSivs",
+                "mangledName": "$s10TJLabsHana8WarpWardV2idSivs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV2idSivM",
+                "mangledName": "$s10TJLabsHana8WarpWardV2idSivM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -3798,7 +3985,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -3819,6 +4005,218 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV4nameSSvs",
+                "mangledName": "$s10TJLabsHana8WarpWardV4nameSSvs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV4nameSSvM",
+                "mangledName": "$s10TJLabsHana8WarpWardV4nameSSvM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "x",
+            "printedName": "x",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10TJLabsHana8WarpWardV1xSivp",
+            "mangledName": "$s10TJLabsHana8WarpWardV1xSivp",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV1xSivg",
+                "mangledName": "$s10TJLabsHana8WarpWardV1xSivg",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV1xSivs",
+                "mangledName": "$s10TJLabsHana8WarpWardV1xSivs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV1xSivM",
+                "mangledName": "$s10TJLabsHana8WarpWardV1xSivM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "y",
+            "printedName": "y",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10TJLabsHana8WarpWardV1ySivp",
+            "mangledName": "$s10TJLabsHana8WarpWardV1ySivp",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV1ySivg",
+                "mangledName": "$s10TJLabsHana8WarpWardV1ySivg",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV1ySivs",
+                "mangledName": "$s10TJLabsHana8WarpWardV1ySivs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV1ySivM",
+                "mangledName": "$s10TJLabsHana8WarpWardV1ySivM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -3842,7 +4240,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -3863,6 +4260,48 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV4rssiSivs",
+                "mangledName": "$s10TJLabsHana8WarpWardV4rssiSivs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV4rssiSivM",
+                "mangledName": "$s10TJLabsHana8WarpWardV4rssiSivM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -3894,7 +4333,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -3923,8 +4361,123 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[TJLabsHana.WardContents]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WardContents",
+                        "printedName": "TJLabsHana.WardContents",
+                        "usr": "s:10TJLabsHana12WardContentsV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV8contentsSayAA0D8ContentsVGvs",
+                "mangledName": "$s10TJLabsHana8WarpWardV8contentsSayAA0D8ContentsVGvs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV8contentsSayAA0D8ContentsVGvM",
+                "mangledName": "$s10TJLabsHana8WarpWardV8contentsSayAA0D8ContentsVGvM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(id:name:x:y:rssi:contents:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WarpWard",
+                "printedName": "TJLabsHana.WarpWard",
+                "usr": "s:10TJLabsHana8WarpWardV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[TJLabsHana.WardContents]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WardContents",
+                    "printedName": "TJLabsHana.WardContents",
+                    "usr": "s:10TJLabsHana12WardContentsV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10TJLabsHana8WarpWardV2id4name1x1y4rssi8contentsACSi_SSS3iSayAA0D8ContentsVGtcfc",
+            "mangledName": "$s10TJLabsHana8WarpWardV2id4name1x1y4rssi8contentsACSi_SSS3iSayAA0D8ContentsVGtcfc",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
           },
           {
             "kind": "Constructor",
@@ -4080,7 +4633,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -4101,6 +4653,48 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana12WardContentsV2idSivs",
+                "mangledName": "$s10TJLabsHana12WardContentsV2idSivs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana12WardContentsV2idSivM",
+                "mangledName": "$s10TJLabsHana12WardContentsV2idSivM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -4124,7 +4718,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -4145,6 +4738,48 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana12WardContentsV4nameSSvs",
+                "mangledName": "$s10TJLabsHana12WardContentsV4nameSSvs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana12WardContentsV4nameSSvM",
+                "mangledName": "$s10TJLabsHana12WardContentsV4nameSSvM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
           },
@@ -4168,7 +4803,6 @@
               "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
             "hasStorage": true,
             "accessors": [
               {
@@ -4189,8 +4823,89 @@
                 "moduleName": "TJLabsHana",
                 "implicit": true,
                 "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana12WardContentsV3url10Foundation3URLVvs",
+                "mangledName": "$s10TJLabsHana12WardContentsV3url10Foundation3URLVvs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana12WardContentsV3url10Foundation3URLVvM",
+                "mangledName": "$s10TJLabsHana12WardContentsV3url10Foundation3URLVvM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(id:name:url:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WardContents",
+                "printedName": "TJLabsHana.WardContents",
+                "usr": "s:10TJLabsHana12WardContentsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10TJLabsHana12WardContentsV2id4name3urlACSi_SS10Foundation3URLVtcfc",
+            "mangledName": "$s10TJLabsHana12WardContentsV2id4name3urlACSi_SS10Foundation3URLVtcfc",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
           },
           {
             "kind": "Constructor",
@@ -5152,6 +5867,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
+      "kind": "Array",
+      "offset": 2668,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/VenusModel.swift",
       "kind": "IntegerLiteral",
       "offset": 418,
@@ -5329,77 +6051,77 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1426,
+      "offset": 1456,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1462,
+      "offset": 1492,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1502,
+      "offset": 1532,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1547,
+      "offset": 1577,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2046,
+      "offset": 2076,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2091,
+      "offset": 2121,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2141,
+      "offset": 2171,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2203,
+      "offset": 2233,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2646,
+      "offset": 2676,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2766,
+      "offset": 2796,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3322,
+      "offset": 3352,
       "length": 5,
       "value": "false"
     }

@@ -58,6 +58,10 @@ public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
   @objc deinit
   public func startService(mode: TJLabsCommon.UserMode)
   public func stopService(completion: @escaping (Swift.Bool, Swift.String) -> Swift.Void)
+  public func setNaviDestination(dest: TJLabsJupiter.Point, isVehicle: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func requestRouting(start: TJLabsJupiter.RoutingStart, end: TJLabsJupiter.Point, waypoints: [TJLabsJupiter.Point] = [], isVehicle: Swift.Bool, completion: @escaping (TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute], TJLabsJupiter.NavigationRouteFailureReason?) -> Swift.Void)
+  #endif
 }
 public protocol VenusServiceManagerDelegate : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
@@ -159,18 +163,22 @@ public struct WarpContents : Swift.Codable, Swift.Equatable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct WarpWard : Swift.Codable, Swift.Equatable {
-  public let id: Swift.Int
-  public let name: Swift.String
-  public let rssi: Swift.Int
-  public let contents: [TJLabsHana.WardContents]
+  public var id: Swift.Int
+  public var name: Swift.String
+  public var x: Swift.Int
+  public var y: Swift.Int
+  public var rssi: Swift.Int
+  public var contents: [TJLabsHana.WardContents]
+  public init(id: Swift.Int, name: Swift.String, x: Swift.Int, y: Swift.Int, rssi: Swift.Int, contents: [TJLabsHana.WardContents])
   public static func == (a: TJLabsHana.WarpWard, b: TJLabsHana.WarpWard) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct WardContents : Swift.Codable, Swift.Equatable {
-  public let id: Swift.Int
-  public let name: Swift.String
-  public let url: Foundation.URL
+  public var id: Swift.Int
+  public var name: Swift.String
+  public var url: Foundation.URL
+  public init(id: Swift.Int, name: Swift.String, url: Foundation.URL)
   public static func == (a: TJLabsHana.WardContents, b: TJLabsHana.WardContents) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
