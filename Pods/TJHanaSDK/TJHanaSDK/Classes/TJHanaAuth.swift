@@ -2,6 +2,8 @@
 import Foundation
 import TJLabsAuth
 import TJLabsCommon
+import TJLabsHana
+import TJLabsJupiter
 
 public class TJHanaAuth {
     public static let shared = TJHanaAuth()
@@ -14,8 +16,9 @@ public class TJHanaAuth {
     init () {
         setDeviceInfo()
         let clientMeta = makeClientMeta()
-        TJLabsAuthConstants.setServerURL(cloud: "GCP", region: AuthRegion.KOREA.rawValue, serverType: "jupiter")
         SecretConfig.set(customerKey: "HANA", clientMeta: clientMeta)
+        TJLabsAuthOnPremiseConstants.setBaseURL(ON_PREMISE_BASE_URL)
+        HanaOnPremiseNetworkConstants.setBaseURL(ON_PREMISE_BASE_URL)
     }
     
     private func setDeviceInfo() {
@@ -27,10 +30,11 @@ public class TJHanaAuth {
     
     private func makeClientMeta() -> ClientMeta {
         let clientSdks = [
-            SdkMeta(name: "TJLabsCommon", version: "0.1.2"),
-            SdkMeta(name: "TJLabsResource", version: "0.1.3"),
-            SdkMeta(name: "TJLabsJupiter", version: "2.0.6"),
-            SdkMeta(name: "TJLabsHana", version: "1.0.1")
+            SdkMeta(name: "TJLabsAuth", version: "1.0.7"),
+            SdkMeta(name: "TJLabsCommon", version: "1.0.6"),
+            SdkMeta(name: "TJLabsResource", version: "0.1.11"),
+            SdkMeta(name: "TJLabsJupiter", version: "2.0.15"),
+            SdkMeta(name: "TJLabsHana", version: "1.1.1")
         ]
         
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
@@ -53,6 +57,9 @@ public class TJHanaAuth {
     }
     
     public func auth(accessKey: String, secretAccessKey: String, completion: @escaping (Int, Bool) -> Void) {
+        HanaLogger.setDebugOption(set: false)
+        JupiterLogger.setDebugOption(set: false)
+        
         TJLabsAuthManager.shared.auth(accessKey: accessKey, secretAccessKey: secretAccessKey, completion: completion)
     }
 }

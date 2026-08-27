@@ -45,9 +45,10 @@ extension TJLabsHana.WarpWard {
         return WarpWard(
             id: self.id,
             name: self.name,
-            x: SAMPLE_WARD_X, // TODO: temporary — revert to self.x
-            y: SAMPLE_WARD_Y, // TODO: temporary — revert to self.y
+            x: self.x,
+            y: self.y,
             rssi: self.rssi,
+            detected_rssi: self.detected_rssi,
             contents: self.contents.map { $0.toWrap() }
         )
     }

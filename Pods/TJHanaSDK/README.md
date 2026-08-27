@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.0.5
+### Version 1.1.1
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -139,9 +139,10 @@ extension ViewController: TJWarpViewDelegate {
 public struct WarpWard: Codable {
     public let id: Int
     public let name: String
-    public let x: Int
-    public let y: Int
+    public let x: Double
+    public let y: Double
     public let rssi: Int
+    public let detected_rssi: Int
     public let contents: [WardContents]
 }
 
@@ -206,8 +207,8 @@ public struct VenusResult: Codable {
     public let building_name: String
     public let level_id: Int
     public let level_name: String
-    public let x: Int
-    public let y: Int
+    public let x: Double
+    public let y: Double
 }
 ```
 

@@ -2,8 +2,9 @@
 import TJLabsCommon
 import TJLabsJupiter
 
-let SAMPLE_WARD_X: Int = 70
-let SAMPLE_WARD_Y: Int = 10
+// On-Premise 서버 주소. 각 프레임워크의 OnPremise 네트워크 상수에 동일하게 주입한다.
+//let ON_PREMISE_BASE_URL: String = "http://10.0.5.110:5050" // TJLABS
+let ON_PREMISE_BASE_URL: String = "https://192.168.120.104/api" // HANA
 
 let SAMPLE_ROUTING_RESULT = RoutingResult(routes:
                                         [RoutingRoute(level_id: 700, level_name: "B2", x: 70, y: 10),
@@ -124,17 +125,19 @@ public enum WarpErrorCode: Int {
 public struct WarpWard: Codable, Equatable {
     public var id: Int
     public var name: String
-    public var x: Int
-    public var y: Int
+    public var x: Double
+    public var y: Double
     public var rssi: Int
+    public var detected_rssi: Int
     public var contents: [WardContents]
     
-    public init(id: Int, name: String, x: Int, y: Int, rssi: Int, contents: [WardContents]) {
+    public init(id: Int, name: String, x: Double, y: Double, rssi: Int, detected_rssi: Int, contents: [WardContents]) {
         self.id = id
         self.name = name
         self.x = x
         self.y = y
         self.rssi = rssi
+        self.detected_rssi = detected_rssi
         self.contents = contents
     }
 }
@@ -178,10 +181,10 @@ public struct VenusResult: Codable {
     public let building_name: String
     public let level_id: Int
     public let level_name: String
-    public let x: Int
-    public let y: Int
+    public let x: Double
+    public let y: Double
     
-    public init(mobile_time: Int, building_id: Int, building_name: String, level_id: Int, level_name: String, x: Int, y: Int) {
+    public init(mobile_time: Int, building_id: Int, building_name: String, level_id: Int, level_name: String, x: Double, y: Double) {
         self.mobile_time = mobile_time
         self.building_id = building_id
         self.building_name = building_name

@@ -15,7 +15,6 @@ public class TJVenusManager: TJLabsHana.VenusServiceManagerDelegate {
         delegate?.onVenusResult(self, result.toWrap())
     }
     
-    
     private var region: String = ""
     private var id: String = ""
     private var sectorId: Int = 0
@@ -25,7 +24,7 @@ public class TJVenusManager: TJLabsHana.VenusServiceManagerDelegate {
     public init(id: String, sectorId: Int = HANA_SECTOR_ID, forceUpdate: Bool = false) {
         self.id = id
         self.sectorId = sectorId
-        
+
         self.serviceManager = VenusServiceManager(id: id, region: HanaRegion.KOREA.rawValue, sectorId: sectorId, forceUpdate: forceUpdate)
         self.serviceManager?.delegate = self
     }

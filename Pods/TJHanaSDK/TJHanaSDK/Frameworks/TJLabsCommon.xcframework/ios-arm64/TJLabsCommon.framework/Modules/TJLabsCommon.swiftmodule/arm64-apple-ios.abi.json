@@ -469,26 +469,25 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(userId:)",
+            "printedName": "init()",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "RFDGenerator",
                 "printedName": "TJLabsCommon.RFDGenerator",
                 "usr": "c:@M@TJLabsCommon@objc(cs)RFDGenerator"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12TJLabsCommon12RFDGeneratorC6userIdACSS_tcfc",
-            "mangledName": "$s12TJLabsCommon12RFDGeneratorC6userIdACSS_tcfc",
+            "usr": "c:@M@TJLabsCommon@objc(cs)RFDGenerator(im)init",
+            "mangledName": "$s12TJLabsCommon12RFDGeneratorCACycfc",
             "moduleName": "TJLabsCommon",
+            "overriding": true,
+            "objc_name": "init",
             "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
               "AccessControl"
             ],
             "init_kind": "Designated"
@@ -691,32 +690,6 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RFDGenerator",
-                "printedName": "TJLabsCommon.RFDGenerator",
-                "usr": "c:@M@TJLabsCommon@objc(cs)RFDGenerator"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@TJLabsCommon@objc(cs)RFDGenerator(im)init",
-            "mangledName": "$s12TJLabsCommon12RFDGeneratorCACycfc",
-            "moduleName": "TJLabsCommon",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
@@ -728,6 +701,7 @@
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
         "superclassNames": [
           "ObjectiveC.NSObject"
         ],
@@ -1099,50 +1073,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "tenant_user_name",
-            "printedName": "tenant_user_name",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12TJLabsCommon13ReceivedForceV16tenant_user_nameSSvp",
-            "mangledName": "$s12TJLabsCommon13ReceivedForceV16tenant_user_nameSSvp",
-            "moduleName": "TJLabsCommon",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12TJLabsCommon13ReceivedForceV16tenant_user_nameSSvg",
-                "mangledName": "$s12TJLabsCommon13ReceivedForceV16tenant_user_nameSSvg",
-                "moduleName": "TJLabsCommon",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "mobile_time",
             "printedName": "mobile_time",
             "children": [
@@ -1304,19 +1234,13 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(tenant_user_name:mobile_time:rfs:pressure:)",
+            "printedName": "init(mobile_time:rfs:pressure:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "ReceivedForce",
                 "printedName": "TJLabsCommon.ReceivedForce",
                 "usr": "s:12TJLabsCommon13ReceivedForceV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -1352,8 +1276,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12TJLabsCommon13ReceivedForceV16tenant_user_name11mobile_time3rfs8pressureACSS_SiSDySSSdGSftcfc",
-            "mangledName": "$s12TJLabsCommon13ReceivedForceV16tenant_user_name11mobile_time3rfs8pressureACSS_SiSDySSSdGSftcfc",
+            "usr": "s:12TJLabsCommon13ReceivedForceV11mobile_time3rfs8pressureACSi_SDySSSdGSftcfc",
+            "mangledName": "$s12TJLabsCommon13ReceivedForceV11mobile_time3rfs8pressureACSi_SDySSSdGSftcfc",
             "moduleName": "TJLabsCommon",
             "declAttributes": [
               "AccessControl"
@@ -2442,7 +2366,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Tuple",
-                "printedName": "(rfdTimeOffset: Swift.Int, rfdList: [TJLabsCommon.ReceivedForce], uvdTimeOffset: Swift.Int, uvdList: [TJLabsCommon.ReplayUserVelocity])",
+                "printedName": "(rfdTimeOffset: Swift.Int, rfdList: [TJLabsCommon.ReceivedForce], uvdTimeOffset: Swift.Int, uvdList: [TJLabsCommon.ReplayUserVelocity], stopEvents: [TJLabsCommon.JupiterEvent])",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -2483,6 +2407,20 @@
                       }
                     ],
                     "usr": "s:Sa"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[TJLabsCommon.JupiterEvent]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "JupiterEvent",
+                        "printedName": "TJLabsCommon.JupiterEvent",
+                        "usr": "s:12TJLabsCommon12JupiterEventV"
+                      }
+                    ],
+                    "usr": "s:Sa"
                   }
                 ]
               },
@@ -2506,8 +2444,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12TJLabsCommon18JupiterFileManagerC18loadFilesForReplay03rfdD003uvdD005eventD0Si0J10TimeOffset_SayAA13ReceivedForceVG0J4ListSi0kmN0SayAA0I12UserVelocityVG0kQ0tSS_S2StF",
-            "mangledName": "$s12TJLabsCommon18JupiterFileManagerC18loadFilesForReplay03rfdD003uvdD005eventD0Si0J10TimeOffset_SayAA13ReceivedForceVG0J4ListSi0kmN0SayAA0I12UserVelocityVG0kQ0tSS_S2StF",
+            "usr": "s:12TJLabsCommon18JupiterFileManagerC18loadFilesForReplay03rfdD003uvdD005eventD0Si0J10TimeOffset_SayAA13ReceivedForceVG0J4ListSi0kmN0SayAA0I12UserVelocityVG0kQ0SayAA0C5EventVG10stopEventstSS_S2StF",
+            "mangledName": "$s12TJLabsCommon18JupiterFileManagerC18loadFilesForReplay03rfdD003uvdD005eventD0Si0J10TimeOffset_SayAA13ReceivedForceVG0J4ListSi0kmN0SayAA0I12UserVelocityVG0kQ0SayAA0C5EventVG10stopEventstSS_S2StF",
             "moduleName": "TJLabsCommon",
             "declAttributes": [
               "AccessControl"
@@ -3225,6 +3163,35 @@
             "declKind": "Func",
             "usr": "s:12TJLabsCommon15JupiterReplayerC15getUvdForReplaySi13uvdTimeOffset_SayAA0H12UserVelocityVG06replayF0tyF",
             "mangledName": "$s12TJLabsCommon15JupiterReplayerC15getUvdForReplaySi13uvdTimeOffset_SayAA0H12UserVelocityVG06replayF0tyF",
+            "moduleName": "TJLabsCommon",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getStopEventsForReplay",
+            "printedName": "getStopEventsForReplay()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[TJLabsCommon.JupiterEvent]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JupiterEvent",
+                    "printedName": "TJLabsCommon.JupiterEvent",
+                    "usr": "s:12TJLabsCommon12JupiterEventV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12TJLabsCommon15JupiterReplayerC22getStopEventsForReplaySayAA0C5EventVGyF",
+            "mangledName": "$s12TJLabsCommon15JupiterReplayerC22getStopEventsForReplaySayAA0C5EventVGyF",
             "moduleName": "TJLabsCommon",
             "declAttributes": [
               "AccessControl"
@@ -6697,26 +6664,25 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(userId:)",
+            "printedName": "init()",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "UVDGenerator",
                 "printedName": "TJLabsCommon.UVDGenerator",
                 "usr": "c:@M@TJLabsCommon@objc(cs)UVDGenerator"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12TJLabsCommon12UVDGeneratorC6userIdACSS_tcfc",
-            "mangledName": "$s12TJLabsCommon12UVDGeneratorC6userIdACSS_tcfc",
+            "usr": "c:@M@TJLabsCommon@objc(cs)UVDGenerator(im)init",
+            "mangledName": "$s12TJLabsCommon12UVDGeneratorCACycfc",
             "moduleName": "TJLabsCommon",
+            "overriding": true,
+            "objc_name": "init",
             "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
               "AccessControl"
             ],
             "init_kind": "Designated"
@@ -7099,32 +7065,6 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "UVDGenerator",
-                "printedName": "TJLabsCommon.UVDGenerator",
-                "usr": "c:@M@TJLabsCommon@objc(cs)UVDGenerator"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@TJLabsCommon@objc(cs)UVDGenerator(im)init",
-            "mangledName": "$s12TJLabsCommon12UVDGeneratorCACycfc",
-            "moduleName": "TJLabsCommon",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
@@ -7136,6 +7076,7 @@
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
         "superclassNames": [
           "ObjectiveC.NSObject"
         ],
@@ -8749,50 +8690,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "tenant_user_name",
-            "printedName": "tenant_user_name",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12TJLabsCommon12UserVelocityV16tenant_user_nameSSvp",
-            "mangledName": "$s12TJLabsCommon12UserVelocityV16tenant_user_nameSSvp",
-            "moduleName": "TJLabsCommon",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12TJLabsCommon12UserVelocityV16tenant_user_nameSSvg",
-                "mangledName": "$s12TJLabsCommon12UserVelocityV16tenant_user_nameSSvg",
-                "moduleName": "TJLabsCommon",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "mobile_time",
             "printedName": "mobile_time",
             "children": [
@@ -9096,19 +8993,13 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(tenant_user_name:mobile_time:index:length:heading:looking:)",
+            "printedName": "init(mobile_time:index:length:heading:looking:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "UserVelocity",
                 "printedName": "TJLabsCommon.UserVelocity",
                 "usr": "s:12TJLabsCommon12UserVelocityV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -9142,8 +9033,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12TJLabsCommon12UserVelocityV16tenant_user_name11mobile_time5index6length7heading7lookingACSS_S2iS2dSbtcfc",
-            "mangledName": "$s12TJLabsCommon12UserVelocityV16tenant_user_name11mobile_time5index6length7heading7lookingACSS_S2iS2dSbtcfc",
+            "usr": "s:12TJLabsCommon12UserVelocityV11mobile_time5index6length7heading7lookingACSi_SiS2dSbtcfc",
+            "mangledName": "$s12TJLabsCommon12UserVelocityV11mobile_time5index6length7heading7lookingACSi_SiS2dSbtcfc",
             "moduleName": "TJLabsCommon",
             "declAttributes": [
               "AccessControl"
@@ -10427,6 +10318,45 @@
             "declKind": "Func",
             "usr": "s:12TJLabsCommon20UVDGeneratorDelegateP16onUvdPauseMillis_4timeyAA0C0C_SdtF",
             "mangledName": "$s12TJLabsCommon20UVDGeneratorDelegateP16onUvdPauseMillis_4timeyAA0C0C_SdtF",
+            "moduleName": "TJLabsCommon",
+            "genericSig": "<τ_0_0 where τ_0_0 : TJLabsCommon.UVDGeneratorDelegate>",
+            "sugared_genericSig": "<Self where Self : TJLabsCommon.UVDGeneratorDelegate>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onUvdStopped",
+            "printedName": "onUvdStopped(_:time:index:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UVDGenerator",
+                "printedName": "TJLabsCommon.UVDGenerator",
+                "usr": "c:@M@TJLabsCommon@objc(cs)UVDGenerator"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12TJLabsCommon20UVDGeneratorDelegateP12onUvdStopped_4time5indexyAA0C0C_SdSitF",
+            "mangledName": "$s12TJLabsCommon20UVDGeneratorDelegateP12onUvdStopped_4time5indexyAA0C0C_SdSitF",
             "moduleName": "TJLabsCommon",
             "genericSig": "<τ_0_0 where τ_0_0 : TJLabsCommon.UVDGeneratorDelegate>",
             "sugared_genericSig": "<Self where Self : TJLabsCommon.UVDGeneratorDelegate>",
@@ -12931,92 +12861,85 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
-      "kind": "StringLiteral",
-      "offset": 181,
-      "length": 9,
-      "value": "\"Unknown\""
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 287,
+      "offset": 252,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 289,
+      "offset": 254,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 327,
+      "offset": 292,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 382,
+      "offset": 347,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 425,
+      "offset": 390,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 464,
+      "offset": 429,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "BooleanLiteral",
-      "offset": 499,
+      "offset": 464,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 611,
+      "offset": 576,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 2491,
+      "offset": 2422,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 2493,
+      "offset": 2424,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 2520,
+      "offset": 2451,
       "length": 4,
       "value": "-100"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/RFD\/RFDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 2550,
+      "offset": 2481,
       "length": 3,
       "value": "-40"
     },
@@ -13436,14 +13359,14 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Simulation\/JupiterReplayer.swift",
       "kind": "IntegerLiteral",
-      "offset": 738,
+      "offset": 782,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Simulation\/JupiterReplayer.swift",
       "kind": "IntegerLiteral",
-      "offset": 768,
+      "offset": 812,
       "length": 1,
       "value": "0"
     },
@@ -14200,615 +14123,685 @@
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
       "offset": 5025,
+      "length": 12,
+      "value": "\"iPhone18,1\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5075,
+      "length": 15,
+      "value": "\"iPhone 17 Pro\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5108,
+      "length": 12,
+      "value": "\"iPhone18,2\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5158,
+      "length": 19,
+      "value": "\"iPhone 17 Pro Max\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5195,
+      "length": 12,
+      "value": "\"iPhone18,3\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5245,
+      "length": 11,
+      "value": "\"iPhone 17\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5274,
+      "length": 12,
+      "value": "\"iPhone18,4\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5324,
+      "length": 12,
+      "value": "\"iPhone Air\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5354,
+      "length": 12,
+      "value": "\"iPhone18,5\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5404,
+      "length": 12,
+      "value": "\"iPhone 17e\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5434,
       "length": 9,
       "value": "\"iPad2,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5036,
+      "offset": 5445,
       "length": 9,
       "value": "\"iPad2,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5047,
+      "offset": 5456,
       "length": 9,
       "value": "\"iPad2,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5058,
+      "offset": 5467,
       "length": 9,
       "value": "\"iPad2,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5075,
+      "offset": 5484,
       "length": 8,
       "value": "\"iPad 2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5101,
+      "offset": 5510,
       "length": 9,
       "value": "\"iPad3,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5112,
+      "offset": 5521,
       "length": 9,
       "value": "\"iPad3,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5123,
+      "offset": 5532,
       "length": 9,
       "value": "\"iPad3,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5151,
+      "offset": 5560,
       "length": 23,
       "value": "\"iPad (3rd generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5192,
+      "offset": 5601,
       "length": 9,
       "value": "\"iPad3,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5203,
+      "offset": 5612,
       "length": 9,
       "value": "\"iPad3,5\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5214,
+      "offset": 5623,
       "length": 9,
       "value": "\"iPad3,6\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5242,
+      "offset": 5651,
       "length": 23,
       "value": "\"iPad (4th generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5283,
+      "offset": 5692,
       "length": 10,
       "value": "\"iPad6,11\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5295,
+      "offset": 5704,
       "length": 10,
       "value": "\"iPad6,12\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5333,
+      "offset": 5742,
       "length": 23,
       "value": "\"iPad (5th generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5374,
+      "offset": 5783,
       "length": 9,
       "value": "\"iPad7,5\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5385,
+      "offset": 5794,
       "length": 9,
       "value": "\"iPad7,6\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5424,
+      "offset": 5833,
       "length": 23,
       "value": "\"iPad (6th generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5465,
+      "offset": 5874,
       "length": 10,
       "value": "\"iPad7,11\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5477,
+      "offset": 5886,
       "length": 10,
       "value": "\"iPad7,12\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5515,
+      "offset": 5924,
       "length": 23,
       "value": "\"iPad (7th generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5556,
+      "offset": 5965,
       "length": 9,
       "value": "\"iPad4,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5567,
+      "offset": 5976,
       "length": 9,
       "value": "\"iPad4,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5578,
+      "offset": 5987,
       "length": 9,
       "value": "\"iPad4,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5606,
+      "offset": 6015,
       "length": 10,
       "value": "\"iPad Air\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5634,
+      "offset": 6043,
       "length": 9,
       "value": "\"iPad5,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5645,
+      "offset": 6054,
       "length": 9,
       "value": "\"iPad5,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5684,
+      "offset": 6093,
       "length": 12,
       "value": "\"iPad Air 2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5714,
+      "offset": 6123,
       "length": 10,
       "value": "\"iPad11,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5726,
+      "offset": 6135,
       "length": 10,
       "value": "\"iPad11,5\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5764,
+      "offset": 6173,
       "length": 27,
       "value": "\"iPad Air (3rd generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5809,
+      "offset": 6218,
       "length": 9,
       "value": "\"iPad2,5\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5820,
+      "offset": 6229,
       "length": 9,
       "value": "\"iPad2,6\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5831,
+      "offset": 6240,
       "length": 9,
       "value": "\"iPad2,7\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5859,
+      "offset": 6268,
       "length": 11,
       "value": "\"iPad mini\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5888,
+      "offset": 6297,
       "length": 9,
       "value": "\"iPad4,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5899,
+      "offset": 6308,
       "length": 9,
       "value": "\"iPad4,5\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5910,
+      "offset": 6319,
       "length": 9,
       "value": "\"iPad4,6\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5938,
+      "offset": 6347,
       "length": 13,
       "value": "\"iPad mini 2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5969,
+      "offset": 6378,
       "length": 9,
       "value": "\"iPad4,7\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5980,
+      "offset": 6389,
       "length": 9,
       "value": "\"iPad4,8\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 5991,
+      "offset": 6400,
       "length": 9,
       "value": "\"iPad4,9\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6019,
+      "offset": 6428,
       "length": 13,
       "value": "\"iPad mini 3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6050,
+      "offset": 6459,
       "length": 9,
       "value": "\"iPad5,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6061,
+      "offset": 6470,
       "length": 9,
       "value": "\"iPad5,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6100,
+      "offset": 6509,
       "length": 13,
       "value": "\"iPad mini 4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6131,
+      "offset": 6540,
       "length": 10,
       "value": "\"iPad11,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6143,
+      "offset": 6552,
       "length": 10,
       "value": "\"iPad11,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6181,
+      "offset": 6590,
       "length": 28,
       "value": "\"iPad mini (5th generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6227,
+      "offset": 6636,
       "length": 9,
       "value": "\"iPad6,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6238,
+      "offset": 6647,
       "length": 9,
       "value": "\"iPad6,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6277,
+      "offset": 6686,
       "length": 21,
       "value": "\"iPad Pro (9.7-inch)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6316,
+      "offset": 6725,
       "length": 9,
       "value": "\"iPad6,7\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6327,
+      "offset": 6736,
       "length": 9,
       "value": "\"iPad6,8\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6366,
+      "offset": 6775,
       "length": 22,
       "value": "\"iPad Pro (12.9-inch)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6406,
+      "offset": 6815,
       "length": 9,
       "value": "\"iPad7,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6417,
+      "offset": 6826,
       "length": 9,
       "value": "\"iPad7,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6456,
+      "offset": 6865,
       "length": 39,
       "value": "\"iPad Pro (12.9-inch) (2nd generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6513,
+      "offset": 6922,
       "length": 9,
       "value": "\"iPad7,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6524,
+      "offset": 6933,
       "length": 9,
       "value": "\"iPad7,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6563,
+      "offset": 6972,
       "length": 22,
       "value": "\"iPad Pro (10.5-inch)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6603,
+      "offset": 7012,
       "length": 9,
       "value": "\"iPad8,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6614,
+      "offset": 7023,
       "length": 9,
       "value": "\"iPad8,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6625,
+      "offset": 7034,
       "length": 9,
       "value": "\"iPad8,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6636,
+      "offset": 7045,
       "length": 9,
       "value": "\"iPad8,4\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6653,
+      "offset": 7062,
       "length": 20,
       "value": "\"iPad Pro (11-inch)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6691,
+      "offset": 7100,
       "length": 9,
       "value": "\"iPad8,9\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6741,
+      "offset": 7150,
       "length": 37,
       "value": "\"iPad Pro (11-inch) (2nd generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6796,
+      "offset": 7205,
       "length": 9,
       "value": "\"iPad8,5\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6807,
+      "offset": 7216,
       "length": 9,
       "value": "\"iPad8,6\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6818,
+      "offset": 7227,
       "length": 9,
       "value": "\"iPad8,7\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6829,
+      "offset": 7238,
       "length": 9,
       "value": "\"iPad8,8\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6846,
+      "offset": 7255,
       "length": 39,
       "value": "\"iPad Pro (12.9-inch) (3rd generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6903,
+      "offset": 7312,
       "length": 10,
       "value": "\"iPad8,12\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 6953,
+      "offset": 7362,
       "length": 39,
       "value": "\"iPad Pro (12.9-inch) (4th generation)\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7010,
+      "offset": 7419,
       "length": 12,
       "value": "\"AppleTV5,3\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7060,
+      "offset": 7469,
       "length": 10,
       "value": "\"Apple TV\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7088,
+      "offset": 7497,
       "length": 12,
       "value": "\"AppleTV6,2\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7138,
+      "offset": 7547,
       "length": 13,
       "value": "\"Apple TV 4K\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7169,
+      "offset": 7578,
       "length": 19,
       "value": "\"AudioAccessory1,1\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7219,
+      "offset": 7628,
       "length": 9,
       "value": "\"HomePod\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7246,
+      "offset": 7655,
       "length": 6,
       "value": "\"i386\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7254,
+      "offset": 7663,
       "length": 8,
       "value": "\"x86_64\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7296,
+      "offset": 7705,
       "length": 104,
       "value": "\"Simulator \""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7359,
+      "offset": 7768,
       "length": 28,
       "value": "\"SIMULATOR_MODEL_IDENTIFIER\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7392,
+      "offset": 7801,
       "length": 5,
       "value": "\"iOS\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/Utils\/DeviceModel.swift",
       "kind": "StringLiteral",
-      "offset": 7399,
+      "offset": 7808,
       "length": 1,
       "value": "\"\""
     },
@@ -15542,148 +15535,148 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
-      "kind": "StringLiteral",
-      "offset": 540,
-      "length": 9,
-      "value": "\"Unknown\""
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 904,
+      "offset": 865,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "FloatLiteral",
-      "offset": 1202,
+      "offset": 1163,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1257,
+      "offset": 1218,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1305,
+      "offset": 1266,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1333,
+      "offset": 1294,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1373,
+      "offset": 1334,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1408,
+      "offset": 1369,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1453,
+      "offset": 1414,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 1498,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1547,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1607,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1661,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1715,
+      "offset": 1459,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "BooleanLiteral",
-      "offset": 1760,
+      "offset": 1508,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "BooleanLiteral",
-      "offset": 1807,
+      "offset": 1568,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "BooleanLiteral",
-      "offset": 1845,
+      "offset": 1622,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 3912,
+      "offset": 1676,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1721,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1768,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1806,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1848,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3890,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "FloatLiteral",
-      "offset": 4305,
+      "offset": 4283,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "FloatLiteral",
-      "offset": 4337,
+      "offset": 4315,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDGenerator.swift",
       "kind": "FloatLiteral",
-      "offset": 4369,
+      "offset": 4347,
       "length": 3,
       "value": "0.7"
     },
@@ -15717,232 +15710,239 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1480,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "StringLiteral",
-      "offset": 2088,
+      "offset": 2008,
       "length": 5,
       "value": "\"PDR\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "StringLiteral",
-      "offset": 2122,
+      "offset": 2042,
       "length": 4,
       "value": "\"DR\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "StringLiteral",
-      "offset": 2155,
+      "offset": 2075,
       "length": 6,
       "value": "\"AUTO\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2217,
+      "offset": 2137,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2243,
+      "offset": 2163,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2267,
+      "offset": 2187,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2730,
+      "offset": 2650,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2759,
+      "offset": 2679,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2788,
+      "offset": 2708,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2820,
+      "offset": 2740,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2952,
+      "offset": 2872,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2990,
+      "offset": 2910,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3121,
+      "offset": 3041,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "FloatLiteral",
-      "offset": 3156,
+      "offset": 3076,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3225,
+      "offset": 3145,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3260,
+      "offset": 3180,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3296,
+      "offset": 3216,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3334,
+      "offset": 3254,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3369,
+      "offset": 3289,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3456,
+      "offset": 3376,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3494,
+      "offset": 3414,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3561,
+      "offset": 3481,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3595,
+      "offset": 3515,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3627,
+      "offset": 3547,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3667,
+      "offset": 3587,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3732,
+      "offset": 3652,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3762,
+      "offset": 3682,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3796,
+      "offset": 3716,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3831,
+      "offset": 3751,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3867,
+      "offset": 3787,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3904,
+      "offset": 3824,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3948,
+      "offset": 3868,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsCommon-sdk-ios\/TJLabsCommon\/UVD\/UVDModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3985,
+      "offset": 3905,
       "length": 1,
       "value": "0"
     },

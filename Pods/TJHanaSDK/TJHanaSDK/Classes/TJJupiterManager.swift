@@ -6,11 +6,11 @@ import TJLabsResource
     
 public class TJJupiterManager: NavigationManagerDelegate {
     
-    public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?) {
+    public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult) {
         delegate?.onInitSuccess(self, isSuccess, code?.toWrap())
     }
     
-    public func onJupiterSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.JupiterErrorCode?) {
+    public func onJupiterSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.JupiterErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult) {
         delegate?.onJupiterSuccess(self, isSuccess, code?.toWrap())
     }
     
@@ -66,8 +66,8 @@ public class TJJupiterManager: NavigationManagerDelegate {
     public init(id: String, sectorId: Int = HANA_SECTOR_ID, debugOption: Bool = false) {
         self.id = id
         self.sectorId = sectorId
-
-        self.serviceManager = JupiterServiceManager(id: id, region: HanaRegion.KOREA.rawValue, sectorId: sectorId, debugOption: debugOption)
+        
+        self.serviceManager = JupiterServiceManager(id: id, region: HanaRegion.KOREA.rawValue, sectorId: sectorId, debugOption: debugOption, onPremiseBaseURL: ON_PREMISE_BASE_URL)
         self.serviceManager?.delegate = self
     }
     
@@ -75,7 +75,7 @@ public class TJJupiterManager: NavigationManagerDelegate {
         serviceManager?.delegate = nil
 
         stopMockTimer()
-        serviceManager?.stopService(completion: {_, _ in})
+        serviceManager?.stopService(completion: {_, _, _ in})
         serviceManager = nil
     }
 
@@ -91,7 +91,7 @@ public class TJJupiterManager: NavigationManagerDelegate {
         }
     }
 
-    public func stopService(completion: @escaping (Bool, String) -> Void) {
+    public func stopService(completion: @escaping (Bool, String, JupiterServiceResult) -> Void) {
         stopMockTimer()
         serviceManager?.stopService(completion: completion)
     }
@@ -129,7 +129,6 @@ public class TJJupiterManager: NavigationManagerDelegate {
     public func setNavigationDestination(dest: Point) {
         serviceManager?.setNaviDestination(dest: dest.toJupiter(), isVehicle: true)
     }
-    
     
     public func requestRouting(start: RoutingStart,
                                end: Point,

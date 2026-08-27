@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import CoreBluetooth
 import Foundation
+import Security
 import Swift
 import TJLabsAuth
 import TJLabsCommon
@@ -15,13 +16,11 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 @_hasMissingDesignatedInitializers public class HanaLogger {
   public static func setDebugOption(set: Swift.Bool)
-  public static func setInfoOption(set: Swift.Bool)
   @objc deinit
 }
 public let HANA_SECTOR_ID: Swift.Int
 public enum HanaRegion : Swift.String {
   case KOREA
-  case US_EAST
   case CANADA
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
@@ -38,12 +37,30 @@ public enum HanaRegion : Swift.String {
   public static func getUserJupiterURL() -> Swift.String
   @objc deinit
 }
+public enum HanaService : Swift.String {
+  case warp
+  case venus
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class HanaOnPremiseNetworkConstants {
+  public static func setBaseURL(_ url: Swift.String)
+  public static func isEnabled() -> Swift.Bool
+  public static func getUserWarpURL() -> Swift.String
+  public static func getUserVenusURL() -> Swift.String
+  @objc deinit
+}
 public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
-  public func onInitSuccess(_ isSuccess: Swift.Bool, _ code: TJLabsJupiter.InitErrorCode?)
+  public func onInitSuccess(_ isSuccess: Swift.Bool, _ code: TJLabsJupiter.InitErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  public func onJupiterSuccess(_ isSuccess: Swift.Bool, _ code: TJLabsJupiter.JupiterErrorCode?)
+  public func onJupiterSuccess(_ isSuccess: Swift.Bool, _ code: TJLabsJupiter.JupiterErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult)
   #endif
   public func onJupiterResult(_ result: TJLabsJupiter.JupiterResult)
   public func onJupiterReport(_ code: TJLabsJupiter.JupiterServiceCode, _ msg: Swift.String)
@@ -54,10 +71,12 @@ public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
   public func isUserGuidanceOut()
   public func isWaypointChanged(_ waypoints: [[Swift.Double]])
   weak public var delegate: (any TJLabsJupiter.NavigationManagerDelegate)?
-  public init(id: Swift.String, region: Swift.String = HanaRegion.KOREA.rawValue, sectorId: Swift.Int, debugOption: Swift.Bool = false)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, region: Swift.String = HanaRegion.KOREA.rawValue, sectorId: Swift.Int = HANA_SECTOR_ID, debugOption: Swift.Bool = false, onPremiseBaseURL: Swift.String? = nil)
+  #endif
   @objc deinit
   public func startService(mode: TJLabsCommon.UserMode)
-  public func stopService(completion: @escaping (Swift.Bool, Swift.String) -> Swift.Void)
+  public func stopService(completion: @escaping (Swift.Bool, Swift.String, TJLabsJupiter.JupiterServiceResult) -> Swift.Void)
   public func setNaviDestination(dest: TJLabsJupiter.Point, isVehicle: Swift.Bool)
   #if compiler(>=5.3) && $NonescapableTypes
   public func requestRouting(start: TJLabsJupiter.RoutingStart, end: TJLabsJupiter.Point, waypoints: [TJLabsJupiter.Point] = [], isVehicle: Swift.Bool, completion: @escaping (TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute], TJLabsJupiter.NavigationRouteFailureReason?) -> Swift.Void)
@@ -71,6 +90,10 @@ public protocol VenusServiceManagerDelegate : AnyObject {
   func onVenusSuccess(_ manager: TJLabsHana.VenusServiceManager, _ isSuccess: Swift.Bool, _ code: TJLabsHana.VenusErrorCode?)
   #endif
   func onVenusResult(_ manager: TJLabsHana.VenusServiceManager, _ result: TJLabsHana.VenusResult)
+  func onVenusMapImageData(_ manager: TJLabsHana.VenusServiceManager, _ levelId: Swift.Int, _ mapImage: TJLabsHana.VenusMapImage)
+}
+extension TJLabsHana.VenusServiceManagerDelegate {
+  public func onVenusMapImageData(_ manager: TJLabsHana.VenusServiceManager, _ levelId: Swift.Int, _ mapImage: TJLabsHana.VenusMapImage)
 }
 public enum VenusInitErrorCode : Swift.Int {
   case UNKNOWN
@@ -98,15 +121,31 @@ public enum VenusErrorCode : Swift.Int {
     get
   }
 }
+public struct VenusMapImage : Swift.Codable {
+  public let building_id: Swift.Int
+  public let building_name: Swift.String
+  public let level_id: Swift.Int
+  public let level_name: Swift.String
+  public let url: Swift.String
+  public let image_width: Swift.Double
+  public let image_height: Swift.Double
+  public let scale_x: Swift.Double
+  public let scale_y: Swift.Double
+  public let offset_x: Swift.Double
+  public let offset_y: Swift.Double
+  public init(building_id: Swift.Int, building_name: Swift.String, level_id: Swift.Int, level_name: Swift.String, url: Swift.String, image_width: Swift.Double, image_height: Swift.Double, scale_x: Swift.Double, scale_y: Swift.Double, offset_x: Swift.Double, offset_y: Swift.Double)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct VenusResult : Swift.Codable {
   public let mobile_time: Swift.Int
   public let building_id: Swift.Int
   public let building_name: Swift.String
   public let level_id: Swift.Int
   public let level_name: Swift.String
-  public let x: Swift.Int
-  public let y: Swift.Int
-  public init(mobile_time: Swift.Int, building_id: Swift.Int, building_name: Swift.String, level_id: Swift.Int, level_name: Swift.String, x: Swift.Int, y: Swift.Int)
+  public let x: Swift.Double
+  public let y: Swift.Double
+  public init(mobile_time: Swift.Int, building_id: Swift.Int, building_name: Swift.String, level_id: Swift.Int, level_name: Swift.String, x: Swift.Double, y: Swift.Double)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -118,6 +157,10 @@ public class VenusServiceManager : TJLabsCommon.RFDGeneratorDelegate {
   public init(id: Swift.String, region: Swift.String = HanaRegion.KOREA.rawValue, sectorId: Swift.Int = HANA_SECTOR_ID, forceUpdate: Swift.Bool = false)
   @objc deinit
   public func startService()
+  public func getVenusMapImages() -> [Swift.Int : TJLabsHana.VenusMapImage]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getVenusMapImage(levelId: Swift.Int) -> TJLabsHana.VenusMapImage?
+  #endif
   public func stopService()
 }
 public protocol WarpViewDelegate : AnyObject {
@@ -129,6 +172,10 @@ public protocol WarpViewDelegate : AnyObject {
   #endif
   func onClick(_ view: TJLabsHana.WarpView, warpWards: [TJLabsHana.WarpWard])
   func onWarpSelectionChanged(_ view: TJLabsHana.WarpView, warpWards: [TJLabsHana.WarpWard])
+  func onWarpMapImageData(_ view: TJLabsHana.WarpView, _ levelId: Swift.Int, _ mapImage: TJLabsHana.WarpMapImage)
+}
+extension TJLabsHana.WarpViewDelegate {
+  public func onWarpMapImageData(_ view: TJLabsHana.WarpView, _ levelId: Swift.Int, _ mapImage: TJLabsHana.WarpMapImage)
 }
 public enum WarpInitErrorCode : Swift.Int {
   case UNKNOWN
@@ -165,12 +212,29 @@ public struct WarpContents : Swift.Codable, Swift.Equatable {
 public struct WarpWard : Swift.Codable, Swift.Equatable {
   public var id: Swift.Int
   public var name: Swift.String
-  public var x: Swift.Int
-  public var y: Swift.Int
+  public var x: Swift.Double
+  public var y: Swift.Double
   public var rssi: Swift.Int
+  public var detected_rssi: Swift.Int
   public var contents: [TJLabsHana.WardContents]
-  public init(id: Swift.Int, name: Swift.String, x: Swift.Int, y: Swift.Int, rssi: Swift.Int, contents: [TJLabsHana.WardContents])
+  public init(id: Swift.Int, name: Swift.String, x: Swift.Double, y: Swift.Double, rssi: Swift.Int, detected_rssi: Swift.Int, contents: [TJLabsHana.WardContents])
   public static func == (a: TJLabsHana.WarpWard, b: TJLabsHana.WarpWard) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WarpMapImage : Swift.Codable {
+  public let building_id: Swift.Int
+  public let building_name: Swift.String
+  public let level_id: Swift.Int
+  public let level_name: Swift.String
+  public let url: Swift.String
+  public let image_width: Swift.Double
+  public let image_height: Swift.Double
+  public let scale_x: Swift.Double
+  public let scale_y: Swift.Double
+  public let offset_x: Swift.Double
+  public let offset_y: Swift.Double
+  public init(building_id: Swift.Int, building_name: Swift.String, level_id: Swift.Int, level_name: Swift.String, url: Swift.String, image_width: Swift.Double, image_height: Swift.Double, scale_x: Swift.Double, scale_y: Swift.Double, offset_x: Swift.Double, offset_y: Swift.Double)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -195,6 +259,10 @@ public struct WardContents : Swift.Codable, Swift.Equatable {
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func configureFrame(to matchView: UIKit.UIView, warpImage: UIKit.UIImage? = nil)
   #endif
+  @_Concurrency.MainActor @preconcurrency public func getWarpMapImages() -> [Swift.Int : TJLabsHana.WarpMapImage]
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func getWarpMapImage(levelId: Swift.Int) -> TJLabsHana.WarpMapImage?
+  #endif
   @_Concurrency.MainActor @preconcurrency public func getVisibility() -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency public func setVisibility(isVisible: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func setSelectionInterval(seconds: Foundation.TimeInterval)
@@ -202,6 +270,9 @@ public struct WardContents : Swift.Codable, Swift.Equatable {
 extension TJLabsHana.HanaRegion : Swift.Equatable {}
 extension TJLabsHana.HanaRegion : Swift.Hashable {}
 extension TJLabsHana.HanaRegion : Swift.RawRepresentable {}
+extension TJLabsHana.HanaService : Swift.Equatable {}
+extension TJLabsHana.HanaService : Swift.Hashable {}
+extension TJLabsHana.HanaService : Swift.RawRepresentable {}
 extension TJLabsHana.VenusInitErrorCode : Swift.Equatable {}
 extension TJLabsHana.VenusInitErrorCode : Swift.Hashable {}
 extension TJLabsHana.VenusInitErrorCode : Swift.RawRepresentable {}

@@ -118,7 +118,7 @@ final class VenusViewController: UIViewController, TJVenuseManagerDelegate {
     }
 
     private func setupVenusService() {
-        let manager = TJVenusManager(id: venusUserId, sectorId: 1, forceUpdate: true)
+        let manager = TJVenusManager(id: venusUserId, forceUpdate: true)
         manager.delegate = self
         venusServiceManager = manager
     }

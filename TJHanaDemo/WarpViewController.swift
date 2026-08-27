@@ -43,6 +43,16 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
     
     func onWarpSelectionChanged(_ view: TJHanaSDK.TJWarpView, warpWards: [TJHanaSDK.WarpWard]) {
         print("(WarpViewController) onWarpSelectionChanged -> warpWards:\(warpWards)")
+        let wardNames = warpWards.map(\.name)
+        let uniqueWardNames = wardNames.reduce(into: [String]()) { result, name in
+            if !result.contains(name) {
+                result.append(name)
+            }
+        }
+
+        DispatchQueue.main.async {
+            self.updateSelectionWardNames(uniqueWardNames)
+        }
     }
     
     private let warpUserId = "hana-example-user"
@@ -147,6 +157,36 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         stackView.layer.masksToBounds = true
         return stackView
     }()
+    private let selectionWardListTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 13, weight: .semibold)
+        label.textColor = .secondaryLabel
+        label.text = "Selection Changed Wards"
+        return label
+    }()
+    private let selectionWardListLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.text = "selection이 변경되면 ward 목록이 표시됩니다."
+        return label
+    }()
+    private lazy var selectionWardListContainerView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [selectionWardListTitleLabel, selectionWardListLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.alignment = .fill
+        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.backgroundColor = .secondarySystemBackground
+        stackView.layer.cornerRadius = 14
+        stackView.layer.masksToBounds = true
+        return stackView
+    }()
 
     private var warpView: TJWarpView? = TJWarpView()
     private var pendingSelectionInterval: TimeInterval = 1.0
@@ -180,6 +220,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         view.addSubview(selectionIntervalContainerView)
         view.addSubview(floatingContainerView)
         view.addSubview(wardListContainerView)
+        view.addSubview(selectionWardListContainerView)
 
         NSLayoutConstraint.activate([
             selectionIntervalContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -195,7 +236,11 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
             wardListContainerView.topAnchor.constraint(equalTo: floatingContainerView.bottomAnchor, constant: 24),
             wardListContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             wardListContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            wardListContainerView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
+
+            selectionWardListContainerView.topAnchor.constraint(equalTo: wardListContainerView.bottomAnchor, constant: 16),
+            selectionWardListContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            selectionWardListContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            selectionWardListContainerView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
         ])
 
         view.layoutIfNeeded()
@@ -204,7 +249,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
     private func initializeWarpView() {
         print("(WarpViewController) initializeWarpView")
         warpView?.delegate = self
-        warpView?.initialize(id: warpUserId, sectorId: 8, forceUpdate: true)
+        warpView?.initialize(id: warpUserId, forceUpdate: true)
     }
 
     private func updateWardNames(_ names: [String]) {
@@ -214,6 +259,17 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         }
 
         wardListLabel.text = names.enumerated()
+            .map { index, name in "\(index + 1). \(name)" }
+            .joined(separator: "\n")
+    }
+
+    private func updateSelectionWardNames(_ names: [String]) {
+        if names.isEmpty {
+            selectionWardListLabel.text = "선택된 ward 정보가 없습니다."
+            return
+        }
+
+        selectionWardListLabel.text = names.enumerated()
             .map { index, name in "\(index + 1). \(name)" }
             .joined(separator: "\n")
     }
