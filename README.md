@@ -5,11 +5,11 @@
 TJHana-demo-ios is a minimal iOS sample app for integrating **TJLabs Hana SDK** with CocoaPods.
 
 <!-- JUPITER_SDK_VERSION_START -->
-Jupiter SDK version: 2.0.10
+Jupiter SDK version: 2.0.16
 <!-- JUPITER_SDK_VERSION_END -->
 
 <!-- HANA_SDK_IOS_VERSION_START -->
-Hana SDK (CocoaPods): TJHanaSDK 1.0.5
+Hana SDK (CocoaPods): TJHanaSDK 1.1.2
 <!-- HANA_SDK_IOS_VERSION_END -->
 
 The app demonstrates Hana SDK flows with:
@@ -18,7 +18,8 @@ The app demonstrates Hana SDK flows with:
 - Warp floating view attach and ward click handling
 - Venus initialize/start flow
 - Venus result callback handling
-- Jupiter screen entry structure (placeholder)
+- Jupiter initialize/start/stop flow (vehicle/DR mode)
+- Jupiter result callback and `requestRouting` handling
 
 ## Features
 
@@ -28,7 +29,7 @@ The app demonstrates Hana SDK flows with:
 - Venus service result callback (`onVenusResult`)
 - Runtime permission request flow (Location/Bluetooth)
 - Service entry buttons enabled only after auth success
-- Jupiter sample entry screen placeholder
+- Jupiter DR-mode positioning with live result fields and routing request example
 
 ## Requirements
 
@@ -67,23 +68,25 @@ Runtime permission flow in this demo requires:
 
 ### 1. Add dependency
 
-This demo currently uses a local pod path:
+This demo uses the released pod:
 
 ```ruby
 # Podfile
 platform :ios, '16.0'
 
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'TJHanaDemo' do
   use_frameworks!
 
-  pod 'TJHanaSDK', :path => '/Users/leo/SwiftProjects/TJHanaSDK'
+  pod 'TJHanaSDK', '1.1.2'
 end
 ```
 
-If you use a released pod instead of a local SDK path, replace it with:
+To develop against a local SDK checkout instead, replace it with a path pod:
 
 ```ruby
-pod 'TJHanaSDK', '1.0.5'
+pod 'TJHanaSDK', :path => '/Users/leo/SwiftProjects/TJHanaSDK'
 ```
 
 ### 2. Install Pods
@@ -102,7 +105,7 @@ open TJHanaDemo.xcworkspace
 
 ### 1. Configure credentials
 
-Set credentials in [MainViewController.swift](/Users/leo/SwiftProjects/TJHanaDemo/TJHanaDemo/MainViewController.swift:14):
+Set credentials in [MainViewController.swift](/Users/leo/SwiftProjects/TJHanaDemo/TJHanaDemo/MainViewController.swift:16):
 
 ```swift
 private let accessKey = "YOUR_ACCESS_KEY"
@@ -158,7 +161,38 @@ warpView.stopService()
 venusManager.stopService()
 ```
 
+### 7. Jupiter flow
+
+`JupiterViewController` demonstrates the full Jupiter positioning lifecycle. The manager
+initializes automatically on creation; start/stop are driven from the screen's buttons and
+positioning always runs in vehicle (DR) mode:
+
+```swift
+let jupiterManager = TJJupiterManager(id: userId, debugOption: false)
+jupiterManager.delegate = self
+
+// After onInitSuccess:
+jupiterManager.startService()
+
+// Request a route to a destination point:
+jupiterManager.requestRouting(end: routingEnd) { result in
+    // handle RoutingResult
+}
+
+jupiterManager.stopService { isSuccess, msg, result in
+    // handle stop result
+}
+```
+
+Positioning results arrive through `TJJupiterManagerDelegate`:
+
+```swift
+func onJupiterResult(_ manager: TJJupiterManager, _ result: JupiterResult) {
+    // handle live position result
+}
+```
+
 ## Notes
 
-- The current `JupiterViewController` is a placeholder screen and does not yet start a live Jupiter service flow.
+- Jupiter positioning always runs in vehicle (DR) mode in this demo.
 - For reliable BLE and indoor positioning behavior, test on a real iPhone rather than only in the simulator.
