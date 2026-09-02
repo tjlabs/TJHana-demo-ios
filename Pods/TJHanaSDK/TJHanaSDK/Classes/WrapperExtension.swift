@@ -44,6 +44,7 @@ extension TJLabsHana.WarpWard {
     func toWrap() -> WarpWard {
         return WarpWard(
             id: self.id,
+            level_id: self.level_id,
             name: self.name,
             x: self.x,
             y: self.y,

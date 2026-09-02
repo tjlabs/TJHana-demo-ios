@@ -3,7 +3,7 @@ import TJLabsCommon
 import TJLabsJupiter
 
 // On-Premise 서버 주소. 각 프레임워크의 OnPremise 네트워크 상수에 동일하게 주입한다.
-//let ON_PREMISE_BASE_URL: String = "http://10.0.5.110:5050" // TJLABS
+//let ON_PREMISE_BASE_URL: String = "http://10.3.70.79:5050" // TJLABS
 let ON_PREMISE_BASE_URL: String = "https://192.168.120.104/api" // HANA
 
 let SAMPLE_ROUTING_RESULT = RoutingResult(routes:
@@ -36,13 +36,13 @@ func makeMockJupiterResults(from routing: RoutingResult,
         return JupiterResult(
             mobile_time: index * intervalMs,   // 상대 오프셋(ms). 실제 전달 시점에 현재 시각으로 덮어씀.
             index: index,
-            building_name: "",
+            building_name: "그룹HQ",
             level_name: route.level_name,
             jupiter_pos: pos,
             navi_pos: pos,
             llh: nil,
             velocity: velocity,
-            is_vehicle: false,
+            is_vehicle: true,
             is_indoor: true,
             validity_flag: 1
         )
@@ -124,6 +124,7 @@ public enum WarpErrorCode: Int {
 
 public struct WarpWard: Codable, Equatable {
     public var id: Int
+    public var level_id: Int
     public var name: String
     public var x: Double
     public var y: Double
@@ -131,8 +132,9 @@ public struct WarpWard: Codable, Equatable {
     public var detected_rssi: Int
     public var contents: [WardContents]
     
-    public init(id: Int, name: String, x: Double, y: Double, rssi: Int, detected_rssi: Int, contents: [WardContents]) {
+    public init(id: Int, level_id: Int, name: String, x: Double, y: Double, rssi: Int, detected_rssi: Int, contents: [WardContents]) {
         self.id = id
+        self.level_id = level_id
         self.name = name
         self.x = x
         self.y = y
@@ -259,6 +261,8 @@ public enum JupiterServiceCode: Int {
 
 public enum NavigationRouteFailureReason: String, Codable {
     case UNKNOWN = "unknown"
+    case INTERNAL_ERROR = "internal_error"
+    case SCALE_OFFSET_ERROR = "scale_offset_error"
     case SERVER_RESPONSE = "server_response"
     case TOO_CLOSE = "too_close"
 }

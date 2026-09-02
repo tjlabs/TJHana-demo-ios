@@ -1478,6 +1478,213 @@
           },
           {
             "kind": "Function",
+            "name": "getBuildingName",
+            "printedName": "getBuildingName(buildingId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC15getBuildingName10buildingIdSSSgSi_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC15getBuildingName10buildingIdSSSgSi_tF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getBuildingId",
+            "printedName": "getBuildingId(buildingName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC13getBuildingId12buildingNameSiSgSS_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC13getBuildingId12buildingNameSiSgSS_tF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getLevelName",
+            "printedName": "getLevelName(levelId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC12getLevelName7levelIdSSSgSi_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC12getLevelName7levelIdSSSgSi_tF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getLevelId",
+            "printedName": "getLevelId(sectorId:buildingName:levelName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC10getLevelId06sectorH012buildingName05levelK0SiSgSi_S2StF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC10getLevelId06sectorH012buildingName05levelK0SiSgSi_S2StF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getScaleOffset",
+            "printedName": "getScaleOffset(sectorId:buildingName:levelName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.Float]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Float]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Float",
+                        "printedName": "Swift.Float",
+                        "usr": "s:Sf"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC14getScaleOffset8sectorId12buildingName05levelL0SaySfGSgSi_S2StF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC14getScaleOffset8sectorId12buildingName05levelL0SaySfGSgSi_S2StF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setNaviDestination",
             "printedName": "setNaviDestination(dest:isVehicle:)",
             "children": [
@@ -5185,6 +5392,91 @@
           },
           {
             "kind": "Var",
+            "name": "level_id",
+            "printedName": "level_id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10TJLabsHana8WarpWardV8level_idSivp",
+            "mangledName": "$s10TJLabsHana8WarpWardV8level_idSivp",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV8level_idSivg",
+                "mangledName": "$s10TJLabsHana8WarpWardV8level_idSivg",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV8level_idSivs",
+                "mangledName": "$s10TJLabsHana8WarpWardV8level_idSivs",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10TJLabsHana8WarpWardV8level_idSivM",
+                "mangledName": "$s10TJLabsHana8WarpWardV8level_idSivM",
+                "moduleName": "TJLabsHana",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "name",
             "printedName": "name",
             "children": [
@@ -5720,13 +6012,19 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(id:name:x:y:rssi:detected_rssi:contents:)",
+            "printedName": "init(id:level_id:name:x:y:rssi:detected_rssi:contents:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "WarpWard",
                 "printedName": "TJLabsHana.WarpWard",
                 "usr": "s:10TJLabsHana8WarpWardV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               },
               {
                 "kind": "TypeNominal",
@@ -5780,8 +6078,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10TJLabsHana8WarpWardV2id4name1x1y4rssi09detected_G08contentsACSi_SSS2dS2iSayAA0D8ContentsVGtcfc",
-            "mangledName": "$s10TJLabsHana8WarpWardV2id4name1x1y4rssi09detected_G08contentsACSi_SSS2dS2iSayAA0D8ContentsVGtcfc",
+            "usr": "s:10TJLabsHana8WarpWardV2id06level_E04name1x1y4rssi09detected_H08contentsACSi_SiSSS2dS2iSayAA0D8ContentsVGtcfc",
+            "mangledName": "$s10TJLabsHana8WarpWardV2id06level_E04name1x1y4rssi09detected_H08contentsACSi_SiSSS2dS2iSayAA0D8ContentsVGtcfc",
             "moduleName": "TJLabsHana",
             "declAttributes": [
               "AccessControl"
@@ -7960,7 +8258,7 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
       "kind": "Array",
-      "offset": 2919,
+      "offset": 3812,
       "length": 2,
       "value": "[]"
     },

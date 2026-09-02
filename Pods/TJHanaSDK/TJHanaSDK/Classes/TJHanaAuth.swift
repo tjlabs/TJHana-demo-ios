@@ -32,9 +32,9 @@ public class TJHanaAuth {
         let clientSdks = [
             SdkMeta(name: "TJLabsAuth", version: "1.0.7"),
             SdkMeta(name: "TJLabsCommon", version: "1.0.6"),
-            SdkMeta(name: "TJLabsResource", version: "0.1.11"),
-            SdkMeta(name: "TJLabsJupiter", version: "2.0.15"),
-            SdkMeta(name: "TJLabsHana", version: "1.1.1")
+            SdkMeta(name: "TJLabsResource", version: "0.1.12"),
+            SdkMeta(name: "TJLabsJupiter", version: "2.0.16"),
+            SdkMeta(name: "TJLabsHana", version: "1.1.2")
         ]
         
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""

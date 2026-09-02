@@ -22,14 +22,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eCc5FQTnhtmtumoJb7CCaoFBDS6D/i3PoldPSGndbTU=
+			zpvRl3CpIjes8mCH+RGuzh9WFsMRfOAPx9R8qIP5Plw=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YDa9MCMdAr1YCrIgWQvi5RyQQUM0XKZWmYD+hno/WMM=
+			Ojw8nQOR43ePWthuhYjYNiRD07eU8EadKe8W5xz+34c=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
@@ -43,28 +43,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YDa9MCMdAr1YCrIgWQvi5RyQQUM0XKZWmYD+hno/WMM=
+			Ojw8nQOR43ePWthuhYjYNiRD07eU8EadKe8W5xz+34c=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/Xeh0iH50l0HiqGnKQW8n9IHOtGBoWHIIeOgz/SnQo8=
+			Zr0mZ4Bmr6LggZ3e90IClP5AJpEBENwJ+ezKPFYUg3M=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eCc5FQTnhtmtumoJb7CCaoFBDS6D/i3PoldPSGndbTU=
+			zpvRl3CpIjes8mCH+RGuzh9WFsMRfOAPx9R8qIP5Plw=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dd/hQOS6ugWhjaRC7TkoPNggxZiuBY1QriRSpvnqv28=
+			PDXue7qzO8RvOnuMu/X3yOtjzy0mxq3DqtHAZpSN1p8=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -78,14 +78,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dd/hQOS6ugWhjaRC7TkoPNggxZiuBY1QriRSpvnqv28=
+			PDXue7qzO8RvOnuMu/X3yOtjzy0mxq3DqtHAZpSN1p8=
 			</data>
 		</dict>
 		<key>Modules/TJLabsResource.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uh/KyBxRRdZOU7JrNe4ZgzMUgFxBZHPnVC8/SrgTtx0=
+			p2sFtnjsidLSZsHVYoK+JvbFW2Wu7XCyx0wyCqw3Xx0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
