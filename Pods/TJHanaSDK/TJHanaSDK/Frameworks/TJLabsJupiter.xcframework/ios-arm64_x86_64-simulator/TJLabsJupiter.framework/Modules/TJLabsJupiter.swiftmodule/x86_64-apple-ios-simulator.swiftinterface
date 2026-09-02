@@ -574,6 +574,7 @@ public struct RoutingResult : Swift.Codable {
 }
 public enum NavigationRouteFailureReason : Swift.String, Swift.Codable {
   case serverResponse
+  case networkError
   case tooClose
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
@@ -719,6 +720,8 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   public func getLevelRoutes() -> [TJLabsJupiter.NavigationLevelRoute]
   public func setReplayMode(flag: Swift.Bool, rfdFileName: Swift.String, uvdFileName: Swift.String, eventFileName: Swift.String)
   public func setReplayModeLegacy(flag: Swift.Bool, bleFileName: Swift.String, sensorFileName: Swift.String)
+  @discardableResult
+  public func setMobileResultReplayMode(flag: Swift.Bool, fileName: Swift.String) -> Swift.Bool
   public func setMockMode(mode: TJLabsJupiter.JupiterMockMode, completion: @escaping (Swift.Bool) -> Swift.Void)
   public func cancelNavigation()
   public func setLSEAppName(name: Swift.String)
@@ -742,6 +745,12 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public func getLevelId(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> Swift.Int?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getParkingMatchesData(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> [TJLabsResource.ParkingMatch]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getScaleOffset(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> [Swift.Float]?
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public func getDefaultPosition(sectorId: Swift.Int) -> TJLabsResource.DefaultPosition?

@@ -46,39 +46,6 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
         return stackView
     }()
 
-    private let mockModeTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15, weight: .semibold)
-        label.textColor = .label
-        label.text = "Mock 모드 (샘플 경로 시뮬레이션)"
-        label.numberOfLines = 0
-        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        return label
-    }()
-
-    private lazy var mockModeSwitch: UISwitch = {
-        let control = UISwitch()
-        control.translatesAutoresizingMaskIntoConstraints = false
-        control.setContentHuggingPriority(.required, for: .horizontal)
-        control.setContentCompressionResistancePriority(.required, for: .horizontal)
-        return control
-    }()
-
-    private lazy var mockModeRow: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mockModeTitleLabel, mockModeSwitch])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 12
-        stackView.alignment = .center
-        stackView.layoutMargins = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.backgroundColor = .secondarySystemBackground
-        stackView.layer.cornerRadius = 14
-        stackView.layer.masksToBounds = true
-        return stackView
-    }()
-
     private lazy var routingButton: UIButton = {
         let button = makeActionButton(
             title: "경로 요청 (requestRouting)",
@@ -91,7 +58,7 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
     }()
 
     private lazy var headerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mockModeRow, controlStackView, routingButton])
+        let stackView = UIStackView(arrangedSubviews: [controlStackView, routingButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 12
@@ -261,18 +228,12 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
         startButton.alpha = isRunning ? 0.45 : 1.0
         stopButton.isEnabled = isRunning
         stopButton.backgroundColor = isRunning ? .systemRed : .systemGray3
-        // Mock 모드는 startService 이전에만 변경 가능하므로 동작 중에는 잠근다.
-        mockModeSwitch.isEnabled = !isRunning
     }
 
     @objc private func didTapStart() {
         guard let manager = jupiterManager else { return }
 
-        let isMock = mockModeSwitch.isOn
-        manager.setMockMode(flag: isMock)
-
-        let modeText = isMock ? "\(jupiterMode.rawValue), Mock" : jupiterMode.rawValue
-        statusLabel.text = "Jupiter 시작 중... (mode: \(modeText))"
+        statusLabel.text = "Jupiter 시작 중... (mode: \(jupiterMode.rawValue))"
         statusLabel.textColor = .secondaryLabel
         updateControlState(isRunning: true)
 
@@ -283,7 +244,7 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
         guard let manager = jupiterManager else { return }
 
         routingResultField.valueLabel.text = "경로 요청 중..."
-        manager.requestRouting(start: routingStart, end: routingEnd) { [weak self] result in
+        manager.requestRouting(end: routingEnd) { [weak self] result in
             DispatchQueue.main.async {
                 self?.applyRoutingResult(result)
             }

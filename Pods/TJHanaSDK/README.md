@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.1.1
+### Version 1.1.2
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -31,6 +31,8 @@ It provides authentication, Warp-based ward interaction UI, Venus-based indoor r
     - Privacy - Bluetooth Peripheral Usage Description
     - Privacy - Bluetooth Always Usage Description
     - Privacy - Location When In Use Usage Description
+    - App Transport Security Settings
+        - Allow Arbitrary Loads - YES
 - Recommended device capabilities
     - Accelerometer
     - Gyroscope
@@ -136,14 +138,15 @@ extension ViewController: TJWarpViewDelegate {
 ### Core Models
 
 ```swift
-public struct WarpWard: Codable {
-    public let id: Int
-    public let name: String
-    public let x: Double
-    public let y: Double
-    public let rssi: Int
-    public let detected_rssi: Int
-    public let contents: [WardContents]
+public struct WarpWard: Codable, Equatable {
+    public var id: Int
+    public var level_id: Int
+    public var name: String
+    public var x: Double
+    public var y: Double
+    public var rssi: Int
+    public var detected_rssi: Int
+    public var contents: [WardContents]
 }
 
 public struct WardContents: Codable {
@@ -225,20 +228,23 @@ let manager = TJJupiterManager(id: "USER_ID", sectorId: 1, debugOption: false)
 manager.delegate = self
 ```
 
-### Mock Mode (Testing)
+### Set Result Interval
 
-- When enabled, `startService` streams mock `JupiterResult` values along a fixed sample route (delivered via `onJupiterResult`) instead of real positioning.
-- Must be called **before** `startService`.
+- `setResultInterval(milliseconds:)` sets how often positioning results are delivered through `onJupiterResult`.
+- Call it **after** `init` and **before** `startService`.
+- The value is clamped to a minimum of `1` ms. If not set, the interval defaults to `1000` ms.
 
 ```swift
-manager.setMockMode(flag: true)
-manager.startService()
+manager.setResultInterval(milliseconds: 500)
 ```
 
 ### Start Service
 
+- You can also pass the delivery interval directly to `startService` via `resultIntervalMs` (defaults to `1000` ms).
+- When both are used, the value passed to `startService` takes precedence.
+
 ```swift
-manager.startService()
+manager.startService(resultIntervalMs: 1000)
 ```
 
 ### Stop Service
