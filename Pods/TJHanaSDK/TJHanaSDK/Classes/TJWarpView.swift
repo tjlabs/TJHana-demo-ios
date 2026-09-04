@@ -40,7 +40,7 @@ public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
     public func initialize(id: String, sectorId: Int = HANA_SECTOR_ID, forceUpdate: Bool = false) {
         didTearDown = false
         warpView.delegate = self
-        warpView.initialize(id: id, sectorId: sectorId, forceUpdate: forceUpdate)
+        warpView.initialize(id: id, sectorId: sectorId, forceUpdate: forceUpdate, baseURL: ON_PREMISE_BASE_URL)
     }
     
     public func configureFrame(to matchView: UIView, warpImage: UIImage? = nil) {

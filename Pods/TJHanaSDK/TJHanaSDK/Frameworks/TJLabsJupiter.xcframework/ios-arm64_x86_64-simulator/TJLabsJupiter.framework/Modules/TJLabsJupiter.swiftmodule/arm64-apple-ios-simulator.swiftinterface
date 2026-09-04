@@ -198,13 +198,35 @@ public enum JupiterServiceCode : Swift.Int {
     get
   }
 }
-public enum JupiterPhase {
+public enum JupiterPhase : Swift.CaseIterable {
   case NONE, ENTERING, SEARCHING, TRACKING, EXITING, OUTDOOR
   public static func == (a: TJLabsJupiter.JupiterPhase, b: TJLabsJupiter.JupiterPhase) -> Swift.Bool
+  public typealias AllCases = [TJLabsJupiter.JupiterPhase]
+  nonisolated public static var allCases: [TJLabsJupiter.JupiterPhase] {
+    get
+  }
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+}
+public struct JupiterPhaseTransition {
+  public let phase: TJLabsJupiter.JupiterPhase
+  public let uvdIndex: Swift.Int
+  public let timestampMillis: Swift.Int
+}
+public struct JupiterPhaseStatistics {
+  public let sessionStartMillis: Swift.Int
+  public let durationMillisByPhase: [TJLabsJupiter.JupiterPhase : Swift.Int]
+  public let transitionCountByPhase: [TJLabsJupiter.JupiterPhase : Swift.Int]
+  public let transitionsByPhase: [TJLabsJupiter.JupiterPhase : [TJLabsJupiter.JupiterPhaseTransition]]
+  public let transitionsInOrder: [TJLabsJupiter.JupiterPhaseTransition]
+}
+extension TJLabsJupiter.JupiterPhaseStatistics {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func millisUntilFirstTransition(to phase: TJLabsJupiter.JupiterPhase) -> Swift.Int?
+  #endif
+  public func trackingRecoveryDurationsMillis() -> [Swift.Int]
 }
 public struct JupiterResult : Swift.Codable {
   public var mobile_time: Swift.Int
@@ -700,6 +722,7 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   @objc deinit
   public func startService(mode: TJLabsCommon.UserMode)
   public func stopService(completion: @escaping (Swift.Bool, Swift.String, TJLabsJupiter.JupiterServiceResult) -> Swift.Void)
+  public func clearResourceCache()
   #if compiler(>=5.3) && $NonescapableTypes
   public func setEventReporter(_ reporter: (any TJLabsJupiter.JupiterEventReporter)?)
   #endif
@@ -707,6 +730,9 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   public func setNaviWaypoints(waypoints: [[Swift.Double]])
   #if compiler(>=5.3) && $NonescapableTypes
   public func getJupiterDebugResult() -> TJLabsJupiter.JupiterDebugResult?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getPhaseStatistics() -> TJLabsJupiter.JupiterPhaseStatistics?
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public func requestRouting(start: TJLabsJupiter.RoutingStart, end: TJLabsJupiter.Point, waypoints: [TJLabsJupiter.Point] = [], is_vehicle: Swift.Bool, completion: @escaping (TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute]) -> Swift.Void)
@@ -745,6 +771,15 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public func getLevelId(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> Swift.Int?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getLevelMatchesData(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getLevelId(sectorId: Swift.Int, buildingName: Swift.String, levelMatch: Swift.String) -> Swift.Int?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getLevelMatch(levelId: Swift.Int) -> Swift.String?
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public func getParkingMatchesData(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> [TJLabsResource.ParkingMatch]?

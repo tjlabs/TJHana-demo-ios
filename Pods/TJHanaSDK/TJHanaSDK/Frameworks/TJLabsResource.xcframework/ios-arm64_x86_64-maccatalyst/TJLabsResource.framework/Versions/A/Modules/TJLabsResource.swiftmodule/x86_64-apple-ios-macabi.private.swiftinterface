@@ -26,7 +26,9 @@ public protocol TJLabsResourceManagerDelegate : AnyObject {
   func onImageData(_ manager: TJLabsResource.TJLabsResourceManager, key: Swift.String, data: UIKit.UIImage?)
   #endif
   func onWardsData(_ manager: TJLabsResource.TJLabsResourceManager, key: Swift.String, data: [TJLabsResource.LevelWard])
-  func onParkingMatchesData(_ manager: TJLabsResource.TJLabsResourceManager, key: Swift.String, data: [TJLabsResource.ParkingMatch])
+  #if compiler(>=5.3) && $NonescapableTypes
+  func onMatchesData(_ manager: TJLabsResource.TJLabsResourceManager, key: Swift.String, levelId: Swift.Int, data: [TJLabsResource.ParkingMatch], levelMatch: Swift.String?)
+  #endif
   func onAffineParam(_ manager: TJLabsResource.TJLabsResourceManager, data: TJLabsResource.WGS84Transform)
   func onLandmarkData(_ manager: TJLabsResource.TJLabsResourceManager, key: Swift.String, data: [Swift.String : TJLabsResource.LandmarkData])
   func onSimulationData(_ manager: TJLabsResource.TJLabsResourceManager, sectorId: Swift.Int, data: [TJLabsResource.SimulationInfo])
@@ -116,7 +118,7 @@ public enum ResourceCloud : Swift.String {
     get
   }
 }
-public enum ResourceRegion : Swift.String {
+public enum ResourceRegion : Swift.String, Swift.CaseIterable {
   case KOREA
   case CANADA
   case US_EAST
@@ -124,7 +126,11 @@ public enum ResourceRegion : Swift.String {
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
+  public typealias AllCases = [TJLabsResource.ResourceRegion]
   public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [TJLabsResource.ResourceRegion] {
+    get
+  }
   public var rawValue: Swift.String {
     get
   }
@@ -258,6 +264,7 @@ public struct ParkingMatch : Swift.Codable {
 }
 public struct ParkingMatchesFile : Swift.Codable {
   public let matches: [TJLabsResource.ParkingMatch]
+  public let levelMatch: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -634,6 +641,7 @@ public class TJLabsResourceManager {
   public func getDefaultPosition(sectorId: Swift.Int) -> TJLabsResource.DefaultPosition?
   #endif
   public func setDebugOption(flag: Swift.Bool)
+  public func clearCache()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class TJLabsResourceNetworkConstants {

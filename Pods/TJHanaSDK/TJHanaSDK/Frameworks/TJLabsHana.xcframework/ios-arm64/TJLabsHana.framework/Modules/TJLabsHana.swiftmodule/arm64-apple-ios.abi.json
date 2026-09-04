@@ -494,6 +494,13 @@
       },
       {
         "kind": "Import",
+        "name": "TJLabsCommon",
+        "printedName": "TJLabsCommon",
+        "declKind": "Import",
+        "moduleName": "TJLabsHana"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -4240,6 +4247,20 @@
       },
       {
         "kind": "Import",
+        "name": "TJLabsCommon",
+        "printedName": "TJLabsCommon",
+        "declKind": "Import",
+        "moduleName": "TJLabsHana"
+      },
+      {
+        "kind": "Import",
+        "name": "TJLabsJupiter",
+        "printedName": "TJLabsJupiter",
+        "declKind": "Import",
+        "moduleName": "TJLabsHana"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -7339,6 +7360,13 @@
       },
       {
         "kind": "Import",
+        "name": "TJLabsJupiter",
+        "printedName": "TJLabsJupiter",
+        "declKind": "Import",
+        "moduleName": "TJLabsHana"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -7565,7 +7593,7 @@
           {
             "kind": "Function",
             "name": "initialize",
-            "printedName": "initialize(id:sectorId:forceUpdate:)",
+            "printedName": "initialize(id:sectorId:forceUpdate:baseURL:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -7591,11 +7619,17 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10TJLabsHana8WarpViewC10initialize2id8sectorId11forceUpdateySS_SiSbtF",
-            "mangledName": "$s10TJLabsHana8WarpViewC10initialize2id8sectorId11forceUpdateySS_SiSbtF",
+            "usr": "s:10TJLabsHana8WarpViewC10initialize2id8sectorId11forceUpdate7baseURLySS_SiSbSStF",
+            "mangledName": "$s10TJLabsHana8WarpViewC10initialize2id8sectorId11forceUpdate7baseURLySS_SiSbSStF",
             "moduleName": "TJLabsHana",
             "declAttributes": [
               "Preconcurrency",
@@ -8097,28 +8131,35 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/HanaNetworkManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 212,
+      "offset": 228,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/HanaNetworkManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 297,
+      "offset": 317,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/HanaNetworkManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 402,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/HanaNetworkManager.swift",
       "kind": "StringLiteral",
-      "offset": 1562,
+      "offset": 1756,
       "length": 6,
       "value": "\"POST\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/HanaNetworkManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3843,
+      "offset": 4037,
       "length": 5,
       "value": "false"
     },
@@ -8375,6 +8416,34 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpBatchSender.swift",
+      "kind": "IntegerLiteral",
+      "offset": 188,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpBatchSender.swift",
+      "kind": "IntegerLiteral",
+      "offset": 236,
+      "length": 6,
+      "value": "10000"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpBatchSender.swift",
+      "kind": "IntegerLiteral",
+      "offset": 393,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpBatchSender.swift",
+      "kind": "IntegerLiteral",
+      "offset": 429,
+      "length": 1,
+      "value": "0"
+    },
+    {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpModel.swift",
       "kind": "IntegerLiteral",
       "offset": 666,
@@ -8440,77 +8509,77 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1477,
+      "offset": 1571,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1513,
+      "offset": 1607,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1553,
+      "offset": 1647,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1598,
+      "offset": 1692,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2160,
+      "offset": 2254,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2205,
+      "offset": 2299,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2255,
+      "offset": 2349,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2317,
+      "offset": 2411,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2760,
+      "offset": 2854,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2880,
+      "offset": 2974,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3436,
+      "offset": 3530,
       "length": 5,
       "value": "false"
     }
