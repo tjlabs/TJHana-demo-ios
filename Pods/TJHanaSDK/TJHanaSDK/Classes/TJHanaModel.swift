@@ -4,7 +4,8 @@ import TJLabsJupiter
 
 // On-Premise 서버 주소. 각 프레임워크의 OnPremise 네트워크 상수에 동일하게 주입한다.
 //let ON_PREMISE_BASE_URL: String = "http://10.0.5.110:5050/" // TJLABS
-let ON_PREMISE_BASE_URL: String = "https://192.168.120.104/api" // HANA
+//let ON_PREMISE_BASE_URL: String = "https://192.168.120.104/api" // HANA
+let ON_PREMISE_BASE_URL: String = "https://hqsw.hanafn.com:18443/api/v1/sdk-proxy/api"
 
 let SAMPLE_ROUTING_RESULT = RoutingResult(routes:
                                         [RoutingRoute(level_id: 700, level_name: "B2", x: 70, y: 10),
