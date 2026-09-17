@@ -3938,6 +3938,108 @@
           },
           {
             "kind": "Var",
+            "name": "buildingLevelChange",
+            "printedName": "buildingLevelChange",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13TJLabsJupiter0B9EventCodeC19buildingLevelChangeSivpZ",
+            "mangledName": "$s13TJLabsJupiter0B9EventCodeC19buildingLevelChangeSivpZ",
+            "moduleName": "TJLabsJupiter",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13TJLabsJupiter0B9EventCodeC19buildingLevelChangeSivgZ",
+                "mangledName": "$s13TJLabsJupiter0B9EventCodeC19buildingLevelChangeSivgZ",
+                "moduleName": "TJLabsJupiter",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "exiting",
+            "printedName": "exiting",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13TJLabsJupiter0B9EventCodeC7exitingSivpZ",
+            "mangledName": "$s13TJLabsJupiter0B9EventCodeC7exitingSivpZ",
+            "moduleName": "TJLabsJupiter",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13TJLabsJupiter0B9EventCodeC7exitingSivgZ",
+                "mangledName": "$s13TJLabsJupiter0B9EventCodeC7exitingSivgZ",
+                "moduleName": "TJLabsJupiter",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "rfdGenerator",
             "printedName": "rfdGenerator",
             "children": [
@@ -5643,6 +5745,43 @@
             "declKind": "EnumElement",
             "usr": "s:13TJLabsJupiter0B11ServiceCodeO11UVD_STOPPEDyA2CmF",
             "mangledName": "$s13TJLabsJupiter0B11ServiceCodeO11UVD_STOPPEDyA2CmF",
+            "moduleName": "TJLabsJupiter"
+          },
+          {
+            "kind": "Var",
+            "name": "BUILDING_LEVEL_CHANGING",
+            "printedName": "BUILDING_LEVEL_CHANGING",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TJLabsJupiter.JupiterServiceCode.Type) -> TJLabsJupiter.JupiterServiceCode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JupiterServiceCode",
+                    "printedName": "TJLabsJupiter.JupiterServiceCode",
+                    "usr": "s:13TJLabsJupiter0B11ServiceCodeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TJLabsJupiter.JupiterServiceCode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "JupiterServiceCode",
+                        "printedName": "TJLabsJupiter.JupiterServiceCode",
+                        "usr": "s:13TJLabsJupiter0B11ServiceCodeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13TJLabsJupiter0B11ServiceCodeO23BUILDING_LEVEL_CHANGINGyA2CmF",
+            "mangledName": "$s13TJLabsJupiter0B11ServiceCodeO23BUILDING_LEVEL_CHANGINGyA2CmF",
             "moduleName": "TJLabsJupiter"
           },
           {
@@ -29816,7 +29955,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(id:cloud:region:sectorId:debugOption:dev:onPremiseBaseURL:)",
+            "printedName": "init(id:cloud:region:sectorId:debugOption:uploadOption:dev:onPremiseBaseURL:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -29866,6 +30005,13 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Optional",
                 "printedName": "Swift.String?",
                 "children": [
@@ -29881,8 +30027,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:13TJLabsJupiter17NavigationManagerC2id5cloud6region8sectorId11debugOption3dev16onPremiseBaseURLACSS_S2SSiS2bSSSgtcfc",
-            "mangledName": "$s13TJLabsJupiter17NavigationManagerC2id5cloud6region8sectorId11debugOption3dev16onPremiseBaseURLACSS_S2SSiS2bSSSgtcfc",
+            "usr": "s:13TJLabsJupiter17NavigationManagerC2id5cloud6region8sectorId11debugOption06uploadK03dev16onPremiseBaseURLACSS_S2SSiS3bSSSgtcfc",
+            "mangledName": "$s13TJLabsJupiter17NavigationManagerC2id5cloud6region8sectorId11debugOption06uploadK03dev16onPremiseBaseURLACSS_S2SSiS3bSSSgtcfc",
             "moduleName": "TJLabsJupiter",
             "declAttributes": [
               "AccessControl",
@@ -30008,6 +30154,27 @@
             "declKind": "Func",
             "usr": "s:13TJLabsJupiter17NavigationManagerC18clearResourceCacheyyF",
             "mangledName": "$s13TJLabsJupiter17NavigationManagerC18clearResourceCacheyyF",
+            "moduleName": "TJLabsJupiter",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "uploadReplayFiles",
+            "printedName": "uploadReplayFiles()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13TJLabsJupiter17NavigationManagerC17uploadReplayFilesyyF",
+            "mangledName": "$s13TJLabsJupiter17NavigationManagerC17uploadReplayFilesyyF",
             "moduleName": "TJLabsJupiter",
             "declAttributes": [
               "AccessControl",
@@ -34065,11 +34232,25 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/AffineConverter.swift",
+      "kind": "StringLiteral",
+      "offset": 664,
+      "length": 36,
+      "value": "\"com.tjlabs.jupiter.AffineConverter\""
+    },
+    {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/BuildingLevelChanger.swift",
       "kind": "IntegerLiteral",
       "offset": 575,
       "length": 2,
       "value": "70"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/BuildingLevelChanger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 10820,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
@@ -34087,1100 +34268,1198 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
+      "kind": "StringLiteral",
+      "offset": 704,
+      "length": 43,
+      "value": "\"com.tjlabs.jupiter.DataBatchSender.buffer\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
       "kind": "IntegerLiteral",
-      "offset": 480,
+      "offset": 951,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
       "kind": "IntegerLiteral",
-      "offset": 506,
+      "offset": 977,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
       "kind": "IntegerLiteral",
-      "offset": 542,
+      "offset": 1009,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
       "kind": "IntegerLiteral",
-      "offset": 2739,
+      "offset": 3419,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/DataBatchSender.swift",
       "kind": "IntegerLiteral",
-      "offset": 2822,
+      "offset": 3502,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 886,
+      "length": 3,
+      "value": "7.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1160,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 603,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 661,
-      "length": 2,
-      "value": "30"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 723,
+      "offset": 1223,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 781,
+      "offset": 1281,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 849,
+      "offset": 1349,
       "length": 2,
       "value": "18"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 918,
+      "offset": 1418,
       "length": 2,
       "value": "22"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 990,
+      "offset": 1490,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1656,
+      "offset": 2156,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1713,
+      "offset": 2213,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 9991,
+      "offset": 10384,
+      "length": 3,
+      "value": "-85"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11090,
       "length": 3,
       "value": "-90"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/EntranceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 11624,
+      "offset": 12723,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1356,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "StringLiteral",
-      "offset": 1151,
+      "offset": 1788,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1280,
+      "offset": 1917,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1310,
+      "offset": 1947,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "StringLiteral",
-      "offset": 1407,
+      "offset": 2044,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1719,
+      "offset": 2356,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1762,
+      "offset": 2399,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1798,
+      "offset": 2435,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1849,
+      "offset": 2486,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1887,
+      "offset": 2524,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1933,
+      "offset": 2570,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1943,
+      "offset": 2580,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1954,
+      "offset": 2591,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1966,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1978,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2029,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2039,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2050,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2062,
+      "offset": 2603,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 2074,
+      "offset": 2615,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2110,
+      "offset": 2666,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2676,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2687,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2699,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2711,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2747,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "StringLiteral",
-      "offset": 2204,
+      "offset": 2841,
       "length": 4,
       "value": "\"DR\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2323,
+      "offset": 3104,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2366,
+      "offset": 3147,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2410,
-      "length": 1,
-      "value": "7"
+      "kind": "FloatLiteral",
+      "offset": 3340,
+      "length": 3,
+      "value": "7.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 3517,
+      "length": 4,
+      "value": "10.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2455,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2508,
+      "offset": 3573,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2703,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2916,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3246,
-      "length": 1,
-      "value": "6"
+      "kind": "FloatLiteral",
+      "offset": 3891,
+      "length": 3,
+      "value": "8.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3298,
+      "offset": 4138,
+      "length": 3,
+      "value": "5.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 4393,
+      "length": 3,
+      "value": "3.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 4808,
+      "length": 3,
+      "value": "6.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 4863,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3354,
+      "offset": 4919,
       "length": 4,
       "value": "12.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3419,
+      "offset": 4984,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3487,
+      "offset": 5052,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3546,
-      "length": 1,
-      "value": "5"
+      "kind": "FloatLiteral",
+      "offset": 5302,
+      "length": 3,
+      "value": "2.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 3593,
+      "offset": 5352,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3638,
+      "offset": 5397,
       "length": 5,
       "value": "0.725"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3686,
+      "offset": 5445,
       "length": 4,
       "value": "1.25"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3918,
+      "offset": 5677,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 4102,
+      "offset": 5861,
       "length": 3,
       "value": "1.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "StringLiteral",
-      "offset": 4232,
+      "offset": 5991,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 4273,
+      "offset": 6032,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "StringLiteral",
-      "offset": 4354,
+      "offset": 6113,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 4396,
+      "offset": 6155,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 4444,
+      "offset": 6203,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4893,
+      "offset": 6652,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 4961,
+      "offset": 6720,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5006,
+      "offset": 6765,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5096,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5166,
+      "offset": 6855,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5333,
+      "offset": 7299,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5480,
+      "offset": 7465,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5587,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5639,
-      "length": 2,
-      "value": "20"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5695,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5748,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5802,
-      "length": 2,
-      "value": "20"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5851,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5899,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6016,
-      "length": 5,
-      "value": "5000"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6073,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6126,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6183,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6246,
-      "length": 2,
-      "value": "20"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6314,
-      "length": 2,
-      "value": "12"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6376,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6437,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6508,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "FloatLiteral",
-      "offset": 6574,
-      "length": 4,
-      "value": "0.25"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6630,
-      "length": 2,
-      "value": "20"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6686,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6750,
-      "length": 2,
-      "value": "25"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6819,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6872,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7068,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7182,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7383,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8318,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8636,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8823,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9004,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11844,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11878,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "Array",
-      "offset": 11918,
-      "length": 9,
-      "value": "[0, 0, 0]"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "Array",
-      "offset": 11960,
-      "length": 9,
-      "value": "[0, 0, 0]"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "Array",
-      "offset": 12571,
-      "length": 9,
-      "value": "[0, 0, 0]"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12744,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12962,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 29733,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 30037,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 30204,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 30341,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 31437,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 31485,
+      "offset": 7671,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 31745,
-      "length": 1,
-      "value": "8"
+      "offset": 7729,
+      "length": 3,
+      "value": "-85"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 31798,
+      "offset": 7801,
       "length": 1,
-      "value": "5"
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7968,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 31969,
+      "offset": 8115,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8222,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8274,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8330,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8383,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 35203,
+      "offset": 8437,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 35349,
+      "offset": 8486,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 35707,
+      "offset": 8534,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8725,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 36009,
-      "length": 1,
-      "value": "5"
+      "offset": 8843,
+      "length": 5,
+      "value": "5000"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 9149,
+      "length": 3,
+      "value": "3.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 36431,
+      "offset": 9205,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9316,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9710,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9824,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9887,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9948,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10019,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 10085,
+      "length": 4,
+      "value": "0.25"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10141,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10197,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10261,
+      "length": 2,
+      "value": "25"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10330,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10383,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10579,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 36483,
-      "length": 1,
-      "value": "2"
+      "offset": 10693,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 10894,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11829,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 12147,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 36582,
+      "offset": 12334,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12515,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 97303,
+      "offset": 15355,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 97344,
+      "offset": 15389,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
-      "kind": "StringLiteral",
-      "offset": 97368,
+      "kind": "Array",
+      "offset": 15429,
       "length": 9,
-      "value": "\"unknown\""
+      "value": "[0, 0, 0]"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "Array",
+      "offset": 15471,
+      "length": 9,
+      "value": "[0, 0, 0]"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "Array",
+      "offset": 16082,
+      "length": 9,
+      "value": "[0, 0, 0]"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 16255,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 16473,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 37472,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 38038,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 38342,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 38509,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 115532,
+      "offset": 38646,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 38932,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 40188,
+      "length": 3,
+      "value": "1.5"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 40239,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 40541,
+      "length": 3,
+      "value": "3.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 40597,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 40879,
+      "length": 3,
+      "value": "1.5"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 44963,
       "length": 2,
-      "value": "10"
+      "value": "20"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 115722,
+      "offset": 45109,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 45467,
       "length": 2,
-      "value": "50"
+      "value": "20"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 115899,
+      "offset": 45769,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 46287,
       "length": 2,
-      "value": "30"
+      "value": "40"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 116106,
+      "offset": 46872,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "FloatLiteral",
-      "offset": 118323,
+      "offset": 47065,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 47167,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 48571,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 116934,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 116975,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "StringLiteral",
+      "offset": 116999,
+      "length": 9,
+      "value": "\"unknown\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 135163,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 135353,
+      "length": 2,
+      "value": "50"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 135530,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 135737,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 137954,
       "length": 3,
       "value": "0.3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 132430,
+      "offset": 155309,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 223017,
+      "offset": 251235,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 223187,
+      "offset": 251405,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 223392,
+      "offset": 251610,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterCalcManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 223673,
+      "offset": 251891,
       "length": 2,
       "value": "40"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "StringLiteral",
-      "offset": 5391,
+      "offset": 5449,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "StringLiteral",
-      "offset": 5415,
+      "offset": 5473,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "StringLiteral",
-      "offset": 5442,
+      "offset": 5500,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "StringLiteral",
-      "offset": 5470,
+      "offset": 5528,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5497,
+      "offset": 5555,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5974,
+      "offset": 6032,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6385,
+      "offset": 6478,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6428,
+      "offset": 6521,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6467,
+      "offset": 6560,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6514,
+      "offset": 6607,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6679,
+      "offset": 6772,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6777,
+      "offset": 6870,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6982,
+      "offset": 7075,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7018,
+      "offset": 7111,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7251,
+      "offset": 7344,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7301,
+      "offset": 7394,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7358,
+      "offset": 7451,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7615,
+      "offset": 7708,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7634,
+      "offset": 7736,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7755,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "StringLiteral",
-      "offset": 11744,
+      "offset": 11906,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "StringLiteral",
-      "offset": 13710,
+      "offset": 13872,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 16985,
+      "offset": 17147,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17347,
+      "offset": 17509,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25310,
+      "offset": 25472,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/JupiterManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25452,
+      "offset": 25614,
       "length": 2,
       "value": "30"
     },
@@ -35299,224 +35578,231 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1322,
+      "offset": 1648,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2017,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1489,
+      "offset": 2184,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1537,
+      "offset": 2232,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1584,
+      "offset": 2279,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1692,
+      "offset": 2387,
       "length": 2,
       "value": "55"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1795,
+      "offset": 2490,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2200,
+      "offset": 2960,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2227,
+      "offset": 2987,
       "length": 3,
       "value": "0.3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2256,
+      "offset": 3016,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2285,
+      "offset": 3045,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2324,
+      "offset": 3084,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2360,
+      "offset": 3120,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2396,
+      "offset": 3156,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2430,
+      "offset": 3190,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2466,
+      "offset": 3226,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2497,
+      "offset": 3257,
       "length": 3,
       "value": "0.3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2530,
+      "offset": 3290,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2563,
+      "offset": 3323,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2606,
+      "offset": 3366,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 2646,
+      "offset": 3406,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2686,
+      "offset": 3446,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2724,
+      "offset": 3484,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "Array",
-      "offset": 2849,
+      "offset": 3609,
       "length": 12,
       "value": "[1, 1, 1, 1]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3211,
+      "offset": 3971,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3298,
+      "offset": 4058,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3345,
+      "offset": 4105,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3388,
+      "offset": 4148,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3523,
+      "offset": 4283,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3618,
+      "offset": 4378,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3659,
+      "offset": 4419,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "FloatLiteral",
-      "offset": 16322,
+      "offset": 15859,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/KalmanFilter.swift",
       "kind": "BooleanLiteral",
-      "offset": 37464,
+      "offset": 39023,
       "length": 5,
       "value": "false"
     },
@@ -35641,127 +35927,134 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
-      "kind": "IntegerLiteral",
+      "kind": "FloatLiteral",
       "offset": 358,
-      "length": 1,
-      "value": "1"
+      "length": 3,
+      "value": "0.5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "Array",
-      "offset": 405,
+      "offset": 407,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 476,
+      "offset": 478,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "StringLiteral",
-      "offset": 923,
+      "offset": 925,
       "length": 4,
       "value": "\"dr\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "StringLiteral",
-      "offset": 989,
+      "offset": 991,
       "length": 5,
       "value": "\"LSE\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "StringLiteral",
-      "offset": 1024,
+      "offset": 1026,
       "length": 8,
       "value": "\"tjlabs\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1095,
+      "offset": 1097,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1121,
+      "offset": 1123,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1148,
+      "offset": 1150,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1685,
+      "offset": 1687,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1829,
+      "offset": 1831,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1982,
+      "offset": 1984,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2277,
+      "offset": 2279,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2313,
+      "offset": 2315,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "FloatLiteral",
-      "offset": 2644,
+      "offset": 2646,
       "length": 3,
       "value": "3.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4694,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "FloatLiteral",
-      "offset": 9329,
+      "offset": 9543,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 9496,
+      "offset": 9710,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "FloatLiteral",
-      "offset": 9771,
+      "offset": 9985,
       "length": 4,
       "value": "20.0"
     },
@@ -36167,42 +36460,42 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/PathMatcher.swift",
       "kind": "BooleanLiteral",
-      "offset": 90854,
+      "offset": 92316,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/PathMatcher.swift",
       "kind": "IntegerLiteral",
-      "offset": 90912,
+      "offset": 92374,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/PathMatcher.swift",
       "kind": "BooleanLiteral",
-      "offset": 92669,
+      "offset": 94131,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/PathMatcher.swift",
       "kind": "IntegerLiteral",
-      "offset": 92696,
+      "offset": 94158,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/PathMatcher.swift",
       "kind": "BooleanLiteral",
-      "offset": 94657,
+      "offset": 96119,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/PathMatcher.swift",
       "kind": "IntegerLiteral",
-      "offset": 94716,
+      "offset": 96178,
       "length": 1,
       "value": "5"
     },
@@ -37014,28 +37307,28 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/StackManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22405,
+      "offset": 22784,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/StackManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 23180,
+      "offset": 23559,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/StackManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 26538,
+      "offset": 26917,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/StackManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 26969,
+      "offset": 27348,
       "length": 1,
       "value": "7"
     },
@@ -37385,93 +37678,114 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 5435,
+      "offset": 5424,
+      "length": 4,
+      "value": "2232"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5478,
+      "length": 4,
+      "value": "2233"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5543,
       "length": 4,
       "value": "2240"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "StringLiteral",
-      "offset": 6771,
+      "offset": 6879,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9739,
+      "offset": 9847,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9768,
+      "offset": 9876,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9799,
+      "offset": 9907,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9830,
+      "offset": 9938,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9865,
+      "offset": 9973,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9892,
+      "offset": 10000,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9925,
+      "offset": 10033,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9957,
+      "offset": 10065,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 9987,
+      "offset": 10095,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 10014,
+      "offset": 10122,
       "length": 3,
       "value": "300"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 10041,
+      "offset": 10149,
       "length": 3,
       "value": "301"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10188,
+      "length": 3,
+      "value": "302"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
@@ -37532,154 +37846,154 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 789,
+      "offset": 1381,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 832,
+      "offset": 1417,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 864,
+      "offset": 1442,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 898,
+      "offset": 1469,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 940,
+      "offset": 1504,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 975,
+      "offset": 1532,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 1006,
+      "offset": 1556,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 1048,
+      "offset": 1591,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "IntegerLiteral",
-      "offset": 1457,
+      "offset": 1975,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "IntegerLiteral",
-      "offset": 1505,
+      "offset": 2016,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "IntegerLiteral",
-      "offset": 1544,
+      "offset": 2048,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "IntegerLiteral",
-      "offset": 1586,
+      "offset": 2083,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "IntegerLiteral",
-      "offset": 1864,
+      "offset": 2347,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 1900,
+      "offset": 2376,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 1938,
+      "offset": 2407,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2147,
+      "offset": 2602,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2190,
+      "offset": 2638,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2240,
+      "offset": 2681,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2457,
+      "offset": 2884,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2590,
+      "offset": 3003,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2726,
+      "offset": 3125,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterStates.swift",
       "kind": "BooleanLiteral",
-      "offset": 2950,
+      "offset": 3328,
       "length": 5,
       "value": "false"
     },
@@ -37773,6 +38087,13 @@
       "offset": 553,
       "length": 4,
       "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterTime.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1034,
+      "length": 3,
+      "value": "500"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Data\/Constant\/JupiterValidity.swift",
@@ -37966,212 +38287,233 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "StringLiteral",
-      "offset": 20141,
+      "offset": 22307,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "StringLiteral",
-      "offset": 20176,
+      "offset": 22342,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "StringLiteral",
-      "offset": 20212,
+      "offset": 22378,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 20245,
+      "offset": 22411,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 20283,
+      "offset": 22449,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 20714,
+      "offset": 22880,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 20794,
+      "offset": 22960,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 20930,
+      "offset": 23096,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 20996,
+      "offset": 23162,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "Array",
-      "offset": 21042,
+      "offset": 23208,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 21110,
+      "offset": 23276,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 21172,
+      "offset": 23338,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 21219,
+      "offset": 23385,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21280,
+      "offset": 23446,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21319,
+      "offset": 23485,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21358,
+      "offset": 23524,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21452,
+      "offset": 23618,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "StringLiteral",
-      "offset": 21490,
+      "offset": 23656,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21530,
+      "offset": 23696,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21573,
+      "offset": 23739,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "FloatLiteral",
-      "offset": 21823,
+      "offset": 23989,
       "length": 4,
       "value": "30.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21885,
+      "offset": 24051,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21934,
+      "offset": 24100,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 24269,
+      "length": 4,
+      "value": "10.0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22049,
+      "offset": 24387,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 22287,
+      "offset": 24625,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 22332,
+      "offset": 24670,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 22619,
+      "offset": 24957,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 22638,
+      "offset": 24985,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 25004,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "Array",
-      "offset": 26806,
+      "offset": 29530,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
       "kind": "Array",
-      "offset": 27182,
+      "offset": 29906,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 41633,
+      "length": 9,
+      "value": "\"unknown\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/NavigationStackManager.swift",
@@ -38218,21 +38560,21 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/RoutingManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 2597,
+      "offset": 2876,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/RoutingManager.swift",
       "kind": "Array",
-      "offset": 11765,
+      "offset": 12044,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Navi\/RoutingManager.swift",
       "kind": "FloatLiteral",
-      "offset": 34226,
+      "offset": 34964,
       "length": 3,
       "value": "1.0"
     },

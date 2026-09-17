@@ -236,9 +236,10 @@ public struct Level : Swift.Codable {
   public let mapImage: TJLabsResource.MapImage
   public let geofence: TJLabsResource.GeofenceData
   public let entrances: [TJLabsResource.Entrance]
-  public let units: [TJLabsResource.UnitData]
+  public let units: [TJLabsResource.UnitData]?
   public let graphs: [TJLabsResource.Graph]
   public let wards: [TJLabsResource.Ward]
+  public let rf_landmarks: [TJLabsResource.RFLandmark]
   public let parkingMatches: TJLabsResource.ParkingMatchesInfo?
   #if compiler(>=5.3) && $NonescapableTypes
   public var graph: TJLabsResource.Graph? {
@@ -517,7 +518,6 @@ public struct PathPixelData {
 public struct Ward : Swift.Codable {
   public let id: Swift.Int
   public let name: Swift.String
-  public let rf_landmarks: [TJLabsResource.RFLandmark]
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -532,6 +532,7 @@ public struct RFLandmark : Swift.Codable {
   public let x: Swift.Int
   public let y: Swift.Int
   public let rssi: Swift.Float
+  public let ward: TJLabsResource.Ward
   public let links: [TJLabsResource.GraphLinkMini]
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
