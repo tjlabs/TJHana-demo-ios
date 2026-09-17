@@ -35,6 +35,7 @@ import simd
   public func getBleLastScannedTime() -> Swift.Double?
   #endif
   public func generateRfd(rfdIntervalMillis: Foundation.TimeInterval = 1/2, minRssiThreshold: Swift.Int = -100, maxRssiThreshold: Swift.Int = -40)
+  public func setReplayRfd(rfdTimeOffset: Swift.Int, replayRfd: [TJLabsCommon.ReceivedForce])
   public func generateReplayRfd()
   public func stopRfdGeneration()
   @objc deinit
@@ -101,7 +102,7 @@ public struct ReplayUserVelocity {
   public func saveFilesForReplay(completion: @escaping (Swift.Bool) -> Swift.Void)
   public func loadFilesForReplayLegacy(bleFile: Swift.String, sensorFile: Swift.String) -> ([[Swift.String : Swift.Double]], [TJLabsCommon.SensorData])
   public func loadFilesForReplay(rfdFile: Swift.String, eventFile: Swift.String) -> (rfdTimeOffset: Swift.Int, rfdList: [TJLabsCommon.ReceivedForce])
-  public func loadFilesForReplay(rfdFile: Swift.String, uvdFile: Swift.String, eventFile: Swift.String) -> (rfdTimeOffset: Swift.Int, rfdList: [TJLabsCommon.ReceivedForce], uvdTimeOffset: Swift.Int, uvdList: [TJLabsCommon.ReplayUserVelocity], stopEvents: [TJLabsCommon.JupiterEvent])
+  public func loadFilesForReplay(rfdFile: Swift.String, uvdFile: Swift.String, eventFile: Swift.String) -> (rfdTimeOffset: Swift.Int, rfdList: [TJLabsCommon.ReceivedForce], uvdTimeOffset: Swift.Int, uvdList: [TJLabsCommon.ReplayUserVelocity], stopEvents: [TJLabsCommon.JupiterEvent], serviceStartTime: Swift.Int)
   public func writeEvent(event: TJLabsCommon.JupiterEvent)
   public func writeRFD(rfd: TJLabsCommon.ReceivedForce)
   public func writeUVD(uvd: TJLabsCommon.UserVelocity, mode: TJLabsCommon.UserMode)
@@ -297,6 +298,7 @@ public enum TimeFormat {
   public func checkIsAvailableUvd() -> (Swift.Bool, Swift.String)
   public func generateUvd(defaultPDRStepLength: Swift.Double = 0.6, minPDRStepLength: Swift.Double = 0.5, maxPDRStepLength: Swift.Double = 0.7)
   public func stopUvdGeneration()
+  public func setReplayUvd(uvdTimeOffset: Swift.Int, replayUvd: [TJLabsCommon.ReplayUserVelocity], stopEvents: [TJLabsCommon.JupiterEvent])
   public func generateReplayUvd()
   @objc deinit
 }

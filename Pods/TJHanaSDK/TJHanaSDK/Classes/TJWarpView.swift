@@ -37,10 +37,10 @@ public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
     private let warpView = WarpView()
     public weak var delegate: TJWarpViewDelegate?
     
-    public func initialize(id: String, sectorId: Int = HANA_SECTOR_ID, forceUpdate: Bool = false) {
+    public func initialize(id: String, sectorId: Int = HANA_SECTOR_ID, forceUpdate: Bool = false, unchangedDeliveryInterval: TimeInterval? = nil) {
         didTearDown = false
         warpView.delegate = self
-        warpView.initialize(id: id, sectorId: sectorId, forceUpdate: forceUpdate)
+        warpView.initialize(id: id, sectorId: sectorId, forceUpdate: forceUpdate, baseURL: ON_PREMISE_BASE_URL, unchangedDeliveryInterval: unchangedDeliveryInterval)
     }
     
     public func configureFrame(to matchView: UIView, warpImage: UIImage? = nil) {
@@ -66,6 +66,14 @@ public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
     
     public func setSelectionInterval(seconds: TimeInterval) {
         warpView.setSelectionInterval(seconds: seconds)
+    }
+
+    public func setUnchangedDeliveryInterval(_ seconds: TimeInterval?) {
+        warpView.setUnchangedDeliveryInterval(seconds)
+    }
+    
+    public func getCurrentWarpWards() -> [WarpWard] {
+        return warpView.getCurrentWarpWards().map { $0.toWrap() }
     }
     
     private func tearDownWarpView() {

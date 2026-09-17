@@ -8,59 +8,240 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         case applied
         case invalidInput
     }
-    
+
     func onInitSuccess(_ view: TJHanaSDK.TJWarpView, _ isSuccess: Bool, _ code: TJHanaSDK.WarpInitErrorCode?) {
         if isSuccess {
             isWarpInitialized = true
+            setInitParameterInputsEnabled(false)
+            updateInitStatus(
+                text: "초기화 성공: id=\(appliedInitDescription)",
+                color: .systemGreen
+            )
             self.warpView?.startService()
             self.warpView?.configureFrame(to: self.floatingContainerView, warpImage: UIImage(named: "ic_warp"))
             applySelectionInterval(pendingSelectionInterval, state: .applied)
+            startCurrentWardsTimer()
         } else {
+            setInitParameterInputsEnabled(true)
+            updateInitStatus(
+                text: "초기화 실패. code: \(String(describing: code)) — 파라미터를 확인 후 다시 시도해주세요.",
+                color: .systemRed
+            )
             updateSelectionIntervalStatus(
                 text: "Warp 초기화 실패로 interval을 적용하지 못했습니다. code: \(String(describing: code))",
                 color: .systemRed
             )
         }
     }
-    
+
     func onWarpSuccess(_ view: TJHanaSDK.TJWarpView, _ isSuccess: Bool, _ code: TJHanaSDK.WarpErrorCode?) {
         print("(WarpViewController) onWarpSuccess -> isSuccess:\(isSuccess), code:\(String(describing: code))")
     }
-    
+
     func onClick(_ view: TJHanaSDK.TJWarpView, warpWards: [TJHanaSDK.WarpWard]) {
         print("(WarpViewController) onClick -> warpWards:\(warpWards)")
-        let wardNames = warpWards.map(\.name)
-        let uniqueWardNames = wardNames.reduce(into: [String]()) { result, name in
-            if !result.contains(name) {
-                result.append(name)
+        let uniqueWards = warpWards.reduce(into: [TJHanaSDK.WarpWard]()) { result, ward in
+            if !result.contains(where: { $0.name == ward.name }) {
+                result.append(ward)
             }
         }
 
         DispatchQueue.main.async {
-            self.updateWardNames(uniqueWardNames)
+            self.updateWards(uniqueWards)
         }
     }
-    
+
     func onWarpSelectionChanged(_ view: TJHanaSDK.TJWarpView, warpWards: [TJHanaSDK.WarpWard]) {
         print("(WarpViewController) onWarpSelectionChanged -> warpWards:\(warpWards)")
-        let wardNames = warpWards.map(\.name)
-        let uniqueWardNames = wardNames.reduce(into: [String]()) { result, name in
-            if !result.contains(name) {
-                result.append(name)
+        let uniqueWards = warpWards.reduce(into: [TJHanaSDK.WarpWard]()) { result, ward in
+            if !result.contains(where: { $0.name == ward.name }) {
+                result.append(ward)
             }
         }
 
         DispatchQueue.main.async {
-            self.updateSelectionWardNames(uniqueWardNames)
+            self.updateSelectionWards(uniqueWards)
         }
     }
+
+    private let defaultWarpUserId = "hana-example-user"
+    private let warpForceUpdate = false
+    private var unchangedDeliveryInterval: TimeInterval? = nil
     
-    private let warpUserId = "hana-example-user"
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.keyboardDismissMode = .interactive
+        scrollView.alwaysBounceVertical = true
+        return scrollView
+    }()
+    private let contentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 20
+        return stackView
+    }()
+
+    // MARK: - Init parameters
+    private let initParamsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 13, weight: .semibold)
+        label.textColor = .secondaryLabel
+        label.text = "Init Parameters"
+        return label
+    }()
+    private let initParamsChevronImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "chevron.up")
+        imageView.tintColor = .secondaryLabel
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentHuggingPriority(.required, for: .horizontal)
+        return imageView
+    }()
+    private lazy var initParamsHeaderStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [initParamsTitleLabel, initParamsChevronImageView])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 8
+        stackView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapInitParamsHeader))
+        stackView.addGestureRecognizer(gesture)
+        return stackView
+    }()
+    private let warpIdTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12, weight: .medium)
+        label.textColor = .secondaryLabel
+        label.text = "id (필수)"
+        return label
+    }()
+    private let warpIdTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
+        textField.font = .monospacedSystemFont(ofSize: 16, weight: .medium)
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.returnKeyType = .done
+        textField.clearButtonMode = .whileEditing
+        textField.placeholder = "예: hana-example-user"
+        return textField
+    }()
+    private let sectorIdTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12, weight: .medium)
+        label.textColor = .secondaryLabel
+        label.text = "sectorId (선택 · 비우면 SDK 기본값)"
+        return label
+    }()
+    private let sectorIdTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
+        textField.font = .monospacedSystemFont(ofSize: 16, weight: .medium)
+        textField.keyboardType = .numberPad
+        textField.clearButtonMode = .whileEditing
+        textField.placeholder = "예: 6"
+        return textField
+    }()
+    private let unchangedDeliveryIntervalTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12, weight: .medium)
+        label.textColor = .secondaryLabel
+        label.text = "unchangedDeliveryInterval (선택 · 초 · 비우면 SDK 기본값)"
+        return label
+    }()
+    private let unchangedDeliveryIntervalTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
+        textField.font = .monospacedSystemFont(ofSize: 16, weight: .medium)
+        textField.keyboardType = .decimalPad
+        textField.clearButtonMode = .whileEditing
+        textField.placeholder = "예: 30"
+        return textField
+    }()
+    private lazy var initializeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Initialize", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        button.addTarget(self, action: #selector(didTapInitialize), for: .touchUpInside)
+        return button
+    }()
+    private let initStatusLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 13, weight: .medium)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 0
+        label.text = "파라미터를 입력한 뒤 Initialize를 눌러 Warp을 초기화하세요."
+        return label
+    }()
+    private lazy var initParamsBodyStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            warpIdTitleLabel,
+            warpIdTextField,
+            sectorIdTitleLabel,
+            sectorIdTextField,
+            unchangedDeliveryIntervalTitleLabel,
+            unchangedDeliveryIntervalTextField,
+            initializeButton,
+            initStatusLabel
+        ])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.alignment = .fill
+        stackView.setCustomSpacing(4, after: warpIdTitleLabel)
+        stackView.setCustomSpacing(4, after: sectorIdTitleLabel)
+        stackView.setCustomSpacing(4, after: unchangedDeliveryIntervalTitleLabel)
+        stackView.setCustomSpacing(16, after: unchangedDeliveryIntervalTextField)
+        return stackView
+    }()
+    private lazy var initParamsContainerView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            initParamsHeaderStackView,
+            initParamsBodyStackView
+        ])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.alignment = .fill
+        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.backgroundColor = .secondarySystemBackground
+        stackView.layer.cornerRadius = 14
+        stackView.layer.masksToBounds = true
+        return stackView
+    }()
+    private var isInitParamsExpanded = true
+
     private let floatingContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         return view
+    }()
+    private lazy var floatingWrapperView: UIView = {
+        let wrapper = UIView()
+        wrapper.translatesAutoresizingMaskIntoConstraints = false
+        wrapper.backgroundColor = .clear
+        wrapper.addSubview(floatingContainerView)
+        return wrapper
     }()
     private let wardListTitleLabel: UILabel = {
         let label = UILabel()
@@ -141,6 +322,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         label.font = .systemFont(ofSize: 17, weight: .medium)
         label.textColor = .label
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         label.text = "WarpView를 탭하면 ward 목록이 표시됩니다."
         return label
     }()
@@ -171,6 +353,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         label.font = .systemFont(ofSize: 17, weight: .medium)
         label.textColor = .label
         label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
         label.text = "selection이 변경되면 ward 목록이 표시됩니다."
         return label
     }()
@@ -187,19 +370,55 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         stackView.layer.masksToBounds = true
         return stackView
     }()
+    private let currentWardListTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 13, weight: .semibold)
+        label.textColor = .secondaryLabel
+        label.text = "Current Warp Wards (1s)"
+        return label
+    }()
+    private let currentWardListLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.lineBreakMode = .byCharWrapping
+        label.text = "초기화 후 1초 간격으로 현재 ward 목록이 표시됩니다."
+        return label
+    }()
+    private lazy var currentWardListContainerView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [currentWardListTitleLabel, currentWardListLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.alignment = .fill
+        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.backgroundColor = .secondarySystemBackground
+        stackView.layer.cornerRadius = 14
+        stackView.layer.masksToBounds = true
+        return stackView
+    }()
 
     private var warpView: TJWarpView? = TJWarpView()
+    private var currentWardsTimer: Timer?
     private var pendingSelectionInterval: TimeInterval = 1.0
     private var isWarpInitialized = false
     private var hasReleasedWarpResources = false
+    private var appliedInitDescription = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Warp"
+        warpIdTextField.text = defaultWarpUserId
+        warpIdTextField.delegate = self
+        sectorIdTextField.delegate = self
+        unchangedDeliveryIntervalTextField.delegate = self
         selectionIntervalTextField.delegate = self
         setupFloatingWarpView()
-        initializeWarpView()
         setupKeyboardDismissGesture()
     }
 
@@ -217,60 +436,184 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
 
     private func setupFloatingWarpView() {
         print("(WarpViewController) setupFloatingWarpView")
-        view.addSubview(selectionIntervalContainerView)
-        view.addSubview(floatingContainerView)
-        view.addSubview(wardListContainerView)
-        view.addSubview(selectionWardListContainerView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentStackView)
+
+        [
+            initParamsContainerView,
+            selectionIntervalContainerView,
+            floatingWrapperView,
+            wardListContainerView,
+            selectionWardListContainerView,
+            currentWardListContainerView
+        ].forEach { contentStackView.addArrangedSubview($0) }
 
         NSLayoutConstraint.activate([
-            selectionIntervalContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            selectionIntervalContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            selectionIntervalContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
-            applyIntervalButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 84),
+            contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 20),
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 24),
+            contentStackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -24),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24),
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -48),
+
             floatingContainerView.widthAnchor.constraint(equalToConstant: 80),
             floatingContainerView.heightAnchor.constraint(equalToConstant: 80),
-            floatingContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            floatingContainerView.topAnchor.constraint(equalTo: selectionIntervalContainerView.bottomAnchor, constant: 40),
+            floatingContainerView.centerXAnchor.constraint(equalTo: floatingWrapperView.centerXAnchor),
+            floatingContainerView.topAnchor.constraint(equalTo: floatingWrapperView.topAnchor, constant: 20),
+            floatingContainerView.bottomAnchor.constraint(equalTo: floatingWrapperView.bottomAnchor, constant: -20),
 
-            wardListContainerView.topAnchor.constraint(equalTo: floatingContainerView.bottomAnchor, constant: 24),
-            wardListContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            wardListContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-
-            selectionWardListContainerView.topAnchor.constraint(equalTo: wardListContainerView.bottomAnchor, constant: 16),
-            selectionWardListContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            selectionWardListContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            selectionWardListContainerView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
+            applyIntervalButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 84)
         ])
 
         view.layoutIfNeeded()
     }
 
-    private func initializeWarpView() {
-        print("(WarpViewController) initializeWarpView")
-        warpView?.delegate = self
-        warpView?.initialize(id: warpUserId, forceUpdate: true)
+    @objc private func didTapInitParamsHeader() {
+        dismissKeyboard()
+        isInitParamsExpanded.toggle()
+
+        UIView.animate(withDuration: 0.25) {
+            self.initParamsBodyStackView.isHidden = !self.isInitParamsExpanded
+            self.initParamsBodyStackView.alpha = self.isInitParamsExpanded ? 1.0 : 0.0
+            self.initParamsChevronImageView.image = UIImage(
+                systemName: self.isInitParamsExpanded ? "chevron.up" : "chevron.down"
+            )
+            self.view.layoutIfNeeded()
+        }
     }
 
-    private func updateWardNames(_ names: [String]) {
-        if names.isEmpty {
+    @objc private func didTapInitialize() {
+        dismissKeyboard()
+
+        guard !isWarpInitialized else {
+            updateInitStatus(text: "이미 초기화되었습니다.", color: .secondaryLabel)
+            return
+        }
+
+        guard
+            let id = warpIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+            !id.isEmpty
+        else {
+            updateInitStatus(text: "id는 필수입니다. 값을 입력해주세요.", color: .systemRed)
+            return
+        }
+
+        let sectorText = sectorIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+        var sectorId: Int?
+        if !sectorText.isEmpty {
+            guard let parsedSectorId = Int(sectorText) else {
+                updateInitStatus(text: "sectorId는 정수여야 합니다. 값을 확인해주세요.", color: .systemRed)
+                return
+            }
+            sectorId = parsedSectorId
+        }
+
+        let intervalText = unchangedDeliveryIntervalTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+        var deliveryInterval: TimeInterval?
+        if !intervalText.isEmpty {
+            guard let parsedInterval = TimeInterval(intervalText), parsedInterval >= 0 else {
+                updateInitStatus(text: "unchangedDeliveryInterval은 0 이상의 숫자(초)여야 합니다. 값을 확인해주세요.", color: .systemRed)
+                return
+            }
+            deliveryInterval = parsedInterval
+        }
+        unchangedDeliveryInterval = deliveryInterval
+
+        setInitParameterInputsEnabled(false)
+        let sectorDescription = sectorId.map { String($0) } ?? "SDK 기본값"
+        let intervalDescription = deliveryInterval.map { String(format: "%.2f", $0) } ?? "SDK 기본값"
+        appliedInitDescription = "\(id), sectorId=\(sectorDescription), unchangedDeliveryInterval=\(intervalDescription)"
+        updateInitStatus(text: "초기화 진행 중... (\(appliedInitDescription))", color: .secondaryLabel)
+
+        print("(WarpViewController) initializeWarpView -> \(appliedInitDescription)")
+        warpView?.delegate = self
+        if let sectorId = sectorId {
+            warpView?.initialize(id: id, sectorId: sectorId, forceUpdate: warpForceUpdate, unchangedDeliveryInterval: unchangedDeliveryInterval)
+        } else {
+            warpView?.initialize(id: id, forceUpdate: warpForceUpdate, unchangedDeliveryInterval: unchangedDeliveryInterval)
+        }
+    }
+
+    private func setInitParameterInputsEnabled(_ isEnabled: Bool) {
+        warpIdTextField.isEnabled = isEnabled
+        sectorIdTextField.isEnabled = isEnabled
+        unchangedDeliveryIntervalTextField.isEnabled = isEnabled
+        initializeButton.isEnabled = isEnabled
+        initializeButton.alpha = isEnabled ? 1.0 : 0.45
+    }
+
+    private func updateInitStatus(text: String, color: UIColor) {
+        initStatusLabel.text = text
+        initStatusLabel.textColor = color
+    }
+
+    private func updateWards(_ wards: [TJHanaSDK.WarpWard]) {
+        if wards.isEmpty {
             wardListLabel.text = "선택된 ward 정보가 없습니다."
             return
         }
 
-        wardListLabel.text = names.enumerated()
-            .map { index, name in "\(index + 1). \(name)" }
+        wardListLabel.text = wards.enumerated()
+            .map { index, ward in
+                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)"
+            }
             .joined(separator: "\n")
     }
 
-    private func updateSelectionWardNames(_ names: [String]) {
-        if names.isEmpty {
+    private func updateSelectionWards(_ wards: [TJHanaSDK.WarpWard]) {
+        if wards.isEmpty {
             selectionWardListLabel.text = "선택된 ward 정보가 없습니다."
             return
         }
 
-        selectionWardListLabel.text = names.enumerated()
-            .map { index, name in "\(index + 1). \(name)" }
+        selectionWardListLabel.text = wards.enumerated()
+            .map { index, ward in
+                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)"
+            }
+            .joined(separator: "\n")
+    }
+
+    private func startCurrentWardsTimer() {
+        currentWardsTimer?.invalidate()
+        let timer = Timer(timeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.refreshCurrentWards()
+        }
+        RunLoop.main.add(timer, forMode: .common)
+        currentWardsTimer = timer
+        refreshCurrentWards()
+    }
+
+    private func stopCurrentWardsTimer() {
+        currentWardsTimer?.invalidate()
+        currentWardsTimer = nil
+    }
+
+    private func refreshCurrentWards() {
+        guard let wards = warpView?.getCurrentWarpWards() else { return }
+        let uniqueWards = wards.reduce(into: [TJHanaSDK.WarpWard]()) { result, ward in
+            if !result.contains(where: { $0.name == ward.name }) {
+                result.append(ward)
+            }
+        }
+        updateCurrentWards(uniqueWards)
+    }
+
+    private func updateCurrentWards(_ wards: [TJHanaSDK.WarpWard]) {
+        if wards.isEmpty {
+            currentWardListLabel.text = "현재 감지된 ward 정보가 없습니다."
+            return
+        }
+
+        currentWardListLabel.text = wards.enumerated()
+            .map { index, ward in
+                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)"
+            }
             .joined(separator: "\n")
     }
 
@@ -334,6 +677,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
         guard !hasReleasedWarpResources else { return }
         hasReleasedWarpResources = true
 
+        stopCurrentWardsTimer()
         warpView?.delegate = nil
         warpView?.stopService()
         warpView = nil
@@ -343,7 +687,11 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
 
 extension WarpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        didTapApplyInterval()
+        if textField === selectionIntervalTextField {
+            didTapApplyInterval()
+        } else {
+            textField.resignFirstResponder()
+        }
         return true
     }
 }

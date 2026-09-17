@@ -269,7 +269,9 @@ public struct WardContents : Swift.Codable, Swift.Equatable {
   @_Concurrency.MainActor @preconcurrency public func onRfdEmptyMillis(_ generator: TJLabsCommon.RFDGenerator, time: Swift.Double)
   @objc deinit
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any TJLabsHana.WarpViewDelegate)?
-  @_Concurrency.MainActor @preconcurrency public func initialize(id: Swift.String, sectorId: Swift.Int = HANA_SECTOR_ID, forceUpdate: Swift.Bool = false)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func initialize(id: Swift.String, sectorId: Swift.Int = HANA_SECTOR_ID, forceUpdate: Swift.Bool = false, baseURL: Swift.String, unchangedDeliveryInterval: Foundation.TimeInterval? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency public func startService()
   @_Concurrency.MainActor @preconcurrency public func stopService()
   #if compiler(>=5.3) && $NonescapableTypes
@@ -282,6 +284,10 @@ public struct WardContents : Swift.Codable, Swift.Equatable {
   @_Concurrency.MainActor @preconcurrency public func getVisibility() -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency public func setVisibility(isVisible: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency public func setSelectionInterval(seconds: Foundation.TimeInterval)
+  @_Concurrency.MainActor @preconcurrency public func getCurrentWarpWards() -> [TJLabsHana.WarpWard]
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func setUnchangedDeliveryInterval(_ seconds: Foundation.TimeInterval?)
+  #endif
 }
 extension TJLabsHana.HanaRegion : Swift.Equatable {}
 extension TJLabsHana.HanaRegion : Swift.Hashable {}
