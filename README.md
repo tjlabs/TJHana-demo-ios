@@ -5,11 +5,11 @@
 TJHana-demo-ios is a minimal iOS sample app for integrating **TJLabs Hana SDK** with CocoaPods.
 
 <!-- JUPITER_SDK_VERSION_START -->
-Jupiter SDK version: 2.0.16
+Jupiter SDK version: 2.0.19
 <!-- JUPITER_SDK_VERSION_END -->
 
 <!-- HANA_SDK_IOS_VERSION_START -->
-Hana SDK (CocoaPods): TJHanaSDK 1.1.2
+Hana SDK (CocoaPods): TJHanaSDK 1.1.5
 <!-- HANA_SDK_IOS_VERSION_END -->
 
 The app demonstrates Hana SDK flows with:
