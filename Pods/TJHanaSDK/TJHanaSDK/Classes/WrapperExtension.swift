@@ -65,6 +65,55 @@ extension TJLabsHana.WardContents {
     }
 }
 
+extension TJLabsHana.WarpSectorInfo {
+    func toWrap() -> WarpSectorInfo {
+        return WarpSectorInfo(
+            id: self.id,
+            name: self.name,
+            buildings: self.buildings.map { $0.toWrap() }
+        )
+    }
+}
+
+extension TJLabsHana.WarpBuildingInfo {
+    func toWrap() -> WarpBuildingInfo {
+        return WarpBuildingInfo(
+            id: self.id,
+            name: self.name,
+            levels: self.levels.map { $0.toWrap() }
+        )
+    }
+}
+
+extension TJLabsHana.WarpLevelInfo {
+    func toWrap() -> WarpLevelInfo {
+        return WarpLevelInfo(
+            id: self.id,
+            name: self.name,
+            mapImage: self.mapImage?.toWrap(),
+            wards: self.wards.map { $0.toWrap() }
+        )
+    }
+}
+
+extension TJLabsHana.WarpMapImage {
+    func toWrap() -> WarpMapImage {
+        return WarpMapImage(
+            building_id: self.building_id,
+            building_name: self.building_name,
+            level_id: self.level_id,
+            level_name: self.level_name,
+            url: self.url,
+            image_width: self.image_width,
+            image_height: self.image_height,
+            scale_x: self.scale_x,
+            scale_y: self.scale_y,
+            offset_x: self.offset_x,
+            offset_y: self.offset_y
+        )
+    }
+}
+
 // MARK: - To Wrap (Venus)
 extension TJLabsHana.VenusInitErrorCode {
     func toWrap() -> VenusInitErrorCode {

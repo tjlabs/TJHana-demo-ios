@@ -86,6 +86,21 @@
             </objects>
             <point key="canvasLocation" x="692" y="718"/>
         </scene>
+        <!--Warp Setting View Controller-->
+        <scene sceneID="IZ7-23-Rkm">
+            <objects>
+                <viewController storyboardIdentifier="WarpSettingViewController" id="IbT-Ro-gmR" customClass="WarpSettingViewController" customModule="TJHanaDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d5M-3e-vOy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5cz-Rf-Hjv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGQ-4L-hOT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="691" y="-13"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

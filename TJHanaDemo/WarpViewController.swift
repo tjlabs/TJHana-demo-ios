@@ -17,6 +17,9 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
                 text: "초기화 성공: id=\(appliedInitDescription)",
                 color: .systemGreen
             )
+            
+            let sectorInfo = view.getWarpSectorInfo()
+            print("(WarpView) sectorInfo : data= \(sectorInfo)")
             self.warpView?.startService()
             self.warpView?.configureFrame(to: self.floatingContainerView, warpImage: UIImage(named: "ic_warp"))
             applySelectionInterval(pendingSelectionInterval, state: .applied)
@@ -65,7 +68,7 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
     }
 
     private let defaultWarpUserId = "hana-example-user"
-    private let warpForceUpdate = false
+    private let warpForceUpdate = true
     private var unchangedDeliveryInterval: TimeInterval? = nil
     
     private let scrollView: UIScrollView = {
@@ -567,17 +570,28 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
     }
 
     private func updateSelectionWards(_ wards: [TJHanaSDK.WarpWard]) {
+        let timestamp = "updated: \(Self.selectionTimeFormatter.string(from: Date()))"
+
         if wards.isEmpty {
-            selectionWardListLabel.text = "선택된 ward 정보가 없습니다."
+            selectionWardListLabel.text = "\(timestamp)\n선택된 ward 정보가 없습니다."
             return
         }
 
-        selectionWardListLabel.text = wards.enumerated()
+        let wardText = wards.enumerated()
             .map { index, ward in
-                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)"
+                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)\n    x: \(ward.x), y: \(ward.y)"
             }
             .joined(separator: "\n")
+
+        selectionWardListLabel.text = "\(timestamp)\n\(wardText)"
     }
+
+    private static let selectionTimeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "HH:mm:ss.SSS"
+        return formatter
+    }()
 
     private func startCurrentWardsTimer() {
         currentWardsTimer?.invalidate()
@@ -605,16 +619,20 @@ class WarpViewController: UIViewController, TJWarpViewDelegate {
     }
 
     private func updateCurrentWards(_ wards: [TJHanaSDK.WarpWard]) {
+        let timestamp = "updated: \(Self.selectionTimeFormatter.string(from: Date()))"
+
         if wards.isEmpty {
-            currentWardListLabel.text = "현재 감지된 ward 정보가 없습니다."
+            currentWardListLabel.text = "\(timestamp)\n현재 감지된 ward 정보가 없습니다."
             return
         }
 
-        currentWardListLabel.text = wards.enumerated()
+        let wardText = wards.enumerated()
             .map { index, ward in
-                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)"
+                "\(index + 1). \(ward.name)\n    rssi: \(ward.rssi), detected_rssi: \(ward.detected_rssi)\n    x: \(ward.x), y: \(ward.y)"
             }
             .joined(separator: "\n")
+
+        currentWardListLabel.text = "\(timestamp)\n\(wardText)"
     }
 
     private func setupKeyboardDismissGesture() {

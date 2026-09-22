@@ -149,11 +149,77 @@ public struct WardContents: Codable, Equatable {
     public var id: Int
     public var name: String
     public var url: URL
-    
+
     public init(id: Int, name: String, url: URL) {
         self.id = id
         self.name = name
         self.url = url
+    }
+}
+
+public struct WarpSectorInfo: Codable, Equatable {
+    public let id: Int
+    public let name: String
+    public let buildings: [WarpBuildingInfo]
+
+    public init(id: Int, name: String, buildings: [WarpBuildingInfo]) {
+        self.id = id
+        self.name = name
+        self.buildings = buildings
+    }
+}
+
+public struct WarpBuildingInfo: Codable, Equatable {
+    public let id: Int
+    public let name: String
+    public let levels: [WarpLevelInfo]
+
+    public init(id: Int, name: String, levels: [WarpLevelInfo]) {
+        self.id = id
+        self.name = name
+        self.levels = levels
+    }
+}
+
+public struct WarpLevelInfo: Codable, Equatable {
+    public let id: Int
+    public let name: String
+    public let mapImage: WarpMapImage?
+    public let wards: [WarpWard]
+
+    public init(id: Int, name: String, mapImage: WarpMapImage?, wards: [WarpWard]) {
+        self.id = id
+        self.name = name
+        self.mapImage = mapImage
+        self.wards = wards
+    }
+}
+
+public struct WarpMapImage: Codable, Equatable {
+    public let building_id: Int
+    public let building_name: String
+    public let level_id: Int
+    public let level_name: String
+    public let url: String
+    public let image_width: Double
+    public let image_height: Double
+    public let scale_x: Double
+    public let scale_y: Double
+    public let offset_x: Double
+    public let offset_y: Double
+
+    public init(building_id: Int, building_name: String, level_id: Int, level_name: String, url: String, image_width: Double, image_height: Double, scale_x: Double, scale_y: Double, offset_x: Double, offset_y: Double) {
+        self.building_id = building_id
+        self.building_name = building_name
+        self.level_id = level_id
+        self.level_name = level_name
+        self.url = url
+        self.image_width = image_width
+        self.image_height = image_height
+        self.scale_x = scale_x
+        self.scale_y = scale_y
+        self.offset_x = offset_x
+        self.offset_y = offset_y
     }
 }
 

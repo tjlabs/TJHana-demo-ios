@@ -13,8 +13,8 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
         case ready
     }
 
-    private let accessKey = ""
-    private let secretAccessKey = ""
+    private let accessKey = "AKhyck68FozrxBM6S6s4uCSQ"
+    private let secretAccessKey = "SKovjJ95K9q7DEiNEO6sylUNDeAOFUdhGtbyj0tFIsNEc"
     private var isAuthenticated = false
     
     private let locationManager = CLLocationManager()
@@ -37,9 +37,19 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     private lazy var warpButton = makeButton(title: "Warp", action: #selector(didTapWarp))
     private lazy var venusButton = makeButton(title: "Venus", action: #selector(didTapVenus))
     private lazy var jupiterButton = makeButton(title: "Jupiter", action: #selector(didTapJupiter))
+    private lazy var warpSettingButton = makeButton(title: "WarpSetting", action: #selector(didTapWarpSetting))
+
+    private lazy var debugTitleView: DebugTitleView = {
+        let titleView = DebugTitleView(title: "TJHanaDemo")
+        titleView.requiredDuration = 3.0
+        titleView.onLongPress = { [weak self] in
+            self?.toggleDebugMode()
+        }
+        return titleView
+    }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [authButton, warpButton, venusButton, jupiterButton])
+        let stackView = UIStackView(arrangedSubviews: [authButton, warpButton, venusButton, jupiterButton, warpSettingButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -55,17 +65,37 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
         locationManager.delegate = self
         setupLayout()
         updateServiceButtons(isEnabled: false)
+        updateDebugUI()
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleDidBecomeActive),
             name: UIApplication.didBecomeActiveNotification,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleDebugModeChanged),
+            name: DebugManager.didChangeNotification,
+            object: nil
+        )
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the nav bar on this screen so the title lives in the normal view
+        // hierarchy, where touch delivery is reliable (unlike a nav-bar titleView).
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         requestRuntimePermissionsIfNeeded()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Restore the nav bar for pushed screens (back button, titles).
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,10 +107,19 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     }
 
     private func setupLayout() {
+        view.addSubview(debugTitleView)
         view.addSubview(statusLabel)
         view.addSubview(stackView)
 
+        warpSettingButton.isEnabled = true
+        warpSettingButton.alpha = 1.0
+        warpSettingButton.backgroundColor = .systemOrange
+        warpSettingButton.setTitleColor(.white, for: .normal)
+
         NSLayoutConstraint.activate([
+            debugTitleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            debugTitleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.widthAnchor.constraint(equalToConstant: 220),
@@ -89,6 +128,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
             warpButton.heightAnchor.constraint(equalToConstant: 52),
             venusButton.heightAnchor.constraint(equalToConstant: 52),
             jupiterButton.heightAnchor.constraint(equalToConstant: 52),
+            warpSettingButton.heightAnchor.constraint(equalToConstant: 52),
 
             statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
@@ -152,6 +192,25 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     @objc private func didTapJupiter() {
         guard let jupiterVC = self.storyboard?.instantiateViewController(withIdentifier: "JupiterViewController") as? JupiterViewController else { return }
         navigationController?.pushViewController(jupiterVC, animated: true)
+    }
+
+    @objc private func didTapWarpSetting() {
+        guard let warpSettingVC = self.storyboard?.instantiateViewController(withIdentifier: "WarpSettingViewController") as? WarpSettingViewController else { return }
+        navigationController?.pushViewController(warpSettingVC, animated: true)
+    }
+
+    private func toggleDebugMode() {
+        DebugManager.shared.toggle()
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+    }
+
+    @objc private func handleDebugModeChanged() {
+        updateDebugUI()
+    }
+
+    private func updateDebugUI() {
+        let isDebug = DebugManager.shared.isDebugMode
+        warpSettingButton.isHidden = !isDebug
     }
 
     private func doAuth() {
