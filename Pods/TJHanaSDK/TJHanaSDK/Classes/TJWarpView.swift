@@ -75,6 +75,14 @@ public class TJWarpView: UIView, TJLabsHana.WarpViewDelegate {
     public func getCurrentWarpWards() -> [WarpWard] {
         return warpView.getCurrentWarpWards().map { $0.toWrap() }
     }
+
+    public func getWarpBaseURL() -> String {
+        return HanaOnPremiseNetworkConstants.serviceBaseURL(.warp)
+    }
+    
+    public func getWarpSectorInfo() -> WarpSectorInfo? {
+        return warpView.getWarpSectorInfo()?.toWrap()
+    }
     
     private func tearDownWarpView() {
         guard !didTearDown else { return }

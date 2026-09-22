@@ -51,6 +51,7 @@ public enum HanaService : Swift.String {
 @_hasMissingDesignatedInitializers public class HanaOnPremiseNetworkConstants {
   public static func setBaseURL(_ url: Swift.String)
   public static func isEnabled() -> Swift.Bool
+  public static func serviceBaseURL(_ service: TJLabsHana.HanaService) -> Swift.String
   public static func getUserWarpURL() -> Swift.String
   public static func getUserVenusURL() -> Swift.String
   @objc deinit
@@ -238,7 +239,7 @@ public struct WarpWard : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-public struct WarpMapImage : Swift.Codable {
+public struct WarpMapImage : Swift.Codable, Swift.Equatable {
   public let building_id: Swift.Int
   public let building_name: Swift.String
   public let level_id: Swift.Int
@@ -251,6 +252,37 @@ public struct WarpMapImage : Swift.Codable {
   public let offset_x: Swift.Double
   public let offset_y: Swift.Double
   public init(building_id: Swift.Int, building_name: Swift.String, level_id: Swift.Int, level_name: Swift.String, url: Swift.String, image_width: Swift.Double, image_height: Swift.Double, scale_x: Swift.Double, scale_y: Swift.Double, offset_x: Swift.Double, offset_y: Swift.Double)
+  public static func == (a: TJLabsHana.WarpMapImage, b: TJLabsHana.WarpMapImage) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WarpSectorInfo : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let buildings: [TJLabsHana.WarpBuildingInfo]
+  public init(id: Swift.Int, name: Swift.String, buildings: [TJLabsHana.WarpBuildingInfo])
+  public static func == (a: TJLabsHana.WarpSectorInfo, b: TJLabsHana.WarpSectorInfo) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WarpBuildingInfo : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let levels: [TJLabsHana.WarpLevelInfo]
+  public init(id: Swift.Int, name: Swift.String, levels: [TJLabsHana.WarpLevelInfo])
+  public static func == (a: TJLabsHana.WarpBuildingInfo, b: TJLabsHana.WarpBuildingInfo) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WarpLevelInfo : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int
+  public let name: Swift.String
+  public let mapImage: TJLabsHana.WarpMapImage?
+  public let wards: [TJLabsHana.WarpWard]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.Int, name: Swift.String, mapImage: TJLabsHana.WarpMapImage?, wards: [TJLabsHana.WarpWard])
+  #endif
+  public static func == (a: TJLabsHana.WarpLevelInfo, b: TJLabsHana.WarpLevelInfo) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -280,6 +312,9 @@ public struct WardContents : Swift.Codable, Swift.Equatable {
   @_Concurrency.MainActor @preconcurrency public func getWarpMapImages() -> [Swift.Int : TJLabsHana.WarpMapImage]
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func getWarpMapImage(levelId: Swift.Int) -> TJLabsHana.WarpMapImage?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func getWarpSectorInfo() -> TJLabsHana.WarpSectorInfo?
   #endif
   @_Concurrency.MainActor @preconcurrency public func getVisibility() -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency public func setVisibility(isVisible: Swift.Bool)
