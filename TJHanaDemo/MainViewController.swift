@@ -13,8 +13,8 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
         case ready
     }
 
-    private let accessKey = "AKhyck68FozrxBM6S6s4uCSQ"
-    private let secretAccessKey = "SKovjJ95K9q7DEiNEO6sylUNDeAOFUdhGtbyj0tFIsNEc"
+    private let accessKey = ""
+    private let secretAccessKey = ""
     private var isAuthenticated = false
     
     private let locationManager = CLLocationManager()
