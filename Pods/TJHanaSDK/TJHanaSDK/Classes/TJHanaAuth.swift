@@ -30,11 +30,11 @@ public class TJHanaAuth {
     
     private func makeClientMeta() -> ClientMeta {
         let clientSdks = [
-            SdkMeta(name: "TJLabsAuth", version: "1.0.7"),
+            SdkMeta(name: "TJLabsAuth", version: "1.0.8"),
             SdkMeta(name: "TJLabsCommon", version: "1.0.9"),
-            SdkMeta(name: "TJLabsResource", version: "0.1.15"),
-            SdkMeta(name: "TJLabsJupiter", version: "2.0.19"),
-            SdkMeta(name: "TJLabsHana", version: "1.1.6")
+            SdkMeta(name: "TJLabsResource", version: "0.1.18"),
+            SdkMeta(name: "TJLabsJupiter", version: "2.0.22"),
+            SdkMeta(name: "TJLabsHana", version: "1.1.7")
         ]
         
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""

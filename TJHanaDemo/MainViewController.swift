@@ -24,6 +24,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CLLocation
     private var permissionFlowState: PermissionFlowState = .idle
 
     private let statusLabel: UILabel = {
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "인증 필요"

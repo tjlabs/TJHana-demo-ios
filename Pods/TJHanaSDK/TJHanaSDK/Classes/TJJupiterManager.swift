@@ -106,9 +106,10 @@ public class TJJupiterManager: NavigationManagerDelegate {
         delegate?.onJupiterSuccess(self, true, nil)
     }
 
-    public func stopService(completion: @escaping (Bool, String, JupiterServiceResult) -> Void) {
+    public func stopService(completion: @escaping (Bool, String) -> Void) {
         stopMockTimer()
         stopResultTimer()
+        completion(true, "stopped")
 //        serviceManager?.stopService(completion: completion)
     }
 
