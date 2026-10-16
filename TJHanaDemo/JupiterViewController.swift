@@ -217,7 +217,7 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
         guard !hasReleasedJupiterResources else { return }
         hasReleasedJupiterResources = true
         jupiterManager?.delegate = nil
-        jupiterManager?.stopService(completion: { _, _, _ in })
+        jupiterManager?.stopService(completion: { _, _ in })
         jupiterManager = nil
         isServiceRunning = false
     }
@@ -272,7 +272,7 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
         statusLabel.text = "Jupiter 정지 중..."
         statusLabel.textColor = .secondaryLabel
 
-        jupiterManager?.stopService(completion: { [weak self] isSuccess, msg, result in
+        jupiterManager?.stopService(completion: { [weak self] isSuccess, msg in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 self.updateControlState(isRunning: false)

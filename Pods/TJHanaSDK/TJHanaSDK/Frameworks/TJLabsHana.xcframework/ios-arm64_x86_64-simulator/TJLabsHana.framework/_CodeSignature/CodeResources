@@ -10,7 +10,7 @@
 		</data>
 		<key>Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		QjFVFrhnLJYSUMADuSxqGClWwlI=
+		oC/hYVy1Z337+qs8mZuLR/FJPUg=
 		</data>
 		<key>Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		DvXcBaBx92MDop9/LCSVDaunrP4=
+		JOw/AsIwBaHHQpYonbFnRHy4aSo=
 		</data>
 		<key>Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		QjFVFrhnLJYSUMADuSxqGClWwlI=
+		oC/hYVy1Z337+qs8mZuLR/FJPUg=
 		</data>
 		<key>Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		KiOOE85YI86lFJ8UDX8UWJQtwkI=
+		SOvfEuIB4I3QWXM/tlZBaw9rv3U=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -55,7 +55,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/w1tJbcyuWTcmCD9MKt6p0izYfxGVE+a/+E0i0KJ7oM=
+			0zoRjm5tV83OjvgqmrHtC/TDeFkc460FaxlyPI32ybE=
 			</data>
 		</dict>
 		<key>Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -83,14 +83,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6SaNZjVTZ1K+LckXMNWt6XOmLJAuyLjdMr1y1LoYabU=
+			Pb0JO3N311IPpJklubFlfv+gP7l0v9B0j3Qq7wEpA8I=
 			</data>
 		</dict>
 		<key>Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/w1tJbcyuWTcmCD9MKt6p0izYfxGVE+a/+E0i0KJ7oM=
+			0zoRjm5tV83OjvgqmrHtC/TDeFkc460FaxlyPI32ybE=
 			</data>
 		</dict>
 		<key>Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -118,7 +118,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5MdnPnDXQZ67jPe8KGDZK0ss3HttaJ8yfw+HQC2zZ4M=
+			bwiFjTqn+qI+zfr/830kDG9Tz+bN2vZey81SpGFF+XQ=
 			</data>
 		</dict>
 	</dict>

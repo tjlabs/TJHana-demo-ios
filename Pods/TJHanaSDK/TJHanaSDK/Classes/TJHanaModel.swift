@@ -8,11 +8,11 @@ import TJLabsJupiter
 let ON_PREMISE_BASE_URL: String = "https://hqsw.hanafn.com:18443/api/v1/sdk-proxy/api"
 
 let SAMPLE_ROUTING_RESULT = RoutingResult(routes:
-                                        [RoutingRoute(level_id: 700, level_name: "B2", x: 70, y: 10),
-                                         RoutingRoute(level_id: 700, level_name: "B2", x: 70, y: 18),
-                                         RoutingRoute(level_id: 700, level_name: "B2", x: 10, y: 18),
-                                         RoutingRoute(level_id: 700, level_name: "B2", x: 10, y: 29),
-                                         RoutingRoute(level_id: 700, level_name: "B2", x: 5, y: 29)],
+                                        [RoutingRoute(level_id: 6, level_name: "B2", x: 70, y: 10),
+                                         RoutingRoute(level_id: 6, level_name: "B2", x: 70, y: 18),
+                                         RoutingRoute(level_id: 6, level_name: "B2", x: 10, y: 18),
+                                         RoutingRoute(level_id: 6, level_name: "B2", x: 10, y: 29),
+                                         RoutingRoute(level_id: 6, level_name: "B2", x: 5, y: 29)],
                                           failureReason: nil)
 // Mock 결과 전달 주기 및 가정 이동 속도
 let MOCK_JUPITER_INTERVAL: TimeInterval = 0.2   // delegate 전달 간격 (초)
