@@ -4,9 +4,15 @@ import TJLabsJupiter
 import TJLabsHana
 import TJLabsResource
     
+private let VEHICLE_ROUTE_FOLLOWING_DISTANCE: Float = 50
+
 public class TJJupiterManager: NavigationManagerDelegate {
     
     public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult) {
+        // Jupiter initialize가 경로 추종 거리를 기본값으로 되돌리므로, 초기화 성공 이후에 설정한다.
+        if isSuccess {
+            serviceManager?.setVehicleRouteFollowingDistance(distance: VEHICLE_ROUTE_FOLLOWING_DISTANCE)
+        }
         delegate?.onInitSuccess(self, isSuccess, code?.toWrap())
     }
     
@@ -70,19 +76,20 @@ public class TJJupiterManager: NavigationManagerDelegate {
         self.id = id
         self.sectorId = sectorId
         
-//        self.serviceManager = JupiterServiceManager(id: id, region: HanaRegion.KOREA.rawValue, sectorId: sectorId, debugOption: debugOption, onPremiseBaseURL: ON_PREMISE_BASE_URL)
-//        self.serviceManager?.delegate = self
-        // delegate는 생성 직후 할당되므로, 현재 실행 흐름이 끝난 뒤(비동기) 초기화 성공을 전달한다.
+        self.serviceManager = JupiterServiceManager(id: id, region: HanaRegion.KOREA.rawValue, sectorId: sectorId, debugOption: debugOption, onPremiseBaseURL: ON_PREMISE_BASE_URL)
+        self.serviceManager?.delegate = self
+
+        // 고객사 delegate는 생성 직후 할당되므로, 현재 실행 흐름이 끝난 뒤(비동기) 초기화를 시작한다.
+        // (NOT_AUTHORIZED, INVALID_ID 등 init 실패는 동기로 통지되므로 delegate 연결 전에 호출하면 누락된다.)
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.delegate?.onInitSuccess(self, true, nil)
+            self?.serviceManager?.initialize()
         }
     }
     
     deinit {
         serviceManager?.delegate = nil
 
-        stopMockTimer()
+//        stopMockTimer()
         stopResultTimer()
         serviceManager?.stopService(completion: {_, _, _ in})
         serviceManager = nil
@@ -92,30 +99,42 @@ public class TJJupiterManager: NavigationManagerDelegate {
     /// init 이후 언제든 호출 가능하며, 서비스가 이미 실행 중이면 즉시 새 주기로 재시작한다.
     public func setResultInterval(milliseconds: Int) {
         resultIntervalMs = max(1, milliseconds)
-        if mockTimer != nil {
-            startMockService()
-        }
+        // 실행 중인 타이머는 latestResult를 유지한 채 주기만 재설정한다.
+        resultTimer?.schedule(deadline: .now(), repeating: .milliseconds(resultIntervalMs))
+//        if mockTimer != nil {
+//            startMockService()
+//        }
     }
 
     public func startService(resultIntervalMs: Int = 1000) {
         self.resultIntervalMs = max(1, resultIntervalMs)
+        startResultTimer()
         // 항상 DR(MODE_VEHICLE)로 강제 시작한다.
-//        serviceManager?.startService(mode: UserMode.MODE_VEHICLE.toJupiter())
+        serviceManager?.startService(mode: UserMode.MODE_VEHICLE.toJupiter())
+        
         // startService 성공 시 delegate로 mock 결과를 전달한다.
-        startMockService()
-        delegate?.onJupiterSuccess(self, true, nil)
+//        startMockService()
+//        delegate?.onJupiterSuccess(self, true, nil)
     }
 
     public func stopService(completion: @escaping (Bool, String) -> Void) {
-        stopMockTimer()
+//        stopMockTimer()
         stopResultTimer()
-        completion(true, "stopped")
-//        serviceManager?.stopService(completion: completion)
+        guard let serviceManager = serviceManager else {
+            completion(false, "serviceManager is not initialized")
+            return
+        }
+        serviceManager.stopService(completion: { isSuccess, msg, _ in
+            completion(isSuccess, msg)
+        })
+    }
+    
+    public func setReplayMode(flag: Bool, rfdFileName: String, uvdFileName: String, eventFileName: String) {
+        serviceManager?.setReplayMode(flag: flag, rfdFileName: rfdFileName, uvdFileName: uvdFileName, eventFileName: eventFileName)
     }
 
     // MARK: - Result delivery timer
     // NavigationManager가 push한 최신 결과를 설정된 주기(resultIntervalMs)로 delegate에 전달한다.
-    // 현재 startService는 mock 결과만 전달하므로 사용하지 않지만, 실제 결과 전달로 되돌릴 때 다시 사용한다.
     private func startResultTimer() {
         stopResultTimer()
 
@@ -126,8 +145,9 @@ public class TJJupiterManager: NavigationManagerDelegate {
         timer.setEventHandler { [weak self] in
             guard let self = self else { return }
             // 같은 결과라도 설정된 주기마다 무조건 전달한다(아직 결과가 없으면 스킵).
+            // latestResult는 routing origin으로 쓰이므로 내부 좌표로 유지하고, 전달 시점에만 고객사 좌표로 변환한다.
             guard let result = self.latestResult else { return }
-            self.delegate?.onJupiterResult(self, result)
+            self.delegate?.onJupiterResult(self, self.toCustomerResult(result))
         }
         resultTimer = timer
         timer.resume()
@@ -174,46 +194,86 @@ public class TJJupiterManager: NavigationManagerDelegate {
     public func requestRouting(end: Point,
                                waypoints: [Point] = [],
                                completion: @escaping (RoutingResult) -> Void) {
-        completion(SAMPLE_ROUTING_RESULT)
-        
-//        guard let latestResult = self.latestResult else {
-//            completion(RoutingResult(routes: [], failureReason: .INTERNAL_ERROR))
-//            return
-//        }
-//        guard let levelId = serviceManager?.getLevelId(sectorId: sectorId, buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
-//            completion(RoutingResult(routes: [], failureReason: .INTERNAL_ERROR))
-//            return
-//        }
-//        guard let scaleOffset = serviceManager?.getScaleOffset(sectorId: sectorId, buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
-//            completion(RoutingResult(routes: [], failureReason: .SCALE_OFFSET_ERROR))
-//            return
-//        }
-//        if scaleOffset.count < 4 {
-//            completion(RoutingResult(routes: [], failureReason: .SCALE_OFFSET_ERROR))
-//            return
-//        }
-//        
-//        let scaleX = scaleOffset[0]
-//        let scaleY = scaleOffset[1]
-//        let offsetX = scaleOffset[2]
-//        let offsetY = scaleOffset[3]
-//
-//        let origin = RoutingStart(level_id: levelId, x: Int(latestResult.jupiter_pos.x), y: Int(latestResult.jupiter_pos.y), absolute_heading: Int(latestResult.jupiter_pos.heading))
-//        
-//        let destX = Float(end.x)*scaleX + offsetX
-//        let destY = Float(end.y)*scaleY + offsetY
-//        let destination = Point(level_id: end.level_id, x: Int(destX), y: Int(destY))
-//        
-//        serviceManager?.requestRouting(start: origin.toJupiter(),
-//                                       end: destination.toJupiter(),
-//                                       waypoints: waypoints.map{$0.toJupiter()}, isVehicle: true, completion: { _, navigationLevelRoutes, navigationFailureReason in
-//            let routes = navigationLevelRoutes.flatMap { levelRoute -> [RoutingRoute] in
-//                let levelName = TJLabsResourceManager.shared.getLevelName(levelId: levelRoute.levelId) ?? ""
-//                return levelRoute.points.map { point in
-//                    RoutingRoute(level_id: levelRoute.levelId, level_name: levelName, x: point.x, y: point.y)
-//                }
-//            }
-//            completion(RoutingResult(routes: routes, failureReason: navigationFailureReason?.toWrap()))
-//        })
+        guard let latestResult = self.latestResult else {
+            completion(RoutingResult(routes: [], failureReason: .INTERNAL_ERROR))
+            return
+        }
+        guard let levelId = serviceManager?.getLevelId(sectorId: sectorId, buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
+            completion(RoutingResult(routes: [], failureReason: .INTERNAL_ERROR))
+            return
+        }
+        guard let scaleOffset = getScaleOffset(buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
+            completion(RoutingResult(routes: [], failureReason: .SCALE_OFFSET_ERROR))
+            return
+        }
+
+        let origin = RoutingStart(level_id: levelId, x: Int(latestResult.jupiter_pos.x), y: Int(latestResult.jupiter_pos.y), absolute_heading: Int(latestResult.jupiter_pos.heading))
+
+        // end, waypoints는 고객사 좌표로 입력받으므로 내부 좌표로 변환한다.
+        let destination = scaleOffset.toInternal(end)
+        let internalWaypoints = waypoints.map { scaleOffset.toInternal($0) }
+        let originBuildingName = latestResult.building_name
+        print("(TJJupiterManager) requestRouting : origin= [levelId:\(origin.level_id), x:\(origin.x), y:\(origin.y), h:\(origin.absolute_heading)]")
+        print("(TJJupiterManager) requestRouting : dest= [levelId:\(end.level_id), x:\(end.x), y:\(end.y)]")
+        serviceManager?.requestRouting(start: origin.toJupiter(),
+                                       end: destination.toJupiter(),
+                                       waypoints: internalWaypoints.map{$0.toJupiter()}, isVehicle: true, completion: { [weak self] _, navigationLevelRoutes, navigationFailureReason in
+            print("(TJJupiterManager) requestRouting : navigationLevelRoutes= \(navigationLevelRoutes)")
+            let routes = navigationLevelRoutes.flatMap { levelRoute -> [RoutingRoute] in
+                // 리소스는 Jupiter 내부의 ResourceManager 인스턴스에 로드되므로 TJLabsResourceManager.shared가 아닌 serviceManager로 조회해야 한다.
+                let levelName = self?.serviceManager?.getLevelName(levelId: levelRoute.levelId) ?? "unknown"
+                // 경로 포인트는 해당 층의 scale/offset으로 고객사 좌표로 역변환한다(층 정보를 못 찾으면 요청 시 사용한 값을 쓴다).
+                // levelId로 건물을 조회하는 API가 없어 출발 위치의 건물을 사용한다.
+                let levelScaleOffset = self?.getScaleOffset(buildingName: originBuildingName, levelName: levelName) ?? scaleOffset
+                return levelRoute.points.map { point in
+                    let converted = levelScaleOffset.toCustomer(x: point.x, y: point.y)
+                    return RoutingRoute(level_id: levelRoute.levelId, level_name: levelName, x: converted.x, y: converted.y)
+                }
+            }
+            completion(RoutingResult(routes: routes, failureReason: navigationFailureReason?.toWrap()))
+        })
+    }
+
+    // MARK: - Coordinate conversion
+    // 고객사 좌표 -> 내부 좌표: internal = customer * scale + offset
+    // 내부 좌표 -> 고객사 좌표: customer = (internal - offset) / scale
+    private struct ScaleOffset {
+        let scaleX: Float
+        let scaleY: Float
+        let offsetX: Float
+        let offsetY: Float
+
+        func toCustomer(x: Float, y: Float) -> (x: Float, y: Float) {
+            return ((x - offsetX) / scaleX, (y - offsetY) / scaleY)
+        }
+
+        func toInternal(_ point: Point) -> Point {
+            let x = Float(point.x) * scaleX + offsetX
+            let y = Float(point.y) * scaleY + offsetY
+            return Point(level_id: point.level_id, x: Int(x), y: Int(y))
+        }
+
+        func toCustomer(_ pos: Position) -> Position {
+            let converted = toCustomer(x: pos.x, y: pos.y)
+            return Position(x: converted.x, y: converted.y, heading: pos.heading)
+        }
+    }
+
+    private func getScaleOffset(buildingName: String, levelName: String) -> ScaleOffset? {
+        guard let scaleOffset = serviceManager?.getScaleOffset(sectorId: sectorId, buildingName: buildingName, levelName: levelName),
+              scaleOffset.count >= 4,
+              scaleOffset[0] != 0, scaleOffset[1] != 0 else { return nil }
+        return ScaleOffset(scaleX: scaleOffset[0], scaleY: scaleOffset[1], offsetX: scaleOffset[2], offsetY: scaleOffset[3])
+    }
+
+    private func toCustomerResult(_ result: JupiterResult) -> JupiterResult {
+        // scale/offset을 구할 수 없는 경우(예: 실외)에는 변환 없이 그대로 전달한다.
+        guard let scaleOffset = getScaleOffset(buildingName: result.building_name, levelName: result.level_name) else {
+            return result
+        }
+        var converted = result
+        converted.jupiter_pos = scaleOffset.toCustomer(result.jupiter_pos)
+        converted.navi_pos = result.navi_pos.map { scaleOffset.toCustomer($0) }
+        return converted
     }
 }

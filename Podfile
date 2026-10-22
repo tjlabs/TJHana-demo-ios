@@ -8,7 +8,7 @@ target 'TJHanaDemo' do
   use_frameworks!
 
   # Pods for TJHanaDemo
-  pod 'TJHanaSDK', '1.1.7'
+  pod 'TJHanaSDK', '1.1.8'
 
   target 'TJHanaDemoTests' do
     inherit! :search_paths
