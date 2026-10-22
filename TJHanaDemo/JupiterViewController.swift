@@ -99,9 +99,8 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
 
     private lazy var routingResultField = makeFieldRow(title: "Routing Result (requestRouting)")
 
-    // 샘플 라우팅 좌표 (SAMPLE_ROUTING_RESULT의 B2 경로와 동일한 구간)
-    private let routingStart = RoutingStart(level_id: 700, x: 70, y: 10, absolute_heading: 0)
-    private let routingEnd = Point(level_id: 700, x: 5, y: 29)
+    // 하나금융HQ B2 목적지
+    private let routingEnd = Point(level_id: 6, x: 20, y: 67)
 
     private var inOutStateLabel: UILabel { resultFields[0].valueLabel }
     private var reportLabel: UILabel { resultFields[resultFields.count - 1].valueLabel }
@@ -236,7 +235,6 @@ final class JupiterViewController: UIViewController, TJJupiterManagerDelegate {
         statusLabel.text = "Jupiter 시작 중... (mode: \(jupiterMode.rawValue))"
         statusLabel.textColor = .secondaryLabel
         updateControlState(isRunning: true)
-
         manager.startService()
     }
 

@@ -1432,6 +1432,27 @@
           },
           {
             "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC10initializeyyF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC10initializeyyF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "startService",
             "printedName": "startService(mode:)",
             "children": [
@@ -1722,6 +1743,32 @@
           },
           {
             "kind": "Function",
+            "name": "setVehicleRouteFollowingDistance",
+            "printedName": "setVehicleRouteFollowingDistance(distance:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC32setVehicleRouteFollowingDistance8distanceySf_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC32setVehicleRouteFollowingDistance8distanceySf_tF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setNaviDestination",
             "printedName": "setNaviDestination(dest:isVehicle:)",
             "children": [
@@ -1860,6 +1907,50 @@
             "declKind": "Func",
             "usr": "s:10TJLabsHana21JupiterServiceManagerC14requestRouting5start3end9waypoints9isVehicle10completiony0aC00G5StartV_AJ5PointVSayANGSbyAJ0G6ResultVSg_SayAJ20NavigationLevelRouteVGAJ0qS13FailureReasonOSgtctF",
             "mangledName": "$s10TJLabsHana21JupiterServiceManagerC14requestRouting5start3end9waypoints9isVehicle10completiony0aC00G5StartV_AJ5PointVSayANGSbyAJ0G6ResultVSg_SayAJ20NavigationLevelRouteVGAJ0qS13FailureReasonOSgtctF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setReplayMode",
+            "printedName": "setReplayMode(flag:rfdFileName:uvdFileName:eventFileName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC13setReplayMode4flag11rfdFileName03uvdkL005eventkL0ySb_S3StF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC13setReplayMode4flag11rfdFileName03uvdkL005eventkL0ySb_S3StF",
             "moduleName": "TJLabsHana",
             "declAttributes": [
               "AccessControl"
@@ -9545,7 +9636,7 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
       "kind": "Array",
-      "offset": 3852,
+      "offset": 4246,
       "length": 2,
       "value": "[]"
     },

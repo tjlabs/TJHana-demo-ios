@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.1.7
+### Version 1.1.8
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -172,6 +172,7 @@ final class VenusViewController: UIViewController, TJVenuseManagerDelegate {
         super.viewDidLoad()
 
         let manager = TJVenusManager(id: "USER_ID", sectorId: 1, forceUpdate: true)
+        // Set the delegate right after init. Init results (including failures) are delivered asynchronously.
         manager.delegate = self
         venusManager = manager
     }
@@ -223,15 +224,28 @@ public struct VenusResult: Codable {
 
 ### Initialize
 
+- Initialization starts automatically after `init`, and its result is delivered through `onInitSuccess`.
+- Set the `delegate` right after `init`, in the same execution flow on the main thread. Init failures such as `NOT_AUTHORIZED`, `NETWORK_DISCONNECT`, and `INVALID_ID` are delivered through the delegate as well.
+- Call `TJHanaAuth.shared.auth` before creating `TJJupiterManager`. Otherwise `onInitSuccess` reports `NOT_AUTHORIZED`.
+- Start the service after `onInitSuccess` reports success.
+
 ```swift
 let manager = TJJupiterManager(id: "USER_ID", sectorId: 1, debugOption: false)
 manager.delegate = self
+
+func onInitSuccess(_ manager: TJJupiterManager, _ isSuccess: Bool, _ code: JupiterInitErrorCode?) {
+    guard isSuccess else {
+        print("Jupiter init failed:", code as Any)
+        return
+    }
+    manager.startService(resultIntervalMs: 1000)
+}
 ```
 
 ### Set Result Interval
 
 - `setResultInterval(milliseconds:)` sets how often positioning results are delivered through `onJupiterResult`.
-- Call it **after** `init` and **before** `startService`.
+- It can be called at any time after `init`. If the service is already running, the new interval is applied immediately.
 - The value is clamped to a minimum of `1` ms. If not set, the interval defaults to `1000` ms.
 
 ```swift
@@ -265,9 +279,11 @@ manager.setNavigationDestination(
 
 ### Request Routing
 
+- The route starts from the latest positioning result, so call it after `onJupiterResult` has delivered at least one result. Otherwise the request fails with `INTERNAL_ERROR`.
+- `end` and `waypoints` use your (customer) coordinates, and the returned route points are converted back to the same coordinate system.
+
 ```swift
 manager.requestRouting(
-    start: RoutingStart(level_id: 2, x: 100, y: 200, absolute_heading: 90),
     end: Point(level_id: 2, x: 120, y: 240),
     waypoints: []
 ) { result in
@@ -408,6 +424,8 @@ public enum JupiterServiceCode: Int {
 
 public enum NavigationRouteFailureReason: String, Codable {
     case UNKNOWN = "unknown"
+    case INTERNAL_ERROR = "internal_error"
+    case SCALE_OFFSET_ERROR = "scale_offset_error"
     case SERVER_RESPONSE = "server_response"
     case TOO_CLOSE = "too_close"
 }
