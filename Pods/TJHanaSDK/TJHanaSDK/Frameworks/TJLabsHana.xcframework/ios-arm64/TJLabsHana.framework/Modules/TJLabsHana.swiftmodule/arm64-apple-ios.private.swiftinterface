@@ -75,7 +75,7 @@ public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, region: Swift.String = HanaRegion.KOREA.rawValue, sectorId: Swift.Int = HANA_SECTOR_ID, debugOption: Swift.Bool = false, onPremiseBaseURL: Swift.String? = nil)
   #endif
-  public func initialize()
+  public func initialize(includeImages: Swift.Bool = false)
   @objc deinit
   public func startService(mode: TJLabsCommon.UserMode)
   public func stopService(completion: @escaping (Swift.Bool, Swift.String, TJLabsJupiter.JupiterServiceResult) -> Swift.Void)
@@ -99,6 +99,7 @@ public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
   public func requestRouting(start: TJLabsJupiter.RoutingStart, end: TJLabsJupiter.Point, waypoints: [TJLabsJupiter.Point] = [], isVehicle: Swift.Bool, completion: @escaping (TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute], TJLabsJupiter.NavigationRouteFailureReason?) -> Swift.Void)
   #endif
+  public func reportRoutingPreconditionFailure(source: Swift.String, reason: Swift.String, input: [Swift.String : TJLabsJupiter.JSONValue], detail: [Swift.String : TJLabsJupiter.JSONValue] = [:])
   public func setReplayMode(flag: Swift.Bool, rfdFileName: Swift.String, uvdFileName: Swift.String, eventFileName: Swift.String)
 }
 public protocol VenusServiceManagerDelegate : AnyObject {

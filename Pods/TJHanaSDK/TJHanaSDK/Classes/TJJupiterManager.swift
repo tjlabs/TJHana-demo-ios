@@ -194,15 +194,37 @@ public class TJJupiterManager: NavigationManagerDelegate {
     public func requestRouting(end: Point,
                                waypoints: [Point] = [],
                                completion: @escaping (RoutingResult) -> Void) {
-        guard let latestResult = self.latestResult else {
-            completion(RoutingResult(routes: [], failureReason: .INTERNAL_ERROR))
+        // 서버 이벤트 input 에는 이 함수의 입력값 전부(고객사 좌표 그대로)를 담는다.
+        let eventInput: [String: JSONValue] = [
+            "end": end.toEventJSON(),
+            "waypoints": .array(waypoints.map { $0.toEventJSON() }),
+        ]
+        guard let serviceManager else {
+            // Jupiter 인스턴스가 없어 서버 이벤트를 보낼 수 없으므로 로그만 남긴다.
+            print("(TJJupiterManager) requestRouting : fail=\(NavigationRouteFailureReason.NOT_READY.rawValue) input=\(eventInput)")
+            completion(RoutingResult(routes: [], failureReason: .NOT_READY))
             return
         }
-        guard let levelId = serviceManager?.getLevelId(sectorId: sectorId, buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
-            completion(RoutingResult(routes: [], failureReason: .INTERNAL_ERROR))
+        guard let latestResult = self.latestResult else {
+            serviceManager.reportRoutingPreconditionFailure(source: "TJHanaSDK", reason: NavigationRouteFailureReason.NO_CURRENT_POSITION.rawValue,
+                                                            input: eventInput, detail: ["sector_id": .int(sectorId)])
+            completion(RoutingResult(routes: [], failureReason: .NO_CURRENT_POSITION))
+            return
+        }
+        let positionDetail: [String: JSONValue] = [
+            "sector_id": .int(sectorId),
+            "building_name": .string(latestResult.building_name),
+            "level_name": .string(latestResult.level_name),
+        ]
+        guard let levelId = serviceManager.getLevelId(sectorId: sectorId, buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
+            serviceManager.reportRoutingPreconditionFailure(source: "TJHanaSDK", reason: NavigationRouteFailureReason.LEVEL_NOT_FOUND.rawValue,
+                                                            input: eventInput, detail: positionDetail)
+            completion(RoutingResult(routes: [], failureReason: .LEVEL_NOT_FOUND))
             return
         }
         guard let scaleOffset = getScaleOffset(buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
+            serviceManager.reportRoutingPreconditionFailure(source: "TJHanaSDK", reason: NavigationRouteFailureReason.SCALE_OFFSET_ERROR.rawValue,
+                                                            input: eventInput, detail: positionDetail)
             completion(RoutingResult(routes: [], failureReason: .SCALE_OFFSET_ERROR))
             return
         }
@@ -215,7 +237,7 @@ public class TJJupiterManager: NavigationManagerDelegate {
         let originBuildingName = latestResult.building_name
         print("(TJJupiterManager) requestRouting : origin= [levelId:\(origin.level_id), x:\(origin.x), y:\(origin.y), h:\(origin.absolute_heading)]")
         print("(TJJupiterManager) requestRouting : dest= [levelId:\(end.level_id), x:\(end.x), y:\(end.y)]")
-        serviceManager?.requestRouting(start: origin.toJupiter(),
+        serviceManager.requestRouting(start: origin.toJupiter(),
                                        end: destination.toJupiter(),
                                        waypoints: internalWaypoints.map{$0.toJupiter()}, isVehicle: true, completion: { [weak self] _, navigationLevelRoutes, navigationFailureReason in
             print("(TJJupiterManager) requestRouting : navigationLevelRoutes= \(navigationLevelRoutes)")

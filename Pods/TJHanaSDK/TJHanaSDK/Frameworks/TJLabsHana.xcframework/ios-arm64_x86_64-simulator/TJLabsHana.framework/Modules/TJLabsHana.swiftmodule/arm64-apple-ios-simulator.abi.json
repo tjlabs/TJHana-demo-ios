@@ -1433,17 +1433,24 @@
           {
             "kind": "Function",
             "name": "initialize",
-            "printedName": "initialize()",
+            "printedName": "initialize(includeImages:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10TJLabsHana21JupiterServiceManagerC10initializeyyF",
-            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC10initializeyyF",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC10initialize13includeImagesySb_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC10initialize13includeImagesySb_tF",
             "moduleName": "TJLabsHana",
             "declAttributes": [
               "AccessControl",
@@ -1910,6 +1917,80 @@
             "moduleName": "TJLabsHana",
             "declAttributes": [
               "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reportRoutingPreconditionFailure",
+            "printedName": "reportRoutingPreconditionFailure(source:reason:input:detail:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : TJLabsJupiter.JSONValue]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JSONValue",
+                    "printedName": "TJLabsJupiter.JSONValue",
+                    "usr": "s:13TJLabsJupiter9JSONValueO"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : TJLabsJupiter.JSONValue]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JSONValue",
+                    "printedName": "TJLabsJupiter.JSONValue",
+                    "usr": "s:13TJLabsJupiter9JSONValueO"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC32reportRoutingPreconditionFailure6source6reason5input6detailySS_SSSDySS0aC09JSONValueOGALtF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC32reportRoutingPreconditionFailure6source6reason5input6detailySS_SSSDySS0aC09JSONValueOGALtF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -9635,9 +9716,23 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2654,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
       "kind": "Array",
-      "offset": 4246,
+      "offset": 4455,
       "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
+      "kind": "Dictionary",
+      "offset": 4981,
+      "length": 3,
       "value": "[]"
     },
     {
@@ -9881,49 +9976,70 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2793,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2838,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
-      "kind": "IntegerLiteral",
       "offset": 2888,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3154,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3197,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3247,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3284,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3315,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2950,
+      "offset": 3377,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3393,
+      "offset": 3820,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3513,
+      "offset": 3940,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/WarpView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4069,
+      "offset": 4496,
       "length": 5,
       "value": "false"
     }
