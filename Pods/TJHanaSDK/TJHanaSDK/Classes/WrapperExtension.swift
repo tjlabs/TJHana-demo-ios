@@ -25,6 +25,11 @@ extension Point {
     func toJupiter() -> TJLabsJupiter.Point {
         return TJLabsJupiter.Point(level_id: self.level_id, x: self.x, y: self.y)
     }
+
+    // 서버 이벤트 message 용
+    func toEventJSON() -> JSONValue {
+        return .object(["level_id": .int(level_id), "x": .int(x), "y": .int(y)])
+    }
 }
 
 // MARK: - To Wrap (Warp)

@@ -4,7 +4,7 @@
 //
 //  Updates a ward's Warp RSSI threshold on the server:
 //    ① Bearer token via TJLabsAuthManager.shared.getAccessToken
-//    ② PUT {BASE}/v2/warp/wards/{id}/rssi { operating_system, rssi }
+//    ② PUT {BASE}/v2/warp/wards/{id}/rssi { operating_system ("iOS" | "Android"), rssi }
 //
 //  BASE_URL comes from TJLabsHana (warp service base URL).
 //
@@ -16,7 +16,14 @@ final class WarpRSSIService {
     static let shared = WarpRSSIService()
     private init() {}
 
-    private let operatingSystem = "iOS"
+    /// Target platform whose threshold is updated. Raw value is sent as
+    /// `operating_system` in the request body.
+    enum OperatingSystem: String, CaseIterable {
+        case iOS = "iOS"
+        case android = "Android"
+
+        var displayName: String { rawValue }
+    }
 
     enum ServiceError: LocalizedError {
         case invalidURL
@@ -43,11 +50,12 @@ final class WarpRSSIService {
 
     // MARK: - Public
 
-    /// Updates the iOS RSSI threshold for a ward. `baseURL` comes from
-    /// `TJWarpView.getWarpBaseURL()`. Completion runs on the main thread.
+    /// Updates the RSSI threshold of a ward for `operatingSystem`. `baseURL`
+    /// comes from `TJWarpView.getWarpBaseURL()`. Completion runs on the main thread.
     func updateWardRSSI(baseURL: String,
                         wardId: Int,
                         rssi: Int,
+                        operatingSystem: OperatingSystem,
                         completion: @escaping (Result<Int, ServiceError>) -> Void) {
         fetchToken(update: false) { [weak self] result in
             guard let self = self else { return }
@@ -55,7 +63,7 @@ final class WarpRSSIService {
             case .failure(let error):
                 DispatchQueue.main.async { completion(.failure(error)) }
             case .success(let token):
-                self.putRSSI(baseURL: baseURL, wardId: wardId, rssi: rssi, token: token) { putResult in
+                self.putRSSI(baseURL: baseURL, wardId: wardId, rssi: rssi, operatingSystem: operatingSystem, token: token) { putResult in
                     // A cached token may have expired server-side → force refresh and retry once.
                     if case .failure(.unauthorized) = putResult {
                         self.fetchToken(update: true) { retryToken in
@@ -63,7 +71,7 @@ final class WarpRSSIService {
                             case .failure(let error):
                                 DispatchQueue.main.async { completion(.failure(error)) }
                             case .success(let fresh):
-                                self.putRSSI(baseURL: baseURL, wardId: wardId, rssi: rssi, token: fresh) { retry in
+                                self.putRSSI(baseURL: baseURL, wardId: wardId, rssi: rssi, operatingSystem: operatingSystem, token: fresh) { retry in
                                     DispatchQueue.main.async { completion(retry) }
                                 }
                             }
@@ -98,6 +106,7 @@ final class WarpRSSIService {
     private func putRSSI(baseURL: String,
                          wardId: Int,
                          rssi: Int,
+                         operatingSystem: OperatingSystem,
                          token: String,
                          completion: @escaping (Result<Int, ServiceError>) -> Void) {
         guard let url = URL(string: baseURL + "/wards/\(wardId)/rssi") else {
@@ -110,10 +119,10 @@ final class WarpRSSIService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = try? JSONSerialization.data(
-            withJSONObject: ["operating_system": operatingSystem, "rssi": rssi]
+            withJSONObject: ["operating_system": operatingSystem.rawValue, "rssi": rssi]
         )
 
-        print("(WarpRSSIService) PUT \(url.absoluteString) body: operating_system=\(operatingSystem), rssi=\(rssi)")
+        print("(WarpRSSIService) PUT \(url.absoluteString) body: operating_system=\(operatingSystem.rawValue), rssi=\(rssi)")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("(WarpRSSIService) PUT transport error: \(error.localizedDescription)")

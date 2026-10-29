@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.1.8
+### Version 1.1.9
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -279,7 +279,7 @@ manager.setNavigationDestination(
 
 ### Request Routing
 
-- The route starts from the latest positioning result, so call it after `onJupiterResult` has delivered at least one result. Otherwise the request fails with `INTERNAL_ERROR`.
+- The route starts from the latest positioning result, so call it after `onJupiterResult` has delivered at least one result. Otherwise the request fails with `NO_CURRENT_POSITION`.
 - `end` and `waypoints` use your (customer) coordinates, and the returned route points are converted back to the same coordinate system.
 
 ```swift
@@ -424,10 +424,21 @@ public enum JupiterServiceCode: Int {
 
 public enum NavigationRouteFailureReason: String, Codable {
     case UNKNOWN = "unknown"
-    case INTERNAL_ERROR = "internal_error"
-    case SCALE_OFFSET_ERROR = "scale_offset_error"
-    case SERVER_RESPONSE = "server_response"
-    case TOO_CLOSE = "too_close"
+    case INTERNAL_ERROR = "internal_error"           // kept for compatibility; no longer delivered
+    // Before the request is sent
+    case NO_CURRENT_POSITION = "no_current_position" // no positioning result yet
+    case LEVEL_NOT_FOUND = "level_not_found"         // level id of the current position not found
+    case SCALE_OFFSET_ERROR = "scale_offset_error"   // coordinate conversion info of the current level not found
+    // Route request
+    case TOO_CLOSE = "too_close"                     // destination is too close to the origin on the same level
+    case NETWORK_ERROR = "network_error"             // server unreachable (timeout, connection lost, ...)
+    case REQUEST_ERROR = "request_error"             // failed to build the request (encoding, URL, access token)
+    case REQUEST_REJECTED = "request_rejected"       // server rejected the request (4xx)
+    case SERVER_ERROR = "server_error"               // server error (5xx)
+    case INVALID_RESPONSE = "invalid_response"       // failed to parse the server response
+    case INVALID_ROUTE = "invalid_route"             // the returned route does not match the loaded map
+    case NOT_READY = "not_ready"                     // service has not been started
+    case CANCELLED = "cancelled"                     // service stopped before the response arrived
 }
 ```
 ---

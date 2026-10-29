@@ -4,7 +4,6 @@ import TJLabsJupiter
 
 // On-Premise 서버 주소. 각 프레임워크의 OnPremise 네트워크 상수에 동일하게 주입한다.
 //let ON_PREMISE_BASE_URL: String = "http://10.0.5.110:5050/" // TJLABS
-//let ON_PREMISE_BASE_URL: String = "https://192.168.120.104/api" // HANA
 let ON_PREMISE_BASE_URL: String = "https://hqsw.hanafn.com:18443/api/v1/sdk-proxy/api"
 
 let SAMPLE_ROUTING_RESULT = RoutingResult(routes:
@@ -328,10 +327,21 @@ public enum JupiterServiceCode: Int {
 
 public enum NavigationRouteFailureReason: String, Codable {
     case UNKNOWN = "unknown"
-    case INTERNAL_ERROR = "internal_error"
-    case SCALE_OFFSET_ERROR = "scale_offset_error"
-    case SERVER_RESPONSE = "server_response"
-    case TOO_CLOSE = "too_close"
+    case INTERNAL_ERROR = "internal_error"           // 호환용. 현재는 전달하지 않는다
+    // SDK 요청 전 단계
+    case NO_CURRENT_POSITION = "no_current_position" // 현재 위치(측위 결과)가 아직 없음
+    case LEVEL_NOT_FOUND = "level_not_found"         // 현재 위치의 층 id 를 찾지 못함
+    case SCALE_OFFSET_ERROR = "scale_offset_error"   // 현재 층의 좌표 변환 정보를 찾지 못함
+    // Jupiter 경로 요청
+    case TOO_CLOSE = "too_close"                     // 같은 층 출발~목적지 직선거리가 최소 거리 이하라 요청하지 않음
+    case NETWORK_ERROR = "network_error"             // 서버 미도달(타임아웃/연결끊김 등)
+    case REQUEST_ERROR = "request_error"             // 요청 생성 실패(인코딩/URL/access token)
+    case REQUEST_REJECTED = "request_rejected"       // 서버가 4xx 로 거절
+    case SERVER_ERROR = "server_error"               // 서버가 5xx 로 응답
+    case INVALID_RESPONSE = "invalid_response"       // 서버 응답 해석 실패
+    case INVALID_ROUTE = "invalid_route"             // 응답 경로를 로드된 지도 정보로 구성하지 못함
+    case NOT_READY = "not_ready"                     // 서비스가 시작되지 않음
+    case CANCELLED = "cancelled"                     // 응답 전에 서비스가 중지됨
 }
 
 public struct JupiterResult: Codable {

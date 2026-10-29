@@ -10,11 +10,11 @@
 		</data>
 		<key>ios-arm64/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		dJzM2LUlI63oucxMD4qtvjcM5Do=
+		tljVP3d2u6v6ZVIbnXE4RA1yUmE=
 		</data>
 		<key>ios-arm64/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		5X5dUDfTLw8Uaz9ftZE7qefZmvk=
+		CTQDAJJHjErJirZ+X9Ra5O9rUnw=
 		</data>
 		<key>ios-arm64/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -22,15 +22,43 @@
 		</data>
 		<key>ios-arm64/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		5X5dUDfTLw8Uaz9ftZE7qefZmvk=
+		CTQDAJJHjErJirZ+X9Ra5O9rUnw=
 		</data>
 		<key>ios-arm64/TJLabsHana.framework/TJLabsHana</key>
 		<data>
-		YQ1J818zRqMuwJXue7C4thhveoE=
+		FErGWqssoDzNemheP8eZDvsPS1Y=
 		</data>
 		<key>ios-arm64/TJLabsHana.framework/_CodeSignature/CodeResources</key>
 		<data>
-		t1EJcrhZOoHZzSkIph0wyBUxirU=
+		YEhZz3MliEanFi6WxMuUdawGp6s=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Info.plist</key>
+		<data>
+		x7WS7itF1C7vBgsS9tElOEWS5aI=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/DWARF/TJLabsHana</key>
+		<data>
+		rdfAVw0CH816S1VJ93IPMdITXl8=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Relocations/aarch64/TJLabsHana.yml</key>
+		<data>
+		HLZ6nLqlz+siBDI91dYChspDthc=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsAuth.swiftinterface</key>
+		<data>
+		MNNhBFA1sHTLzrHvAnHPihNWk48=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsCommon.swiftinterface</key>
+		<data>
+		JZlVO6hmoAtJdNTlPVPhm1uFFaI=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsJupiter.swiftinterface</key>
+		<data>
+		CtNDcl1xAXpoJSwbqF9KISyOCQ0=
+		</data>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsResource.swiftinterface</key>
+		<data>
+		rW+absH7ZX/s04seHIhb/ktbebU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Info.plist</key>
 		<data>
@@ -38,11 +66,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		dJzM2LUlI63oucxMD4qtvjcM5Do=
+		tljVP3d2u6v6ZVIbnXE4RA1yUmE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		fytxyXVTBjpLcR6sG4J5f2b81jM=
+		GoibjvgpomyndgTgkQaaDmg6fnM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,15 +78,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		fytxyXVTBjpLcR6sG4J5f2b81jM=
+		GoibjvgpomyndgTgkQaaDmg6fnM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		dJzM2LUlI63oucxMD4qtvjcM5Do=
+		tljVP3d2u6v6ZVIbnXE4RA1yUmE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		cFkyKJQ82t0FVGzbs0cE5VEXaQ4=
+		syny8DdjnQK8nyTfDGg/LGG7uXM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -66,15 +94,63 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		cFkyKJQ82t0FVGzbs0cE5VEXaQ4=
+		syny8DdjnQK8nyTfDGg/LGG7uXM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/TJLabsHana</key>
 		<data>
-		9nIJq6ude+o6/5CVgDbX19/ef6U=
+		AGlXKOS3+QAl5VXaRVXn9pu5sbY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/_CodeSignature/CodeResources</key>
 		<data>
-		QXqZkgwNjWh8E4mKnepgHpK6avU=
+		vWVEGpKz34OfAkjBUB4TmmphjRE=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Info.plist</key>
+		<data>
+		x7WS7itF1C7vBgsS9tElOEWS5aI=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/DWARF/TJLabsHana</key>
+		<data>
+		CwFiMRtBlkUhOLkb87q7Sn2Pw78=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Relocations/aarch64/TJLabsHana.yml</key>
+		<data>
+		+DM37DdUKPLthF2OxodR7jqyCA8=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Relocations/x86_64/TJLabsHana.yml</key>
+		<data>
+		6PEez5EJhwCtiDHlXPBZQLk9vJI=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsAuth.swiftinterface</key>
+		<data>
+		wnFviYMA8e4pviNVsuMPfX3iLoU=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsCommon.swiftinterface</key>
+		<data>
+		DJnwcGxusC3YLgLgZ5PCB5qX/cQ=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsJupiter.swiftinterface</key>
+		<data>
+		R59CCQEWAfIuoOfHpSMf+D4GjZk=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsResource.swiftinterface</key>
+		<data>
+		xct4kNjnpvD7BJFYvnS45gCHpCs=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsAuth.swiftinterface</key>
+		<data>
+		I3f4gosJXnUXubL9uOsCFxWFpBo=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsCommon.swiftinterface</key>
+		<data>
+		Kry4iVddB0dV569PKwLhOZrK6qs=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsJupiter.swiftinterface</key>
+		<data>
+		D4qiVO+ZMHymlHXvOym39scIZlI=
+		</data>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsResource.swiftinterface</key>
+		<data>
+		GKt7f2KMQU136b+DtkGEZdbieVw=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -90,14 +166,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x+Nr/DU/vrxD1eZ4b4LjaYYgwaToMNvBYNcnNj3Yf9Y=
+			WRT4FZBhs3ed1+YM3qiAXMit7FaDEsXct9j9tobPAvg=
 			</data>
 		</dict>
 		<key>ios-arm64/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wnIwfI1kDncapEram28Ug6PLnrzluYqlpMAduzDkGEw=
+			wnUeqIVUbFoFVaAg2lQ6eLtypGWOPWYwzeJitqtE0nw=
 			</data>
 		</dict>
 		<key>ios-arm64/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -111,21 +187,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wnIwfI1kDncapEram28Ug6PLnrzluYqlpMAduzDkGEw=
+			wnUeqIVUbFoFVaAg2lQ6eLtypGWOPWYwzeJitqtE0nw=
 			</data>
 		</dict>
 		<key>ios-arm64/TJLabsHana.framework/TJLabsHana</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			J1O6W8loSRUBVqI0zQ/Nu5sXg/KAQa1FNipQbHjIGZk=
+			8AjTzpYffYkZAajLnJmBJsqYl3K5OmwdTuVwh4ncLLA=
 			</data>
 		</dict>
 		<key>ios-arm64/TJLabsHana.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/bTsDWE0u/0ON+UI0fLF2E9h9w2DcbirUdZngKL7GmE=
+			8Bxc+7jOsa0yIFfyisquPG4CbFTL5gALqBbQayBkxsY=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AydZetkMnY67925TdRvdP39an/b0ChrwsyptnElbBhM=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/DWARF/TJLabsHana</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PBsuOHGCLYP/IK6XirUaPcjv8q1fH8rHV6Lfq8t5iR4=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Relocations/aarch64/TJLabsHana.yml</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JEN1Tcw+kGme1hzbQ0CAhabkSJkb9bBUzq5noMx2rlw=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsAuth.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VTvyP/tr1loFnZBYW8UHs/2Zm18rRh4/6LDCY4m0WFY=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsCommon.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6rKmGz1fmxu8ZvSmDeiHN3ssH8RZQAKrl7Z2OPtmVtA=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsJupiter.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			usYK5rpU0InG2dGNxe56eAq2YDwn5Om9vddGTLjOAFA=
+			</data>
+		</dict>
+		<key>ios-arm64/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsResource.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YayOKeTCxzW6/bBgo7hBxXWfEGRO11xnOwoEaRJtrUg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Info.plist</key>
@@ -139,14 +264,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x+Nr/DU/vrxD1eZ4b4LjaYYgwaToMNvBYNcnNj3Yf9Y=
+			WRT4FZBhs3ed1+YM3qiAXMit7FaDEsXct9j9tobPAvg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QNkYaNN44T37WHkBbDNdnOSYAL6wY6xh2igOLQ5Kpa4=
+			FZgjpVzpZKkltSPMpCQboAPiuxIBEpn2/TaIXj6mcyM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -160,21 +285,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QNkYaNN44T37WHkBbDNdnOSYAL6wY6xh2igOLQ5Kpa4=
+			FZgjpVzpZKkltSPMpCQboAPiuxIBEpn2/TaIXj6mcyM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			x+Nr/DU/vrxD1eZ4b4LjaYYgwaToMNvBYNcnNj3Yf9Y=
+			WRT4FZBhs3ed1+YM3qiAXMit7FaDEsXct9j9tobPAvg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RWqi/64LYe0X+DsdfY9K2NRMurS+8Y8VWn7wUM+/5zk=
+			ll6KSFYXshYm7FJYevEzU2ZX0ipN+iGIcZKigqWoZI0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/Modules/TJLabsHana.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -188,21 +313,105 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RWqi/64LYe0X+DsdfY9K2NRMurS+8Y8VWn7wUM+/5zk=
+			ll6KSFYXshYm7FJYevEzU2ZX0ipN+iGIcZKigqWoZI0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/TJLabsHana</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rt0ibyCPsZUE3JWjksJZK+D9djUnQyd4IWx+rlgyyZ0=
+			igU1i8aHvo8+s0yjYLl0U2zuG6VqYJDtEzyVriLvyVg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TJLabsHana.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cPLIPkarcfGdgpTUZydHkWB3tW85v2cCG5gQXSjEHjI=
+			BR2AEMIPZYd9pwANEh13LPZKnFrF8xRbTPj8+dgggpg=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AydZetkMnY67925TdRvdP39an/b0ChrwsyptnElbBhM=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/DWARF/TJLabsHana</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4hB+cvQ84RlXxn5EtpNWMXfCmOsyfiw8eYgYbw3LpEU=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Relocations/aarch64/TJLabsHana.yml</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zZVdrZosWpaJvKQm8NtBV0ztuXPtgBWuVF9nFTV+kfU=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Relocations/x86_64/TJLabsHana.yml</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BDmNCgHqFlGeB+MYEYMGJpw8XzZGb3A9HgM6G20D/dY=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsAuth.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xeRyyTZqPh/YiQxy5KO0ZBmNv3OFRH01IWMq0ProBUE=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsCommon.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AKzdx4ULn7JiDYPBM1ptZSf/0nix2PUhj3furwAuXQc=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsJupiter.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8RkRLLCynhX+ZipiNtoIJJpCOUlyN1crNZAZUD8E91A=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/aarch64/TJLabsResource.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e85mwANxycmHZaS5/ZgWhcnx3/bUBB9PRfKefoRJ0v4=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsAuth.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			uXo59/1WoDaQFf0Z1yzZLykIVVYQL1M8LGSjkNJe5LQ=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsCommon.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xrBQhZwh3aqFMu2uEXcNHUWdH93McL5MVNgMVOd7Fc8=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsJupiter.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fagehEtSYNlOo2W/o7bUV9q2z6BjmTSM65fQ2NB9BpI=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/dSYMs/TJLabsHana.framework.dSYM/Contents/Resources/Swift/x86_64/TJLabsResource.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CCTOIdNkVAuTcAf1Swjj6fGl+bW7fgP7RSyW5ZQqoDE=
 			</data>
 		</dict>
 	</dict>
