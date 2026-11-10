@@ -34,7 +34,7 @@
 		</data>
 		<key>ios-arm64/TJLabsResource.framework/TJLabsResource</key>
 		<data>
-		XSy1/puDWO7lKuYGbQSSkoqKczw=
+		8eD3NeZUx6pjV7/z6VYmc2kX+4g=
 		</data>
 		<key>ios-arm64/TJLabsResource.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/TJLabsResource.framework/Versions/A/TJLabsResource</key>
 		<data>
-		7+O58JamZoNjm/1B0WxhJeorsrU=
+		Lm5tQBtlLgse3o1syr5L7xs4IAE=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/TJLabsResource.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
@@ -264,7 +264,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gDT4C6AyvHUDyHF1STwwu7Zr32f9j3SI/v80xU9tLhs=
+			75Psr+/12Hp65VZlqXjRzISv8S4xg8IHOWyAkXti51o=
 			</data>
 		</dict>
 		<key>ios-arm64/TJLabsResource.framework/_CodeSignature/CodeResources</key>
@@ -403,7 +403,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X8JuOGpIaCq+shuYSFnPjkl4OaiwbZm/0Dl6u8BGSkw=
+			ieJ238JW6ESquNVWWwtJNl8mbFoxIPUOLxugzLD2I58=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/TJLabsResource.framework/Versions/A/_CodeSignature/CodeResources</key>
