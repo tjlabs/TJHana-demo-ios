@@ -37486,21 +37486,21 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "FloatLiteral",
-      "offset": 11655,
+      "offset": 11965,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 11822,
+      "offset": 12132,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Calc\/LSEManager.swift",
       "kind": "FloatLiteral",
-      "offset": 12097,
+      "offset": 12407,
       "length": 4,
       "value": "20.0"
     },
@@ -40482,14 +40482,14 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Network\/JupiterNetworkManager.swift",
       "kind": "StringLiteral",
-      "offset": 2519,
+      "offset": 3012,
       "length": 6,
       "value": "\"POST\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiter-sdk-ios\/TJLabsJupiter\/Network\/JupiterNetworkManager.swift",
       "kind": "Dictionary",
-      "offset": 2594,
+      "offset": 3087,
       "length": 3,
       "value": "[]"
     },

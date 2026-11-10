@@ -34,7 +34,7 @@
 		</data>
 		<key>ios-arm64/TJLabsAuth.framework/TJLabsAuth</key>
 		<data>
-		vtX0op7o2dAeR+ELJVAJbgmPraU=
+		uEuRzwC/Y33L7A/wn8sCrKj6XRc=
 		</data>
 		<key>ios-arm64/TJLabsAuth.framework/TJLabsAuthSecretConfig.plist</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/TJLabsAuth.framework/Versions/A/TJLabsAuth</key>
 		<data>
-		m22SZs0kLpRhdOoHzzhpGPRe8vE=
+		knStoA0AxsQaxAF0y2r1MdRR6GU=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/TJLabsAuth.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
@@ -256,7 +256,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mhCqBglipqii0AsRAaqPBezMP1yw51G6lWQni+1GKXU=
+			bPjrVEepr6mX8SQccA6cY1O2QTjSiNNy1qt6dG1HzsI=
 			</data>
 		</dict>
 		<key>ios-arm64/TJLabsAuth.framework/TJLabsAuthSecretConfig.plist</key>
@@ -402,7 +402,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hxgTu6k2nhdy86akVYAIvGgByVbJFtqOyCv/CmrxqVw=
+			1NK9W+SC2pecilOXNECcrdA+hKmVC8od9aXPj3Ag/6M=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/TJLabsAuth.framework/Versions/A/_CodeSignature/CodeResources</key>

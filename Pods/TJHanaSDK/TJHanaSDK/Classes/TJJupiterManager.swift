@@ -46,7 +46,14 @@ public class TJJupiterManager: NavigationManagerDelegate {
     }
     
     public func isNavigationRouteChanged(_ routes: [(String, String, Float, Float)]) {
-        delegate?.isNavigationRouteChanged(self, routes)
+        // routes = (building, level, x, y) 내부 좌표이므로 각 점이 속한 층의 scale/offset으로 고객사 좌표로 변환한다.
+        // scale/offset을 구할 수 없는 점은 변환 없이 그대로 전달한다.
+        let converted = routes.map { route -> (String, String, Float, Float) in
+            guard let scaleOffset = getScaleOffset(buildingName: route.0, levelName: route.1) else { return route }
+            let pos = scaleOffset.toCustomer(x: route.2, y: route.3)
+            return (route.0, route.1, pos.x, pos.y)
+        }
+        delegate?.isNavigationRouteChanged(self, converted)
     }
     
     public func isNavigationRouteFailed(_ reason: TJLabsJupiter.NavigationRouteFailureReason) {
@@ -54,7 +61,23 @@ public class TJJupiterManager: NavigationManagerDelegate {
     }
     
     public func isWaypointChanged(_ waypoints: [[Double]]) {
-        delegate?.isWaypointChanged(self, waypoints)
+        // waypoints = [[x, y]] 내부 좌표로 층 정보가 없으므로 현재 위치 층의 scale/offset으로 고객사 좌표로 변환한다.
+        // latestResult는 main에서 갱신되므로 main에서 읽고 전달한다.
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard let latestResult = self.latestResult,
+                  let scaleOffset = self.getScaleOffset(buildingName: latestResult.building_name, levelName: latestResult.level_name) else {
+                print("(TJJupiterManager) isWaypointChanged : scaleOffset= nil -> no conversion")
+                self.delegate?.isWaypointChanged(self, waypoints)
+                return
+            }
+            let converted = waypoints.map { waypoint -> [Double] in
+                guard waypoint.count >= 2 else { return waypoint }
+                let pos = scaleOffset.toCustomer(x: Float(waypoint[0]), y: Float(waypoint[1]))
+                return [Double(pos.x), Double(pos.y)] + waypoint.dropFirst(2)
+            }
+            self.delegate?.isWaypointChanged(self, converted)
+        }
     }
     
     private var region: String = ""
@@ -188,8 +211,21 @@ public class TJJupiterManager: NavigationManagerDelegate {
     }
     
     public func setNavigationDestination(dest: Point) {
-        serviceManager?.setNaviDestination(dest: dest.toJupiter(), isVehicle: true)
+        // dest는 고객사 좌표로 입력받으므로 해당 층의 scale/offset으로 내부 좌표로 변환한다.
+        // levelId로 건물을 조회하는 API가 없어 현재 위치의 건물을 사용한다.
+        guard let serviceManager else { return }
+        guard let latestResult = self.latestResult,
+              let levelName = serviceManager.getLevelName(levelId: dest.level_id),
+              let scaleOffset = getScaleOffset(buildingName: latestResult.building_name, levelName: levelName) else {
+            // 변환할 수 없으면 잘못된 목적지가 설정되지 않도록 설정하지 않는다.
+            print("(TJJupiterManager) setNavigationDestination : fail=\(NavigationRouteFailureReason.SCALE_OFFSET_ERROR.rawValue) dest= [levelId:\(dest.level_id), x:\(dest.x), y:\(dest.y)]")
+            return
+        }
+        let internalDest = scaleOffset.toInternal(dest)
+        print("(TJJupiterManager) setNavigationDestination : dest= [levelId:\(dest.level_id), x:\(dest.x), y:\(dest.y)] -> internal= [x:\(internalDest.x), y:\(internalDest.y)]")
+        serviceManager.setNaviDestination(dest: internalDest.toJupiter(), isVehicle: true)
     }
+    
     
     public func requestRouting(end: Point,
                                waypoints: [Point] = [],
@@ -257,8 +293,9 @@ public class TJJupiterManager: NavigationManagerDelegate {
     }
 
     // MARK: - Coordinate conversion
-    // 고객사 좌표 -> 내부 좌표: internal = customer * scale + offset
-    // 내부 좌표 -> 고객사 좌표: customer = (internal - offset) / scale
+    // scale/offset은 Path Pixel(내부 좌표) -> 2D Local(고객사 좌표) 변환 계수다. (Warp의 ward 좌표 변환과 동일한 정의)
+    // 내부 좌표 -> 고객사 좌표: customer = internal * scale + offset
+    // 고객사 좌표 -> 내부 좌표: internal = (customer - offset) / scale
     private struct ScaleOffset {
         let scaleX: Float
         let scaleY: Float
@@ -266,12 +303,12 @@ public class TJJupiterManager: NavigationManagerDelegate {
         let offsetY: Float
 
         func toCustomer(x: Float, y: Float) -> (x: Float, y: Float) {
-            return ((x - offsetX) / scaleX, (y - offsetY) / scaleY)
+            return (x * scaleX + offsetX, y * scaleY + offsetY)
         }
 
         func toInternal(_ point: Point) -> Point {
-            let x = Float(point.x) * scaleX + offsetX
-            let y = Float(point.y) * scaleY + offsetY
+            let x = (Float(point.x) - offsetX) / scaleX
+            let y = (Float(point.y) - offsetY) / scaleY
             return Point(level_id: point.level_id, x: Int(x), y: Int(y))
         }
 
@@ -291,11 +328,18 @@ public class TJJupiterManager: NavigationManagerDelegate {
     private func toCustomerResult(_ result: JupiterResult) -> JupiterResult {
         // scale/offset을 구할 수 없는 경우(예: 실외)에는 변환 없이 그대로 전달한다.
         guard let scaleOffset = getScaleOffset(buildingName: result.building_name, levelName: result.level_name) else {
+            print("(TJJupiterManager) toCustomerResult : scaleOffset= nil [building:\(result.building_name), level:\(result.level_name)] -> no conversion")
+            print("(TJJupiterManager) toCustomerResult : jupiter_pos= [x:\(result.jupiter_pos.x), y:\(result.jupiter_pos.y), h:\(result.jupiter_pos.heading)]")
             return result
         }
         var converted = result
         converted.jupiter_pos = scaleOffset.toCustomer(result.jupiter_pos)
         converted.navi_pos = result.navi_pos.map { scaleOffset.toCustomer($0) }
+        print("(TJJupiterManager) toCustomerResult : scaleOffset= [building:\(result.building_name), level:\(result.level_name), scaleX:\(scaleOffset.scaleX), scaleY:\(scaleOffset.scaleY), offsetX:\(scaleOffset.offsetX), offsetY:\(scaleOffset.offsetY)]")
+        print("(TJJupiterManager) toCustomerResult : jupiter_pos before= [x:\(result.jupiter_pos.x), y:\(result.jupiter_pos.y), h:\(result.jupiter_pos.heading)] after= [x:\(converted.jupiter_pos.x), y:\(converted.jupiter_pos.y), h:\(converted.jupiter_pos.heading)]")
+        if let before = result.navi_pos, let after = converted.navi_pos {
+            print("(TJJupiterManager) toCustomerResult : navi_pos before= [x:\(before.x), y:\(before.y), h:\(before.heading)] after= [x:\(after.x), y:\(after.y), h:\(after.heading)]")
+        }
         return converted
     }
 }
