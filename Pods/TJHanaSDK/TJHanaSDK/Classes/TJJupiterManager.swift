@@ -4,7 +4,7 @@ import TJLabsJupiter
 import TJLabsHana
 import TJLabsResource
     
-private let VEHICLE_ROUTE_FOLLOWING_DISTANCE: Float = 50
+private let VEHICLE_ROUTE_FOLLOWING_DISTANCE: Float = 30
 
 public class TJJupiterManager: NavigationManagerDelegate {
     
