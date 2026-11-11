@@ -22,7 +22,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RgOF+GCXsG+iTbsrVTs1pNZsPtCzzClWOYE1qRS4rf8=
+			4EsPA9xeWlqBS7p+JQZw71Ltdi8Zc7ds3O++6+NC3uE=
 			</data>
 		</dict>
 		<key>Modules/TJLabsJupiter.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
@@ -50,14 +50,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bDgI+x/EgvZNnmR8zbTsHEyB+X5juibUrL2SVAgy7W4=
+			qBL9jzPviVjnNYC0Y7RtPiqqp5RQPINgwE8Z/VBLn4M=
 			</data>
 		</dict>
 		<key>Modules/TJLabsJupiter.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RgOF+GCXsG+iTbsrVTs1pNZsPtCzzClWOYE1qRS4rf8=
+			4EsPA9xeWlqBS7p+JQZw71Ltdi8Zc7ds3O++6+NC3uE=
 			</data>
 		</dict>
 		<key>Modules/TJLabsJupiter.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
@@ -85,7 +85,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4yvoR2L8zqHIHOC6PTGDPIROkr6cgGCHYG/dDRU9hB8=
+			OvurCBwX3fph0TEl/NXI9INSwQ7jcvzM1MXPIb7XIso=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
