@@ -4,14 +4,18 @@ import TJLabsJupiter
 import TJLabsHana
 import TJLabsResource
     
-private let VEHICLE_ROUTE_FOLLOWING_DISTANCE: Float = 30
+private let DEFAULT_ROUTE_FOLLOWING_DISTANCE: Float = 30
+private let ROUTE_FOLLOWING_DISTANCE_RANGE: ClosedRange<Float> = 5...100
+private let SEARCH_GUIDANCE_OUT_COUNT: Int = 3
 
 public class TJJupiterManager: NavigationManagerDelegate {
-    
+
     public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult) {
-        // Jupiter initialize가 경로 추종 거리를 기본값으로 되돌리므로, 초기화 성공 이후에 설정한다.
+        // Jupiter initialize가 경로 추종/이탈 거리를 기본값으로 되돌리므로, 초기화 성공 이후에 설정한다.
         if isSuccess {
-            serviceManager?.setVehicleRouteFollowingDistance(distance: VEHICLE_ROUTE_FOLLOWING_DISTANCE)
+            isInitialized = true
+            applyRouteFollowingDistance()
+            serviceManager?.setVehicleSearchGuidanceOutCount(count: SEARCH_GUIDANCE_OUT_COUNT)
         }
         delegate?.onInitSuccess(self, isSuccess, code?.toWrap())
     }
@@ -102,6 +106,9 @@ public class TJJupiterManager: NavigationManagerDelegate {
     // 이 인스턴스로 시작한 서비스를 정상 중지한 뒤 true. 이후 stopService 중복 호출은 성공으로 처리한다.
     // 새 startService 호출 시 false로 되돌려, 시작 실패 후의 stop이나 한 번도 시작하지 않은 인스턴스의 stop은 실패로 남긴다.
     private var isServiceStopped: Bool = false
+    // 길안내 경로 추종/이탈 판정 거리. setRouteFollowingDistance로 설정하며 onInitSuccess 이후 Jupiter에 적용된다.
+    private var routeFollowingDistance: Float = DEFAULT_ROUTE_FOLLOWING_DISTANCE
+    private var isInitialized: Bool = false
 
     // MARK: - Issue tracking
     // 시작/중지한 인스턴스가 같은지, 호출이 중복됐는지 구분하기 위한 정보.
@@ -153,6 +160,33 @@ public class TJJupiterManager: NavigationManagerDelegate {
 //        if mockTimer != nil {
 //            startMockService()
 //        }
+    }
+
+    /// 길안내 경로 추종/이탈 판정 거리(m, 내부 좌표 기준)를 설정한다. 기본값 30.
+    /// - 위치 추적 중: 최근 위치와 경로 사이의 평균 거리가 이 값 이하이면 경로를 따라가는 것으로 보고 이탈 판정을 하지 않는다.
+    /// - 위치 탐색 중: 위치와 경로 사이의 거리가 이 값을 초과하는 결과가 3회 연속이면 경로 이탈로 판정한다.
+    /// 값을 키우면 이탈 판정이 둔감해지고, 줄이면 민감해진다. 권장 범위는 20~40이다.
+    /// - 45 이상: 위치 추적 중에는 경로 이탈이 거의 발생하지 않는다.
+    /// - 10 미만: 위치 탐색 중 위치 오차만으로 경로 이탈로 잘못 판정되어 재탐색이 반복될 수 있다.
+    /// 5~100 범위로 보정되며, 유한값이 아니면 무시한다. init 이후 언제든 호출 가능하다.
+    public func setRouteFollowingDistance(_ distance: Float) {
+        guard distance.isFinite else {
+            print("(TJJupiterManager) setRouteFollowingDistance : invalid distance=\(distance) -> ignored")
+            return
+        }
+        let clamped = min(max(distance, ROUTE_FOLLOWING_DISTANCE_RANGE.lowerBound), ROUTE_FOLLOWING_DISTANCE_RANGE.upperBound)
+        routeFollowingDistance = clamped
+        print("(TJJupiterManager) setRouteFollowingDistance : distance=\(distance) -> applied=\(clamped)")
+        // 초기화 전이면 Jupiter initialize가 기본값으로 덮어쓰므로 onInitSuccess에서 적용한다.
+        if isInitialized {
+            applyRouteFollowingDistance()
+        }
+    }
+
+    // TRACKING 경로 추종 판정 거리와 SEARCH 이탈 판정 거리를 같은 값으로 설정한다.
+    private func applyRouteFollowingDistance() {
+        serviceManager?.setVehicleRouteFollowingDistance(distance: routeFollowingDistance)
+        serviceManager?.setVehicleSearchGuidanceOutDistance(distance: routeFollowingDistance)
     }
 
     public func startService(resultIntervalMs: Int = 1000) {

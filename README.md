@@ -9,7 +9,7 @@ Jupiter SDK version: 2.0.23
 <!-- JUPITER_SDK_VERSION_END -->
 
 <!-- HANA_SDK_IOS_VERSION_START -->
-Hana SDK (CocoaPods): TJHanaSDK 1.1.12
+Hana SDK (CocoaPods): TJHanaSDK 1.1.13
 <!-- HANA_SDK_IOS_VERSION_END -->
 
 The app demonstrates Hana SDK flows with:
@@ -79,7 +79,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'TJHanaDemo' do
   use_frameworks!
 
-  pod 'TJHanaSDK', '1.1.12'
+  pod 'TJHanaSDK', '1.1.13'
 end
 ```
 
