@@ -95,6 +95,8 @@ public class JupiterServiceManager : TJLabsJupiter.NavigationManagerDelegate {
   public func getScaleOffset(sectorId: Swift.Int, buildingName: Swift.String, levelName: Swift.String) -> [Swift.Float]?
   #endif
   public func setVehicleRouteFollowingDistance(distance: Swift.Float)
+  public func setVehicleSearchGuidanceOutDistance(distance: Swift.Float)
+  public func setVehicleSearchGuidanceOutCount(count: Swift.Int)
   public func setNaviDestination(dest: TJLabsJupiter.Point, isVehicle: Swift.Bool)
   #if compiler(>=5.3) && $NonescapableTypes
   public func requestRouting(start: TJLabsJupiter.RoutingStart, end: TJLabsJupiter.Point, waypoints: [TJLabsJupiter.Point] = [], isVehicle: Swift.Bool, completion: @escaping (TJLabsJupiter.RoutingResult?, [TJLabsJupiter.NavigationLevelRoute], TJLabsJupiter.NavigationRouteFailureReason?) -> Swift.Void)

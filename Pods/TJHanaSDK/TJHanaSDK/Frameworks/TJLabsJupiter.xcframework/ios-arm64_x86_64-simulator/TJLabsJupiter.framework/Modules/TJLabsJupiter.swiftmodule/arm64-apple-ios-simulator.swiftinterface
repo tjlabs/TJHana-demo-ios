@@ -736,6 +736,8 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   weak public var delegate: (any TJLabsJupiter.NavigationManagerDelegate)?
   public static let DEFAULT_PEDESTRIAN_ROUTE_MATCHING_RADIUS: Swift.Float
   public static let DEFAULT_VEHICLE_ROUTE_FOLLOWING_DISTANCE: Swift.Float
+  public static let DEFAULT_VEHICLE_SEARCH_GUIDANCE_OUT_DISTANCE: Swift.Float
+  public static let DEFAULT_VEHICLE_SEARCH_GUIDANCE_OUT_COUNT: Swift.Int
   #if compiler(>=5.3) && $NonescapableTypes
   convenience public init(id: Swift.String, cloud: Swift.String = JupiterCloud.GCP.rawValue, region: Swift.String = JupiterRegion.KOREA.rawValue, sectorId: Swift.Int, debugOption: Swift.Bool = false, uploadOption: Swift.Bool = false, dev: Swift.Bool = false, onPremiseBaseURL: Swift.String? = nil)
   #endif
@@ -778,6 +780,8 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   public func setPedestrianPathMatching(enabled: Swift.Bool)
   public func setPedestrianRouteMatching(enabled: Swift.Bool, radius: Swift.Float = DEFAULT_PEDESTRIAN_ROUTE_MATCHING_RADIUS)
   public func setVehicleRouteFollowingDistance(_ distance: Swift.Float)
+  public func setVehicleSearchGuidanceOutDistance(_ distance: Swift.Float)
+  public func setVehicleSearchGuidanceOutCount(_ count: Swift.Int)
   public func cancelNavigation()
   public func setLSEAppName(name: Swift.String)
   public func setLSEUseRfdWindow(enabled: Swift.Bool)

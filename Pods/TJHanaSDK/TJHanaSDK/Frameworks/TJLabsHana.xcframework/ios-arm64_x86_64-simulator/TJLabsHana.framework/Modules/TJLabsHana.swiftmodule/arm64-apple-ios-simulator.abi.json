@@ -1776,6 +1776,58 @@
           },
           {
             "kind": "Function",
+            "name": "setVehicleSearchGuidanceOutDistance",
+            "printedName": "setVehicleSearchGuidanceOutDistance(distance:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC35setVehicleSearchGuidanceOutDistance8distanceySf_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC35setVehicleSearchGuidanceOutDistance8distanceySf_tF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setVehicleSearchGuidanceOutCount",
+            "printedName": "setVehicleSearchGuidanceOutCount(count:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10TJLabsHana21JupiterServiceManagerC32setVehicleSearchGuidanceOutCount5countySi_tF",
+            "mangledName": "$s10TJLabsHana21JupiterServiceManagerC32setVehicleSearchGuidanceOutCount5countySi_tF",
+            "moduleName": "TJLabsHana",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setNaviDestination",
             "printedName": "setNaviDestination(dest:isVehicle:)",
             "children": [
@@ -9724,14 +9776,14 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
       "kind": "Array",
-      "offset": 4455,
+      "offset": 4737,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsHana\/TJLabsHana\/JupiterServiceManager.swift",
       "kind": "Dictionary",
-      "offset": 4981,
+      "offset": 5263,
       "length": 3,
       "value": "[]"
     },
