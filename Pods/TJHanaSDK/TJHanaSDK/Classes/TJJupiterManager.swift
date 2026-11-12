@@ -17,13 +17,20 @@ public class TJJupiterManager: NavigationManagerDelegate {
     }
     
     public func onJupiterSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.JupiterErrorCode?, _ result: TJLabsJupiter.JupiterServiceResult) {
+        // 시작 실패(DUPLICATED_SERVICE 등)는 이미 실행 중인 상태를 바꾸지 않으므로 성공일 때만 갱신한다.
+        if isSuccess {
+            isServiceStarted = true
+        }
+        print("(TJJupiterManager) onJupiterSuccess : isSuccess=\(isSuccess) code=\(code.map { "\($0)" } ?? "nil") stage=\(result.failedStage.map { "\($0)" } ?? "nil") eventCode=\(result.eventCode.map(String.init) ?? "nil") msg=\(result.message) \(makeTrackingInfo(isStarted: isServiceStarted))")
         delegate?.onJupiterSuccess(self, isSuccess, code?.toWrap())
     }
-    
+
     public func onJupiterResult(_ result: TJLabsJupiter.JupiterResult) {
         let wrapped = result.toWrap()
         DispatchQueue.main.async { [weak self] in
-            self?.latestResult = wrapped
+            // stopService 이후 늦게 도착한 결과가 latestResult를 다시 채우지 않도록 한다.
+            guard let self = self, self.isServiceStarted else { return }
+            self.latestResult = wrapped
         }
     }
     
@@ -90,6 +97,25 @@ public class TJJupiterManager: NavigationManagerDelegate {
     private var resultIntervalMs: Int = 1000
     private var resultTimer: DispatchSourceTimer?
     private var latestResult: JupiterResult?
+    // onJupiterSuccess(true) ~ stopService 구간에서만 true. requestRouting 가능 여부 판단에 사용한다.
+    private var isServiceStarted: Bool = false
+    // 이 인스턴스로 시작한 서비스를 정상 중지한 뒤 true. 이후 stopService 중복 호출은 성공으로 처리한다.
+    // 새 startService 호출 시 false로 되돌려, 시작 실패 후의 stop이나 한 번도 시작하지 않은 인스턴스의 stop은 실패로 남긴다.
+    private var isServiceStopped: Bool = false
+
+    // MARK: - Issue tracking
+    // 시작/중지한 인스턴스가 같은지, 호출이 중복됐는지 구분하기 위한 정보.
+    private let instanceId: String = String(UUID().uuidString.prefix(8))
+    private var startCount: Int = 0
+    private var stopCount: Int = 0
+    private var lastStartTime: String?
+    private var lastStopTime: String?
+    private static let trackingTimeFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        formatter.timeZone = .current
+        return formatter
+    }()
 
     public weak var delegate: TJJupiterManagerDelegate?
 
@@ -131,6 +157,11 @@ public class TJJupiterManager: NavigationManagerDelegate {
 
     public func startService(resultIntervalMs: Int = 1000) {
         self.resultIntervalMs = max(1, resultIntervalMs)
+        startCount += 1
+        // lastStart는 이전 호출 시각을 보여주도록 출력 이후에 갱신한다.
+        print("(TJJupiterManager) startService : call \(makeTrackingInfo(isStarted: isServiceStarted))")
+        lastStartTime = Self.trackingTimeFormatter.string(from: Date())
+        isServiceStopped = false
         startResultTimer()
         // 항상 DR(MODE_VEHICLE)로 강제 시작한다.
         serviceManager?.startService(mode: UserMode.MODE_VEHICLE.toJupiter())
@@ -142,14 +173,41 @@ public class TJJupiterManager: NavigationManagerDelegate {
 
     public func stopService(completion: @escaping (Bool, String) -> Void) {
 //        stopMockTimer()
+        // Jupiter stop은 서비스가 실행 중이 아닐 때만 실패하므로, 결과와 무관하게 세션 상태를 비운다.
+        // (이전 세션의 위치가 남아 있으면 중지 이후에도 requestRouting이 그 위치를 출발지로 성공한다.)
+        stopCount += 1
+        // 세션 상태를 비우기 전에 호출 시점의 상태로 트래킹 정보를 만든다. (lastStop은 이전 호출 시각)
+        let trackingInfo = makeTrackingInfo(isStarted: isServiceStarted)
+        lastStopTime = Self.trackingTimeFormatter.string(from: Date())
+        let wasServiceStarted = isServiceStarted
         stopResultTimer()
-        guard let serviceManager = serviceManager else {
-            completion(false, "serviceManager is not initialized")
+        isServiceStarted = false
+        latestResult = nil
+        // 이미 정상 중지된 서비스에 대한 중복 호출은 Jupiter까지 내려가지 않고 성공으로 돌려준다.
+        if !wasServiceStarted && isServiceStopped {
+            let msg = "Jupiter already stopped \(trackingInfo)"
+            print("(TJJupiterManager) stopService : isSuccess=true msg=\(msg)")
+            completion(true, msg)
             return
         }
-        serviceManager.stopService(completion: { isSuccess, msg, _ in
-            completion(isSuccess, msg)
+        guard let serviceManager = serviceManager else {
+            let msg = "serviceManager is not initialized \(trackingInfo)"
+            print("(TJJupiterManager) stopService : isSuccess=false msg=\(msg)")
+            completion(false, msg)
+            return
+        }
+        serviceManager.stopService(completion: { [weak self] isSuccess, msg, _ in
+            if isSuccess && wasServiceStarted {
+                self?.isServiceStopped = true
+            }
+            let trackedMsg = "\(msg) \(trackingInfo)"
+            print("(TJJupiterManager) stopService : isSuccess=\(isSuccess) msg=\(trackedMsg)")
+            completion(isSuccess, trackedMsg)
         })
+    }
+
+    private func makeTrackingInfo(isStarted: Bool) -> String {
+        return "[instance=\(instanceId) id=\(id) started=\(isStarted) startCount=\(startCount) stopCount=\(stopCount) lastStart=\(lastStartTime ?? "nil") lastStop=\(lastStopTime ?? "nil") time=\(Self.trackingTimeFormatter.string(from: Date()))]"
     }
     
     public func setReplayMode(flag: Bool, rfdFileName: String, uvdFileName: String, eventFileName: String) {
@@ -238,6 +296,12 @@ public class TJJupiterManager: NavigationManagerDelegate {
         guard let serviceManager else {
             // Jupiter 인스턴스가 없어 서버 이벤트를 보낼 수 없으므로 로그만 남긴다.
             print("(TJJupiterManager) requestRouting : fail=\(NavigationRouteFailureReason.NOT_READY.rawValue) input=\(eventInput)")
+            completion(RoutingResult(routes: [], failureReason: .NOT_READY))
+            return
+        }
+        guard isServiceStarted else {
+            serviceManager.reportRoutingPreconditionFailure(source: "TJHanaSDK", reason: NavigationRouteFailureReason.NOT_READY.rawValue,
+                                                            input: eventInput, detail: ["sector_id": .int(sectorId)])
             completion(RoutingResult(routes: [], failureReason: .NOT_READY))
             return
         }

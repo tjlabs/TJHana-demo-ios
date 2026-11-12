@@ -1,5 +1,5 @@
 # TJHanaSDK
-### Version 1.1.11
+### Version 1.1.12
 
 [![CI Status](https://img.shields.io/travis/tjlabs-dev/TJHanaSDK.svg?style=flat)](https://travis-ci.org/tjlabs-dev/TJHanaSDK)
 [![Version](https://img.shields.io/cocoapods/v/TJHanaSDK.svg?style=flat)](https://cocoapods.org/pods/TJHanaSDK)
@@ -263,6 +263,9 @@ manager.startService(resultIntervalMs: 1000)
 
 ### Stop Service
 
+- Calling `stopService` again after the service has been stopped successfully returns `success = true` with an `already stopped` message. Calling it on an instance whose `startService` never succeeded still returns `success = false`.
+- `message` ends with tracking information for issue reports, e.g. `[instance=3F2A9C1B id=... started=true startCount=1 stopCount=1 lastStart=... lastStop=... time=...]`. Please include the full message when reporting an issue.
+
 ```swift
 manager.stopService { success, message in
     print("Stopped:", success, "message:", message)
@@ -279,7 +282,9 @@ manager.setNavigationDestination(
 
 ### Request Routing
 
+- Call it while the service is running (after `onJupiterSuccess` reports success and before `stopService`). Otherwise the request fails with `NOT_READY`.
 - The route starts from the latest positioning result, so call it after `onJupiterResult` has delivered at least one result. Otherwise the request fails with `NO_CURRENT_POSITION`.
+- `stopService` clears the latest positioning result, so a new `startService` and at least one new `onJupiterResult` are required before routing again.
 - `end` and `waypoints` use your (customer) coordinates, and the returned route points are converted back to the same coordinate system.
 
 ```swift
